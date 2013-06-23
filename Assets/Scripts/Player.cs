@@ -179,7 +179,7 @@ public class Player : MonoBehaviour {
 				// has ball, jumping
 				PlayAnimation("JumpCarry");
 			}
-			else if (rigidbody.velocity.magnitude > 0) {
+			else if (rigidbody.velocity.magnitude > 1) {
 				// has ball, walking
 				PlayAnimation("WalkCarry");
 			}
@@ -193,7 +193,7 @@ public class Player : MonoBehaviour {
 				// jumping, no ball
 				PlayAnimation("Jump");
 			}
-			else if (rigidbody.velocity.magnitude > 0) {
+			else if (rigidbody.velocity.magnitude > 1) {
 				// walking, no ball
 				PlayAnimation("Walk");
 			}
