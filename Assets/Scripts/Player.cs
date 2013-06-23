@@ -22,10 +22,9 @@ public class Player : MonoBehaviour {
 	public float f_CatchCooldown = 0.5f;
 	public Ball CarriedBall = null;
 	public Vector3 BallOffset = new Vector3(0, 1.0f, 0);
-	public float Points = 0.0f;
 	public GameObject ScoreBar;
 	public GameObject ScoreText;
-	public Color PlayerColor = Color.white;
+	public Team team;
 	
 	private OTAnimatingSprite sprite;
 	private string playingFrameset = "";
@@ -146,12 +145,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	public void GivePoints(int points){
-		float totalPoints = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>().totalPoints;
-		Points += points;
-		ScoreBar.transform.localScale = new Vector3((Points / totalPoints) * 20, 1, 1);
-		if (Points >= totalPoints / 2) {
-			GameObject.Find ("SceneManager").GetComponent<SceneManager>().LoadMainMenu();
-		}
+		team.GivePoints(points);
 	}
 	
 	public void CatchBall(Ball ball){
@@ -220,5 +214,9 @@ public class Player : MonoBehaviour {
 		if (playingFrameset != frameset) {
 			sprite.PlayLoop(frameset);
 		}
+	}
+	
+	public Color GetColor() {
+		return team.GetColor();
 	}
 }

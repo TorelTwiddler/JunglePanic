@@ -27,6 +27,16 @@ public class LevelBuilder : MonoBehaviour {
 	public GameObject[] playerPrefabs;
 	public GameObject ballPrefab;
 	
+	public int numberOfTeams = 4;
+	public GameObject teamScorePrefab;
+	public Color[] teamColors;
+	
+	public int[] playerTeams;
+	
+	private Team[] teams;
+	
+	private Transform[] teamScoreStarts = new Transform[4];
+	
 	private Transform[] playerStarts = new Transform[4];
 	private Transform ballStart;
 	
@@ -34,10 +44,12 @@ public class LevelBuilder : MonoBehaviour {
 	private OTAnimation ballAnimation;
 	
 	void Awake () {
-		for (int i = 0; i < playerPrefabs.Length; i++) {
+		// This is hardcoded to 4 players and 4 teams.
+		for (int i = 0; i < 4; i++) {
 			GameObject player = playerPrefabs[i];
 			playerStarts[i] = GameObject.Find(player.name + " Start").GetComponent<Transform>();
 			playerAnimations[i] = GameObject.Find(player.name + " Animation").GetComponent<OTAnimation>();
+			teamScoreStarts[i] = GameObject.Find("TeamScore" + (i + 1).ToString() + " Start").GetComponent<Transform>();
 		}
 		ballStart = GameObject.Find("Ball Start").GetComponent<Transform>();
 		ballAnimation = GameObject.Find("Ball Animation").GetComponent<OTAnimation>();
@@ -50,7 +62,8 @@ public class LevelBuilder : MonoBehaviour {
 			m_totalWeights += val;
 		}
 		BuildNewRandomLevel(levelWidth,levelHeight);
-		AddPlayers();
+		AddTeams(numberOfTeams);
+		AddPlayers(playerTeams);
 		AddBall();
 	}
 	
@@ -202,11 +215,12 @@ public class LevelBuilder : MonoBehaviour {
 		
 	}
 	
-	private void AddPlayers()
+	private void AddPlayers(int[] playerTeams)
 	{
-		for (int i = 0; i < playerPrefabs.Length; i++) {
+		for (int i = 0; i < playerTeams.Length; i++) {
 			GameObject player = (Instantiate(playerPrefabs[i], playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
 			player.name = player.name.Replace("(Clone)", "");
+			player.GetComponent<Player>().team = teams[playerTeams[i]];
 			OTAnimatingSprite playerSprite = player.GetComponentInChildren<OTAnimatingSprite>();
 			playerSprite.animation = playerAnimations[i];
 		}
@@ -218,5 +232,16 @@ public class LevelBuilder : MonoBehaviour {
 		ball.name = ball.name.Replace("(Clone)", "");
 		OTAnimatingSprite ballSprite = ball.GetComponentInChildren<OTAnimatingSprite>();
 		ballSprite.animation = ballAnimation;
+	}
+	
+	private void AddTeams(int numberOfTeams)
+	{
+		teams = new Team[numberOfTeams];
+		for (int i = 0; i < numberOfTeams; i++) {
+			GameObject teamScore = (Instantiate(teamScorePrefab, teamScoreStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
+			teamScore.name = teamScore.name.Replace("(Clone)", "");
+			teams[i] = teamScore.GetComponent<Team>();
+			teams[i].SetColor(teamColors[i]);
+		}
 	}
 }

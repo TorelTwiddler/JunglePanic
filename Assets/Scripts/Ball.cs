@@ -65,7 +65,7 @@ public class Ball : MonoBehaviour {
 		m_lastPlayer = player;
 		IsHeldByPlayer = true;
 		CarryingPlayer = player;
-		Particles.startColor = player.PlayerColor;
+		Particles.startColor = player.GetColor();
 	}
 	
 	
