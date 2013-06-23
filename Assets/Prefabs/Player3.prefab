@@ -31,7 +31,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400002}
   m_Layer: 10
-  m_Name: Player1 AnimatingSprite
+  m_Name: Player3 AnimatingSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

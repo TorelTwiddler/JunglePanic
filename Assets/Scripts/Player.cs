@@ -30,9 +30,15 @@ public class Player : MonoBehaviour {
 	private OTAnimatingSprite sprite;
 	private string playingFrameset = "";
 	
+	private GlobalOptions options;
+	
+	void Awake () {
+		sprite = GetComponentInChildren<OTAnimatingSprite>();
+		options = GlobalOptions.Instance;
+	}
+	
 	// Use this for initialization
 	void Start () {
-		GlobalOptions options = GlobalOptions.Instance;
 		Dictionary<string,KeyCode> playerConfig = new Dictionary<string,KeyCode>();
 		switch (name){
 			case "Player1":
@@ -52,8 +58,6 @@ public class Player : MonoBehaviour {
 		RightKey = playerConfig["MoveRight"];
 		DownKey = playerConfig["MoveDown"];
 		JumpKey = playerConfig["Jump"];
-		
-		sprite = GetComponentInChildren<OTAnimatingSprite>();
 	}
 	
 	// Update is called once per frame

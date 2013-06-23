@@ -27,6 +27,22 @@ public class LevelBuilder : MonoBehaviour {
 	public GameObject[] playerPrefabs;
 	public GameObject ballPrefab;
 	
+	private Transform[] playerStarts = new Transform[4];
+	private Transform ballStart;
+	
+	private OTAnimation[] playerAnimations = new OTAnimation[4];
+	private OTAnimation ballAnimation;
+	
+	void Awake () {
+		for (int i = 0; i < playerPrefabs.Length; i++) {
+			GameObject player = playerPrefabs[i];
+			playerStarts[i] = GameObject.Find(player.name + " Start").GetComponent<Transform>();
+			playerAnimations[i] = GameObject.Find(player.name + " Animation").GetComponent<OTAnimation>();
+		}
+		ballStart = GameObject.Find("Ball Start").GetComponent<Transform>();
+		ballAnimation = GameObject.Find("Ball Animation").GetComponent<OTAnimation>();
+	}
+	
 	// Use this for initialization
 	void Start () {
 		foreach(int val in brickTypeWeights)
@@ -35,6 +51,7 @@ public class LevelBuilder : MonoBehaviour {
 		}
 		BuildNewRandomLevel(levelWidth,levelHeight);
 		AddPlayers();
+		AddBall();
 	}
 	
 	// Update is called once per frame
@@ -187,6 +204,19 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private void AddPlayers()
 	{
-		
+		for (int i = 0; i < playerPrefabs.Length; i++) {
+			GameObject player = (Instantiate(playerPrefabs[i], playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
+			player.name = player.name.Replace("(Clone)", "");
+			OTAnimatingSprite playerSprite = player.GetComponentInChildren<OTAnimatingSprite>();
+			playerSprite.animation = playerAnimations[i];
+		}
+	}
+	
+	private void AddBall()
+	{
+		GameObject ball = (Instantiate(ballPrefab, ballStart.position, new Quaternion(0,0,0,0)) as GameObject);
+		ball.name = ball.name.Replace("(Clone)", "");
+		OTAnimatingSprite ballSprite = ball.GetComponentInChildren<OTAnimatingSprite>();
+		ballSprite.animation = ballAnimation;
 	}
 }
