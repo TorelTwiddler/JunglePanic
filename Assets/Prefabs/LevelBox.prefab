@@ -524,7 +524,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .506182849, y: 4.98676062, z: .584778309}
+  m_LocalPosition: {x: .5, y: 4.98676062, z: .584778309}
   m_LocalScale: {x: .116688527, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 400022}
@@ -535,7 +535,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.682537735, y: 4.98676062, z: .584778309}
+  m_LocalPosition: {x: -.5, y: 4.98676062, z: .584778309}
   m_LocalScale: {x: .116688527, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 400022}
@@ -546,7 +546,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.682537735, y: 4.98676062, z: .584778309}
+  m_LocalPosition: {x: -.5, y: 4.98676062, z: .584778309}
   m_LocalScale: {x: .116688527, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
@@ -557,7 +557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .506182849, y: 4.98676062, z: .584778309}
+  m_LocalPosition: {x: .5, y: 4.98676062, z: .584778309}
   m_LocalScale: {x: .116688527, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
@@ -1137,18 +1137,22 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec5c6b657b0aed749a2eb98905add883, type: 3}
   m_Name: 
-  brickPrefab: {fileID: 100000, guid: 67b14bcba5ac94e49b48d3c8aace0901, type: 2}
   v2_brickBuffer: {x: .200000003, y: .100000001}
   percentBrickBlank: 50
-  brickTypeWeights: 
+  brickTypeWeights: 19000000190000001900000019000000
   levelWidth: 16
   levelHeight: 8
   totalPoints: 0
-  bricks:
-  - {fileID: 100000, guid: 67b14bcba5ac94e49b48d3c8aace0901, type: 2}
+  m_bricks:
   - {fileID: 100000, guid: fff86e7f76dfdba4b9328d1a47328f33, type: 2}
+  - {fileID: 100000, guid: 67b14bcba5ac94e49b48d3c8aace0901, type: 2}
   - {fileID: 100000, guid: 250826cea4bc5bc43a52f94b6acd9840, type: 2}
   - {fileID: 100000, guid: 27197c6a1e5f2f44a9e6c3780ac81682, type: 2}
+  playerPrefabs:
+  - {fileID: 100002, guid: 0108498cfa8581747ac20de50c46bc07, type: 2}
+  - {fileID: 100000, guid: 2347efaa3ade23c4ab9ba7008ebbdbbb, type: 2}
+  - {fileID: 100000, guid: 99503adde40a1e840987ea56ce7de2b8, type: 2}
+  - {fileID: 100000, guid: cabeff32ae2e68847a8357f1c92571bf, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
