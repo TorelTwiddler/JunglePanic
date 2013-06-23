@@ -25,6 +25,8 @@ public class LevelBuilder : MonoBehaviour {
 	
 	public event Brick.BrickHitDelegate OnBrickHit;
 	
+	public AudioClip m_levelMusic;
+	
 	// Use this for initialization
 	void Start () {
 		foreach(Brick val in m_bricks)
@@ -32,6 +34,9 @@ public class LevelBuilder : MonoBehaviour {
 			m_totalWeights += val.m_weightPercent;
 		}
 		BuildNewRandomLevel(levelWidth,levelHeight);
+		gameObject.AddComponent<AudioManager>();
+				
+		AudioManager.Get().PlaySound("BGMusic", m_levelMusic);
 	}
 	
 	// Update is called once per frame
