@@ -41,7 +41,7 @@ public class SimpleButton : MonoBehaviour {
 		Disabled = 3
 	};
 	
-	private ButtonStates CurrentState = ButtonStates.Normal;
+	protected ButtonStates CurrentState = ButtonStates.Normal;
 	public Material[] ButtonMaterials = new Material[4];
 	private Material _material = null;
 	public Texture ButtonTexture = null;
@@ -52,7 +52,7 @@ public class SimpleButton : MonoBehaviour {
 	public ButtonParameter ClickedFunctionParameter = null;
 
 	// Use this for initialization
-	void Start(){
+	protected virtual void Start(){
 		if(CallbackGameObject == null){
 			print("The button " + gameObject.name + " serves no purpose.");
 			enabled = false;
@@ -81,7 +81,7 @@ public class SimpleButton : MonoBehaviour {
 		}
 	}
 	
-	void OnMouseUpAsButton(){
+	protected virtual void OnMouseUpAsButton(){
 		if(CurrentState != ButtonStates.Disabled){
 			ChangeState(ButtonStates.Hover);
 			if(ClickedFunctionName != ""){
@@ -90,12 +90,12 @@ public class SimpleButton : MonoBehaviour {
 		}
 	}
 	
-	private void ChangeState(ButtonStates newState){
+	protected void ChangeState(ButtonStates newState){
 		CurrentState = newState;
 		UpdateMaterial((int)newState);
 	}
 	
-	private void UpdateMaterial(int matIndex){
+	protected void UpdateMaterial(int matIndex){
 		_material = new Material(ButtonMaterials[matIndex]);
 		_material.mainTexture = ButtonTexture;
 		renderer.sharedMaterial = _material;

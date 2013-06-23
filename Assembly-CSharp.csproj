@@ -38,10 +38,10 @@
     <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
-      <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -49,10 +49,12 @@
     <Compile Include="Assets\Brick\Brick.cs" />
     <Compile Include="Assets\Brick\PlayerStub.cs" />
     <Compile Include="Assets\GUI\Scripts\ControlsFunctions.cs" />
+    <Compile Include="Assets\GUI\Scripts\KeyConfigButton.cs" />
     <Compile Include="Assets\GUI\Scripts\MainMenuFunctions.cs" />
     <Compile Include="Assets\GUI\Scripts\MenuController.cs" />
     <Compile Include="Assets\GUI\Scripts\OptionsFunctions.cs" />
     <Compile Include="Assets\GUI\Scripts\SimpleButton.cs" />
+    <Compile Include="Assets\GUI\Scripts\ToggleButton.cs" />
     <Compile Include="Assets\LevelBuilder\LevelBuilder.cs" />
     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\(Unity Pro) NavMesh Pathfinding\Agent.cs" />
     <Compile Include="Assets\Orthello\Examples\0 - Simple Examples\3D integration\App.cs" />
