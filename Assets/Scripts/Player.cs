@@ -22,30 +22,41 @@ public class Player : MonoBehaviour {
 	public float f_CatchCooldown = 0.5f;
 	public Ball CarriedBall = null;
 	public Vector3 BallOffset = new Vector3(0, 1.0f, 0);
-	public float Points = 0.0f;
 	public GameObject ScoreBar;
 	public GameObject ScoreText;
-	public Color PlayerColor = Color.white;
+	public Team team;
 	
 	private OTAnimatingSprite sprite;
 	private string playingFrameset = "";
 	
+	private GlobalOptions options;
+	
+	void Awake () {
+		sprite = GetComponentInChildren<OTAnimatingSprite>();
+		options = GlobalOptions.Instance;
+	}
+	
 	// Use this for initialization
 	void Start () {
-		GlobalOptions options = GlobalOptions.Instance;
 		Dictionary<string,KeyCode> playerConfig = new Dictionary<string,KeyCode>();
-		if(name == "Player1"){
-			playerConfig = options.PlayerConfigs[0];
-		}
-		else if(name == "Player2"){
-			playerConfig = options.PlayerConfigs[1];
+		switch (name){
+			case "Player1":
+				playerConfig = options.PlayerConfigs[0];
+				break;
+			case "Player2":
+				playerConfig = options.PlayerConfigs[1];
+				break;
+			case "Player3":
+				playerConfig = options.PlayerConfigs[2];
+				break;
+			case "Player4":
+				playerConfig = options.PlayerConfigs[3];
+				break;
 		}
 		LeftKey = playerConfig["MoveLeft"];
 		RightKey = playerConfig["MoveRight"];
 		DownKey = playerConfig["MoveDown"];
 		JumpKey = playerConfig["Jump"];
-		
-		sprite = GetComponentInChildren<OTAnimatingSprite>();
 	}
 	
 	// Update is called once per frame
@@ -134,12 +145,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	public void GivePoints(int points){
-		float totalPoints = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>().totalPoints;
-		Points += points;
-		ScoreBar.transform.localScale = new Vector3((Points / totalPoints) * 20, 1, 1);
-		if (Points >= totalPoints / 2) {
-			GameObject.Find ("SceneManager").GetComponent<SceneManager>().LoadMainMenu();
-		}
+		team.GivePoints(points);
 	}
 	
 	public void CatchBall(Ball ball){
@@ -179,7 +185,7 @@ public class Player : MonoBehaviour {
 				// has ball, jumping
 				PlayAnimation("JumpCarry");
 			}
-			else if (rigidbody.velocity.magnitude > 0) {
+			else if (rigidbody.velocity.magnitude > 1) {
 				// has ball, walking
 				PlayAnimation("WalkCarry");
 			}
@@ -193,7 +199,7 @@ public class Player : MonoBehaviour {
 				// jumping, no ball
 				PlayAnimation("Jump");
 			}
-			else if (rigidbody.velocity.magnitude > 0) {
+			else if (rigidbody.velocity.magnitude > 1) {
 				// walking, no ball
 				PlayAnimation("Walk");
 			}
@@ -208,5 +214,9 @@ public class Player : MonoBehaviour {
 		if (playingFrameset != frameset) {
 			sprite.PlayLoop(frameset);
 		}
+	}
+	
+	public Color GetColor() {
+		return team.GetColor();
 	}
 }

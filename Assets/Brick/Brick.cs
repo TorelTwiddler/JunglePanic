@@ -17,6 +17,12 @@ public class Brick : MonoBehaviour {
 		}
 	}
 	
+	public int m_weightPercent = 25;
+	
+	public delegate void BrickHitDelegate(Brick hitBrick, int hitsLeft);
+	
+	public event BrickHitDelegate OnHit;
+	
 	public int hitsLeft
 	{
 		get
@@ -33,7 +39,7 @@ public class Brick : MonoBehaviour {
 	
 	#region Private Fields
 	
-	private int i_hitsLeft = 1;
+	public int i_hitsLeft = 1;
 	
 	#endregion
 	
@@ -52,6 +58,11 @@ public class Brick : MonoBehaviour {
 	public void Damage(Player owningPlayer)
 	{
 		hitsLeft -= 1;
+		
+		if(OnHit != null)
+		{
+			OnHit(this, hitsLeft);
+		}
 		
 		if(hitsLeft <= 0)
 		{

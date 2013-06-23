@@ -14,6 +14,8 @@ public class GlobalOptions{
 	GlobalOptions(){
 		PlayerConfigs.Add(new Dictionary<string,KeyCode>(){{"MoveLeft",KeyCode.A},{"MoveRight",KeyCode.D},{"MoveDown",KeyCode.S},{"Jump",KeyCode.Space}});
 		PlayerConfigs.Add(new Dictionary<string,KeyCode>(){{"MoveLeft",KeyCode.LeftArrow},{"MoveRight",KeyCode.RightArrow},{"MoveDown",KeyCode.DownArrow},{"Jump",KeyCode.KeypadEnter}});
+		PlayerConfigs.Add(new Dictionary<string,KeyCode>(){{"MoveLeft",KeyCode.Z},{"MoveRight",KeyCode.C},{"MoveDown",KeyCode.X},{"Jump",KeyCode.V}});
+		PlayerConfigs.Add(new Dictionary<string,KeyCode>(){{"MoveLeft",KeyCode.Q},{"MoveRight",KeyCode.E},{"MoveDown",KeyCode.W},{"Jump",KeyCode.R}});
 		//LoadPlayerConfig();
 	}
 	

@@ -1,38 +1,109 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelBuilder : MonoBehaviour {
 	
 	public Brick[][] m_map;
 	
-	public GameObject brickPrefab;
+	private GameObject brickPrefab;
 	
 	public Vector2 v2_brickBuffer = new Vector2(0.5f,0.2f);
 	
 	private Vector3 startingPos = new Vector3(0,0,0);
 	
 	public int percentBrickBlank = 90;
-	public System.Collections.Generic.List<int> brickTypeWeights = new System.Collections.Generic.List<int>();
+
+	private int m_totalWeights = 0;
 	
 	public int levelWidth = 10;
 	public int levelHeight = 4;
 	
 	public float totalPoints = 0.0f;
 	
-	public GameObject[] bricks;
+	public Brick[] m_bricks = new Brick[0];
+	
+	public event Brick.BrickHitDelegate OnBrickHit;
+	
+	public AudioClip m_levelMusic;
+	
+	public GameObject[] playerPrefabs;
+	public GameObject ballPrefab;
+	
+	public int numberOfTeams = 4;
+	public GameObject teamScorePrefab;
+	public Color[] teamColors;
+	
+	public int[] playerTeams;
+	
+	private Team[] teams;
+	
+	private Transform[] teamScoreStarts = new Transform[4];
+	
+	private Transform[] playerStarts = new Transform[4];
+	private Transform ballStart;
+	
+	private OTAnimation[] playerAnimations = new OTAnimation[4];
+	private OTAnimation ballAnimation;
+	
+	void Awake () {
+		// This is hardcoded to 4 players and 4 teams.
+		for (int i = 0; i < 4; i++) {
+			GameObject player = playerPrefabs[i];
+			playerStarts[i] = GameObject.Find(player.name + " Start").GetComponent<Transform>();
+			playerAnimations[i] = GameObject.Find(player.name + " Animation").GetComponent<OTAnimation>();
+			teamScoreStarts[i] = GameObject.Find("TeamScore" + (i + 1).ToString() + " Start").GetComponent<Transform>();
+		}
+		ballStart = GameObject.Find("Ball Start").GetComponent<Transform>();
+		ballAnimation = GameObject.Find("Ball Animation").GetComponent<OTAnimation>();
+	}
 	
 	// Use this for initialization
 	void Start () {
+		foreach(Brick val in m_bricks)
+		{
+			m_totalWeights += val.m_weightPercent;
+		}
 		BuildNewRandomLevel(levelWidth,levelHeight);
+		gameObject.AddComponent<AudioManager>();
+				
+		AudioManager.Get().PlaySound("BGMusic", m_levelMusic);
+		AddTeams(numberOfTeams);
+		AddPlayers(playerTeams);
+		AddBall();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKeyDown("p"))
+		{
+			ClearBricks();
+			BuildNewRandomLevel(levelWidth,levelHeight);
+		}
+	}
 	
+	public void ClearBricks()
+	{	
+		if(m_map == null)
+		{
+			return;
+		}
+		
+		for(int i = 0; i< m_map.Length; i++)
+		{
+			for(int j = 0; j < m_map[i].Length; j++)
+			{
+				if(m_map[i][j] != null)
+				{
+					Destroy(m_map[i][j].gameObject);
+				}
+			}
+		}
 	}
 	
 	public void BuildNewRandomLevel(int width, int height, int MinBlocks = -1)
 	{
+		ClearBricks();
 		m_map = new Brick[width][];
 		for(int i = 0; i < width; i++)
 		{
@@ -103,6 +174,15 @@ public class LevelBuilder : MonoBehaviour {
 		m_map[x][y].name = string.Format("Brick({2}): [{0}][{1}]", x,y, m_map[x][y].typeName);
 		m_map[x][y].gameObject.transform.parent = gameObject.transform;
 		m_map[x][y].transform.eulerAngles = new Vector3(0, 0, 180);
+		m_map[x][y].OnHit += onBrickHit;
+	}
+	
+	private void onBrickHit(Brick sender, int hitsLeft)
+	{
+		if(OnBrickHit != null)
+		{
+			OnBrickHit(sender, hitsLeft);
+		}
 	}
 	
 	public void PlaceLevel()
@@ -126,54 +206,57 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private GameObject GetRandomBrick()
 	{
-		
-		return bricks[Random.Range(0, bricks.Length)];
-		/*
-		System.Collections.Generic.List<int> WeightedAmounts = new System.Collections.Generic.List<int>();
-		int maxValue = 0;
-		for(int i = 0; i < brickTypeWeights.Count; i++)
+		if(m_bricks.Length == 0 )
 		{
-			
-				if(brickTypeWeights[i] > maxValue)
-				{
-					maxValue = brickTypeWeights[i];
-				}
-				WeightedAmounts.Add(brickTypeWeights[i]);
-			
-		}
-		for(int i = 0; i < WeightedAmounts.Count; i++)
-		{
-			WeightedAmounts[i] = (WeightedAmounts[i]/maxValue) * 100;
-		}
-		System.Collections.Generic.List<int> SortedWeights = new System.Collections.Generic.List<int>(WeightedAmounts);
-		
-		SortedWeights.Sort();
-		
-		int num = rand.Next(0, 100);
-		for(int i = 0; i < SortedWeights.Count; i++)
-		{
-			if(num <= SortedWeights[i])
-			{
-				System.Collections.Generic.List<int> sameWeights = new System.Collections.Generic.List<int>();
-				sameWeights.Add(WeightedAmounts.IndexOf(SortedWeights[i]));
-				
-				while(WeightedAmounts.IndexOf(SortedWeights[i],sameWeights[sameWeights.Count-1]) > -1)
-				{
-					sameWeights.Add(WeightedAmounts.IndexOf(SortedWeights[i],sameWeights[sameWeights.Count-1]));
-				}
-				if(sameWeights.Count > 1)
-				{
-					return sameWeights[rand.Next(0, sameWeights.Count)];
-				}
-				else
-				{
-					return sameWeights[0];
-				}
-			}
+			return null;
 		}
 		
-		return 0;
-		*/
+		int randomNumber = Random.Range(0, m_totalWeights);
+
+        Brick selectedBrick = null;
+        for (int i = 0; i < m_bricks.Length; i++)
+        {
+			int brickweight = m_bricks[i].m_weightPercent;
+           if (randomNumber < brickweight)
+            {
+                selectedBrick = m_bricks[i];
+                break;
+            }
+           
+            randomNumber = randomNumber - brickweight;
+        }
+
+        return selectedBrick.gameObject;	
 		
+	}
+	
+	private void AddPlayers(int[] playerTeams)
+	{
+		for (int i = 0; i < playerTeams.Length; i++) {
+			GameObject player = (Instantiate(playerPrefabs[i], playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
+			player.name = player.name.Replace("(Clone)", "");
+			player.GetComponent<Player>().team = teams[playerTeams[i]];
+			OTAnimatingSprite playerSprite = player.GetComponentInChildren<OTAnimatingSprite>();
+			playerSprite.animation = playerAnimations[i];
+		}
+	}
+	
+	private void AddBall()
+	{
+		GameObject ball = (Instantiate(ballPrefab, ballStart.position, new Quaternion(0,0,0,0)) as GameObject);
+		ball.name = ball.name.Replace("(Clone)", "");
+		OTAnimatingSprite ballSprite = ball.GetComponentInChildren<OTAnimatingSprite>();
+		ballSprite.animation = ballAnimation;
+	}
+	
+	private void AddTeams(int numberOfTeams)
+	{
+		teams = new Team[numberOfTeams];
+		for (int i = 0; i < numberOfTeams; i++) {
+			GameObject teamScore = (Instantiate(teamScorePrefab, teamScoreStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
+			teamScore.name = teamScore.name.Replace("(Clone)", "");
+			teams[i] = teamScore.GetComponent<Team>();
+			teams[i].SetColor(teamColors[i]);
+		}
 	}
 }

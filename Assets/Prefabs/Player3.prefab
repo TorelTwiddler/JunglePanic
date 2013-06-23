@@ -13,7 +13,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   m_Layer: 10
-  m_Name: Player2
+  m_Name: Player3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400002}
   m_Layer: 10
-  m_Name: Player2 AnimatingSprite
+  m_Name: Player3 AnimatingSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.48256016, y: -10, z: 0}
+  m_LocalPosition: {x: -9.48256016, y: -6.41592407, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 400002}
@@ -143,8 +143,8 @@ MonoBehaviour:
   BallOffset: {x: 0, y: 1.5, z: 0}
   Points: 0
   ScoreBar: {fileID: 0}
-  ScoreText: {fileID: 100000, guid: 03cec4c6df491da4e9b657da00d4678d, type: 2}
-  PlayerColor: {r: .409769297, g: .350746274, b: 1, a: 1}
+  ScoreText: {fileID: 100000, guid: c5a5ced5179cc8a409c3cb22421ad9a4, type: 2}
+  PlayerColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e0774980171c514ea93208b47048a0c, type: 3}
   m_Name: 
-  _name: Player2 AnimatingSprite
+  _name: Player1 AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
   _rotation: 0
@@ -178,8 +178,8 @@ MonoBehaviour:
     width: 0
     height: 0
   protoType: 
-  baseName: Player2 AnimatingSprite
-  oSize: {x: 2.3708334, y: 2.3708334}
+  baseName: Player1 AnimatingSprite
+  oSize: {x: .592708349, y: .790277779}
   imageSize: {x: 0, y: 0}
   _offset: {x: 0, y: 0}
   _baseOffset: {x: 0, y: 0}
@@ -195,7 +195,7 @@ MonoBehaviour:
   _frameIndex: 0
   _frameName: frame0
   _spriteContainer: {fileID: 0}
-  _containerName: Player 2 Container
+  _containerName: Player 1 Container
   _newSprite: 0
   _animation: {fileID: 0}
   _animationFrameset: 
@@ -206,7 +206,7 @@ MonoBehaviour:
   _startAtRandomFrame: 0
   _destroyWhenFinished: 0
   animationPreview: 0
-  _animationName: Player 2 Animation
+  _animationName: Player 1 Animation
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
