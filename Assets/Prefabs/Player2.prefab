@@ -144,7 +144,7 @@ MonoBehaviour:
   Points: 0
   ScoreBar: {fileID: 0}
   ScoreText: {fileID: 100000, guid: 03cec4c6df491da4e9b657da00d4678d, type: 2}
-  PlayerColor: {r: 1, g: 1, b: 1, a: 1}
+  PlayerColor: {r: .409769297, g: .350746274, b: 1, a: 1}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
