@@ -21,9 +21,12 @@ public class LevelBuilder : MonoBehaviour {
 	
 	public GameObject[] bricks;
 	
+	public GameObject[] playerPrefabs;
+	
 	// Use this for initialization
 	void Start () {
 		BuildNewRandomLevel(levelWidth,levelHeight);
+		AddPlayers();
 	}
 	
 	// Update is called once per frame
@@ -174,6 +177,11 @@ public class LevelBuilder : MonoBehaviour {
 		
 		return 0;
 		*/
+		
+	}
+	
+	private void AddPlayers()
+	{
 		
 	}
 }

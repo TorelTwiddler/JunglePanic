@@ -34,11 +34,19 @@ public class Player : MonoBehaviour {
 	void Start () {
 		GlobalOptions options = GlobalOptions.Instance;
 		Dictionary<string,KeyCode> playerConfig = new Dictionary<string,KeyCode>();
-		if(name == "Player1"){
-			playerConfig = options.PlayerConfigs[0];
-		}
-		else if(name == "Player2"){
-			playerConfig = options.PlayerConfigs[1];
+		switch (name){
+			case "Player1":
+				playerConfig = options.PlayerConfigs[0];
+				break;
+			case "Player2":
+				playerConfig = options.PlayerConfigs[1];
+				break;
+			case "Player3":
+				playerConfig = options.PlayerConfigs[2];
+				break;
+			case "Player4":
+				playerConfig = options.PlayerConfigs[3];
+				break;
 		}
 		LeftKey = playerConfig["MoveLeft"];
 		RightKey = playerConfig["MoveRight"];
