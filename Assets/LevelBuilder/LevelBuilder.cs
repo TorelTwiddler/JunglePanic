@@ -1,41 +1,72 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelBuilder : MonoBehaviour {
 	
 	public Brick[][] m_map;
 	
-	public GameObject brickPrefab;
+	private GameObject brickPrefab;
 	
 	public Vector2 v2_brickBuffer = new Vector2(0.5f,0.2f);
 	
 	private Vector3 startingPos = new Vector3(0,0,0);
 	
 	public int percentBrickBlank = 90;
-	public System.Collections.Generic.List<int> brickTypeWeights = new System.Collections.Generic.List<int>();
+	public List<int> brickTypeWeights = new List<int>();
+	private int m_totalWeights = 0;
 	
 	public int levelWidth = 10;
 	public int levelHeight = 4;
 	
 	public float totalPoints = 0.0f;
 	
-	public GameObject[] bricks;
+	public GameObject[] m_bricks = new GameObject[0];
+	
 	
 	public GameObject[] playerPrefabs;
 	
 	// Use this for initialization
 	void Start () {
+		foreach(int val in brickTypeWeights)
+		{
+			m_totalWeights += val;
+		}
 		BuildNewRandomLevel(levelWidth,levelHeight);
 		AddPlayers();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKeyDown("p"))
+		{
+			ClearBricks();
+			BuildNewRandomLevel(levelWidth,levelHeight);
+		}
+	}
 	
+	public void ClearBricks()
+	{	
+		if(m_map == null)
+		{
+			return;
+		}
+		
+		for(int i = 0; i< m_map.Length; i++)
+		{
+			for(int j = 0; j < m_map[i].Length; j++)
+			{
+				if(m_map[i][j] != null)
+				{
+					Destroy(m_map[i][j].gameObject);
+				}
+			}
+		}
 	}
 	
 	public void BuildNewRandomLevel(int width, int height, int MinBlocks = -1)
 	{
+		ClearBricks();
 		m_map = new Brick[width][];
 		for(int i = 0; i < width; i++)
 		{
@@ -129,54 +160,27 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private GameObject GetRandomBrick()
 	{
-		
-		return bricks[Random.Range(0, bricks.Length)];
-		/*
-		System.Collections.Generic.List<int> WeightedAmounts = new System.Collections.Generic.List<int>();
-		int maxValue = 0;
-		for(int i = 0; i < brickTypeWeights.Count; i++)
+		if(m_bricks.Length == 0 || brickTypeWeights.Count == 0)
 		{
-			
-				if(brickTypeWeights[i] > maxValue)
-				{
-					maxValue = brickTypeWeights[i];
-				}
-				WeightedAmounts.Add(brickTypeWeights[i]);
-			
-		}
-		for(int i = 0; i < WeightedAmounts.Count; i++)
-		{
-			WeightedAmounts[i] = (WeightedAmounts[i]/maxValue) * 100;
-		}
-		System.Collections.Generic.List<int> SortedWeights = new System.Collections.Generic.List<int>(WeightedAmounts);
-		
-		SortedWeights.Sort();
-		
-		int num = rand.Next(0, 100);
-		for(int i = 0; i < SortedWeights.Count; i++)
-		{
-			if(num <= SortedWeights[i])
-			{
-				System.Collections.Generic.List<int> sameWeights = new System.Collections.Generic.List<int>();
-				sameWeights.Add(WeightedAmounts.IndexOf(SortedWeights[i]));
-				
-				while(WeightedAmounts.IndexOf(SortedWeights[i],sameWeights[sameWeights.Count-1]) > -1)
-				{
-					sameWeights.Add(WeightedAmounts.IndexOf(SortedWeights[i],sameWeights[sameWeights.Count-1]));
-				}
-				if(sameWeights.Count > 1)
-				{
-					return sameWeights[rand.Next(0, sameWeights.Count)];
-				}
-				else
-				{
-					return sameWeights[0];
-				}
-			}
+			return null;
 		}
 		
-		return 0;
-		*/
+		int randomNumber = Random.Range(0, m_totalWeights);
+
+        GameObject selectedBrick = null;
+        for (int i = 0; i < brickTypeWeights.Count; i++)
+        {
+			int brickweight = brickTypeWeights[i];
+           if (randomNumber < brickweight)
+            {
+                selectedBrick = m_bricks[i];
+                break;
+            }
+           
+            randomNumber = randomNumber - brickweight;
+        }
+
+        return selectedBrick;	
 		
 	}
 	
