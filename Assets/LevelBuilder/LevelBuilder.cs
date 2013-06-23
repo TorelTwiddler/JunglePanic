@@ -13,7 +13,7 @@ public class LevelBuilder : MonoBehaviour {
 	private Vector3 startingPos = new Vector3(0,0,0);
 	
 	public int percentBrickBlank = 90;
-	public List<int> brickTypeWeights = new List<int>();
+
 	private int m_totalWeights = 0;
 	
 	public int levelWidth = 10;
@@ -21,14 +21,15 @@ public class LevelBuilder : MonoBehaviour {
 	
 	public float totalPoints = 0.0f;
 	
-	public GameObject[] m_bricks = new GameObject[0];
+	public Brick[] m_bricks = new Brick[0];
 	
+	public event Brick.BrickHitDelegate OnBrickHit;
 	
 	// Use this for initialization
 	void Start () {
-		foreach(int val in brickTypeWeights)
+		foreach(Brick val in m_bricks)
 		{
-			m_totalWeights += val;
+			m_totalWeights += val.m_weightPercent;
 		}
 		BuildNewRandomLevel(levelWidth,levelHeight);
 	}
@@ -134,6 +135,15 @@ public class LevelBuilder : MonoBehaviour {
 		m_map[x][y].name = string.Format("Brick({2}): [{0}][{1}]", x,y, m_map[x][y].typeName);
 		m_map[x][y].gameObject.transform.parent = gameObject.transform;
 		m_map[x][y].transform.eulerAngles = new Vector3(0, 0, 180);
+		m_map[x][y].OnHit += onBrickHit;
+	}
+	
+	private void onBrickHit(Brick sender, int hitsLeft)
+	{
+		if(OnBrickHit != null)
+		{
+			OnBrickHit(sender, hitsLeft);
+		}
 	}
 	
 	public void PlaceLevel()
@@ -157,17 +167,17 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private GameObject GetRandomBrick()
 	{
-		if(m_bricks.Length == 0 || brickTypeWeights.Count == 0)
+		if(m_bricks.Length == 0 )
 		{
 			return null;
 		}
 		
 		int randomNumber = Random.Range(0, m_totalWeights);
 
-        GameObject selectedBrick = null;
-        for (int i = 0; i < brickTypeWeights.Count; i++)
+        Brick selectedBrick = null;
+        for (int i = 0; i < m_bricks.Length; i++)
         {
-			int brickweight = brickTypeWeights[i];
+			int brickweight = m_bricks[i].m_weightPercent;
            if (randomNumber < brickweight)
             {
                 selectedBrick = m_bricks[i];
@@ -177,7 +187,7 @@ public class LevelBuilder : MonoBehaviour {
             randomNumber = randomNumber - brickweight;
         }
 
-        return selectedBrick;	
+        return selectedBrick.gameObject;	
 		
 	}
 }
