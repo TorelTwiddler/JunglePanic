@@ -20,5 +20,8 @@ public class inputTests : MonoBehaviour {
 		if(e.keyCode != KeyCode.None){
 			print(e.keyCode);
 		}
+		if(Input.inputString != ""){
+			print(Input.inputString);
+		}
 	}
 }

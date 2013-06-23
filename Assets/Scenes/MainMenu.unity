@@ -124,7 +124,7 @@ GameObject:
   - 23: {fileID: 4903006}
   - 114: {fileID: 4903005}
   m_Layer: 9
-  m_Name: MoveDownConfig
+  m_Name: MoveDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,7 +535,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 335875520}
-  m_Text: Player 1
+  m_Text: Player1
   m_OffsetZ: 0
   m_CharacterSize: .100000001
   m_LineSpacing: 1
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 689779591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d172571f48214464eb7c0884b74169a8, type: 3}
+  m_Script: {fileID: 11500000, guid: bf7545d188ae0e74395068b6752f47d6, type: 3}
   m_Name: 
   ButtonMaterials:
   - {fileID: 2100000, guid: 9ed9a0835d878c54fafdaed0d3944305, type: 2}
@@ -958,7 +958,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d07cd9d5431883b48b4d108bf4c4a92b, type: 2}
   ButtonTexture: {fileID: 0}
   CallbackGameObject: {fileID: 0}
-  HoverFunctionName: ButtonHover
+  HoverFunctionName: 
   HoverFunctionParameter:
     Type: 3
     Boolean: 0
@@ -973,8 +973,8 @@ MonoBehaviour:
     Float: 0
     String: 
   ToggleStates:
-  - Kayboard
-  CurrentToggleState: 
+  - Keyboard
+  CurrentToggleState: 0
 --- !u!23 &689779594
 Renderer:
   m_ObjectHideFlags: 0
@@ -1247,7 +1247,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 779721267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d172571f48214464eb7c0884b74169a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9041067c28a189944bd050280d6c2474, type: 3}
   m_Name: 
   ButtonMaterials:
   - {fileID: 2100000, guid: 9ed9a0835d878c54fafdaed0d3944305, type: 2}
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d07cd9d5431883b48b4d108bf4c4a92b, type: 2}
   ButtonTexture: {fileID: 0}
   CallbackGameObject: {fileID: 0}
-  HoverFunctionName: ButtonHover
+  HoverFunctionName: 
   HoverFunctionParameter:
     Type: 3
     Boolean: 0
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   - Player2
   - Player3
   - Player4
-  CurrentToggleState: 
+  CurrentToggleState: 0
 --- !u!23 &779721270
 Renderer:
   m_ObjectHideFlags: 0
@@ -1554,7 +1554,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1008429596}
   m_Layer: 0
-  m_Name: Player1Controls
+  m_Name: KeyboardControls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1588,7 @@ GameObject:
   - 23: {fileID: 1043392424}
   - 114: {fileID: 1043392423}
   m_Layer: 9
-  m_Name: MoveRightConfig
+  m_Name: MoveRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1959,7 +1959,7 @@ GameObject:
   - 23: {fileID: 1293813992}
   - 114: {fileID: 1293813991}
   m_Layer: 9
-  m_Name: JumpConfig
+  m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2300,7 +2300,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 128
+  m_FontSize: 64
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 73dd695ddb3384d40b59f645fc62298a, type: 3}
@@ -2600,7 +2600,7 @@ GameObject:
   - 23: {fileID: 1611746236}
   - 114: {fileID: 1611746235}
   m_Layer: 9
-  m_Name: MoveLeftConfig
+  m_Name: MoveLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ToggleButton : SimpleButton {
 	
 	public List<string> ToggleStates = new List<string>();
-	public string CurrentToggleState;
+	public int CurrentToggleState = 0;
 	
 	protected override void Start(){
 		UpdateMaterial(0);
@@ -14,14 +14,20 @@ public class ToggleButton : SimpleButton {
 	protected override void OnMouseUpAsButton(){
 		if(CurrentState != ButtonStates.Disabled){
 			ChangeState(ButtonStates.Hover);
-			if(ClickedFunctionName != ""){
-				//CallbackGameObject.SendMessage(ClickedFunctionName, ClickedFunctionParameter.GetValue(), SendMessageOptions.DontRequireReceiver);
-				NextToggleState();
-			}
+			NextToggleState();
 		}
 	}
 	
-	protected virtual void NextToggleState(){
+	protected virtual void SetToggleStates(){
 		
+	}
+	
+	protected virtual string GetCurrentState(){
+		return ToggleStates[CurrentToggleState];
+	}
+	
+	protected virtual void NextToggleState(){
+		//print("Go to the next toggle state");
+		CurrentToggleState = CurrentToggleState >= ToggleStates.Count - 1 ? 0 : CurrentToggleState + 1;
 	}
 }

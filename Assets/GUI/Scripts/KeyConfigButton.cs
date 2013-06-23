@@ -3,16 +3,20 @@ using System.Collections;
 
 public class KeyConfigButton : SimpleButton {
 
+	private ControlsFunctions ControlsFunctions;
 	private TextMesh KeyText;
 	private string ConfigListenerAction;
 	
 	void Awake(){
+		ControlsFunctions = GameObject.Find("ControlsMenu").GetComponent<ControlsFunctions>();
 		KeyText = transform.GetComponentInChildren<TextMesh>();
 	}
 	
 	protected override void Start(){
 		base.Start();
 		enabled = false;
+		//print(Input.GetKey(KeyCode.Joystick1Button0));
+		//print(Input.GetAxis("Joystick 1 X Axis"));
 	}
 	
 	void OnGUI(){

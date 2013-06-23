@@ -63,7 +63,7 @@ public class SimpleButton : MonoBehaviour {
 	void OnMouseEnter(){
 		if(CurrentState != ButtonStates.Disabled){
 			ChangeState(ButtonStates.Hover);
-			if(HoverFunctionName != ""){
+			if(HoverFunctionName != "" && CallbackGameObject != null){
 				CallbackGameObject.SendMessage(HoverFunctionName, HoverFunctionParameter.GetValue(), SendMessageOptions.DontRequireReceiver);
 			}
 		}
