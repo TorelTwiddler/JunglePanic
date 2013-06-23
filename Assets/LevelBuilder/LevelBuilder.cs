@@ -25,6 +25,7 @@ public class LevelBuilder : MonoBehaviour {
 	
 	
 	public GameObject[] playerPrefabs;
+	public GameObject ballPrefab;
 	
 	// Use this for initialization
 	void Start () {
