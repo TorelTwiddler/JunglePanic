@@ -406,6 +406,26 @@ Prefab:
       propertyPath: playerTeams.Array.data[2]
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: m_bricks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: fff86e7f76dfdba4b9328d1a47328f33,
+        type: 2}
+    - target: {fileID: 11400000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: m_bricks.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 67b14bcba5ac94e49b48d3c8aace0901,
+        type: 2}
+    - target: {fileID: 11400000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: m_bricks.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 250826cea4bc5bc43a52f94b6acd9840,
+        type: 2}
+    - target: {fileID: 11400000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: m_bricks.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 27197c6a1e5f2f44a9e6c3780ac81682,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1598994ee52911444b090b30b3705019, type: 2}
   m_RootGameObject: {fileID: 1466468500}
@@ -1605,15 +1625,15 @@ MonoBehaviour:
   m_Name: 
   v2_brickBuffer: {x: .200000003, y: .100000001}
   percentBrickBlank: 50
-  brickTypeWeights: 19000000190000001900000019000000
   levelWidth: 16
   levelHeight: 8
   totalPoints: 0
   m_bricks:
-  - {fileID: 100000, guid: fff86e7f76dfdba4b9328d1a47328f33, type: 2}
-  - {fileID: 100000, guid: 67b14bcba5ac94e49b48d3c8aace0901, type: 2}
-  - {fileID: 100000, guid: 250826cea4bc5bc43a52f94b6acd9840, type: 2}
-  - {fileID: 100000, guid: 27197c6a1e5f2f44a9e6c3780ac81682, type: 2}
+  - {fileID: 11400000, guid: fff86e7f76dfdba4b9328d1a47328f33, type: 2}
+  - {fileID: 11400000, guid: 67b14bcba5ac94e49b48d3c8aace0901, type: 2}
+  - {fileID: 11400000, guid: 250826cea4bc5bc43a52f94b6acd9840, type: 2}
+  - {fileID: 11400000, guid: 27197c6a1e5f2f44a9e6c3780ac81682, type: 2}
+  m_levelMusic: {fileID: 0}
   playerPrefabs:
   - {fileID: 100002, guid: 0108498cfa8581747ac20de50c46bc07, type: 2}
   - {fileID: 100000, guid: 2347efaa3ade23c4ab9ba7008ebbdbbb, type: 2}
