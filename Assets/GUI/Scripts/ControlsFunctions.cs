@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ControlsFunctions : MonoBehaviour {
 	
 	private MenuController MenuController;
-	private string ConfigListenerAction;
+	//private string ConfigListenerAction;
 	
 	void Awake(){
 		MenuController = GameObject.Find("MenuController").GetComponent<MenuController>();
@@ -21,13 +21,13 @@ public class ControlsFunctions : MonoBehaviour {
 	
 	}
 	
-	void OnGUI(){
+	/*void OnGUI(){
 		Event e = Event.current;
 		if(e.keyCode != KeyCode.None){
 			BindKey(e.keyCode);
 			enabled = false;
 		}
-	}
+	}*/
 	
 	public List<string> GetInputSources(){
 		List<string> inputSources = new List<string>(Input.GetJoystickNames());
@@ -35,7 +35,7 @@ public class ControlsFunctions : MonoBehaviour {
 		return inputSources;
 	}
 	
-	public void StartKeybindListener(string action){
+	/*public void StartKeybindListener(string action){
 		ConfigListenerAction = action;
 		enabled = true;
 	}
@@ -50,5 +50,5 @@ public class ControlsFunctions : MonoBehaviour {
 		else if(configAction[0] == "player2"){
 			options.SetKeyConfig(1, configAction[1], key);
 		}
-	}
+	}*/
 }
