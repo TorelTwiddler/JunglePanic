@@ -5,3 +5,5 @@ Build/*
 #ignoring pidb, they are just code completion caching data
 *.pidb
 *.userprefs
+*.csproj
+*.sln
