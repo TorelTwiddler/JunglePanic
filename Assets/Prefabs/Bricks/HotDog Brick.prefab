@@ -170,7 +170,7 @@ MonoBehaviour:
   _containerName: HotDog Container
   _newSprite: 0
   _animation: {fileID: 0}
-  _animationFrameset: 
+  _animationFrameset: Idle
   _speed: 1
   _looping: 1
   _numberOfPlays: -1

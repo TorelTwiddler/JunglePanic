@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19afa8d918a532a4f99b2e0d2efcacd0, type: 3}
   m_Name: 
+  canMove: 1
   InputType: 0
   PlayerSpeed: 25
   PlayerAcceleration: 300
@@ -141,10 +142,8 @@ MonoBehaviour:
   f_CatchCooldown: .5
   CarriedBall: {fileID: 0}
   BallOffset: {x: 0, y: 1.5, z: 0}
-  Points: 0
   ScoreBar: {fileID: 0}
-  ScoreText: {fileID: 100000, guid: 03cec4c6df491da4e9b657da00d4678d, type: 2}
-  PlayerColor: {r: .409769297, g: .350746274, b: 1, a: 1}
+  team: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,7 +154,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e0774980171c514ea93208b47048a0c, type: 3}
   m_Name: 
-  _name: Player2 AnimatingSprite-1
+  _name: Player4 AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
   _rotation: 0
