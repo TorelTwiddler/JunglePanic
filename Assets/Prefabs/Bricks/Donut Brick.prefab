@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: HotDog Brick
+  m_Name: Donut Brick
   m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2300002}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: HotDog AnimatingSprite
+  m_Name: Donut AnimatingSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -113,10 +113,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2b8e95039e7d7e488be4a739f0f3e29, type: 3}
   m_Name: 
-  m_weightPercent: 35
+  m_weightPercent: 20
   i_hitsLeft: 1
-  typeName: HotDog
-  i_points: 100
+  typeName: Donut
+  i_points: 200
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,10 +127,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e0774980171c514ea93208b47048a0c, type: 3}
   m_Name: 
-  _name: HotDog AnimatingSprite
+  _name: Donut AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
-  _rotation: 180.000015
+  _rotation: 180
   _pivot: 4
   _pivotPoint: {x: 0, y: 0}
   _registerInput: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
     width: 0
     height: 0
   protoType: 
-  baseName: HotDog AnimatingSprite
-  oSize: {x: 2.84500003, y: 1.42250001}
+  baseName: Donut AnimatingSprite
+  oSize: {x: .948333323, y: .474166662}
   imageSize: {x: 0, y: 0}
   _offset: {x: 0, y: 0}
   _baseOffset: {x: 0, y: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   _frameIndex: 0
   _frameName: frame0
   _spriteContainer: {fileID: 0}
-  _containerName: HotDog Container
+  _containerName: Donut Container
   _newSprite: 0
   _animation: {fileID: 0}
   _animationFrameset: 
@@ -178,7 +178,7 @@ MonoBehaviour:
   _startAtRandomFrame: 0
   _destroyWhenFinished: 0
   animationPreview: 0
-  _animationName: HotDog Animation
+  _animationName: Donut Animation
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
