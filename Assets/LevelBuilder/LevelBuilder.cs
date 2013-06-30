@@ -32,9 +32,12 @@ public class LevelBuilder : MonoBehaviour {
 	
 	public int numberOfTeams = 4;
 	public GameObject teamScorePrefab;
+	public string[] teamNames;
 	public Color[] teamColors;
 	
 	public int[] playerTeams;
+	
+	private Player[] players;
 	
 	private Team[] teams;
 	
@@ -71,6 +74,8 @@ public class LevelBuilder : MonoBehaviour {
 		AddTeams(numberOfTeams);
 		AddPlayers(playerTeams);
 		AddBall();
+		
+		StartGame();
 	}
 	
 	// Update is called once per frame
@@ -232,12 +237,14 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private void AddPlayers(int[] playerTeams)
 	{
+		players = new Player[playerTeams.Length];
 		for (int i = 0; i < playerTeams.Length; i++) {
 			GameObject player = (Instantiate(playerPrefabs[i], playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
 			player.name = player.name.Replace("(Clone)", "");
 			player.GetComponent<Player>().team = teams[playerTeams[i]];
 			OTAnimatingSprite playerSprite = player.GetComponentInChildren<OTAnimatingSprite>();
 			playerSprite.animation = playerAnimations[i];
+			players[i] = player.GetComponent<Player>();
 		}
 	}
 	
@@ -257,6 +264,12 @@ public class LevelBuilder : MonoBehaviour {
 			teamScore.name = teamScore.name.Replace("(Clone)", "");
 			teams[i] = teamScore.GetComponent<Team>();
 			teams[i].SetColor(teamColors[i]);
+			teams[i].SetTeamName(teamNames[i]);
 		}
+	}
+	
+	private void StartGame() {
+		GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
+		gameController.StartGame(players);
 	}
 }

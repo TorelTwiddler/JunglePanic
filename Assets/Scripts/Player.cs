@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
 		Controller
 	};
 	
+	public bool canMove = true;
+	
 	public InputTypes InputType = InputTypes.Keyboard;
 	private KeyCode LeftKey, RightKey, DownKey, JumpKey;
 	public float PlayerSpeed = 25.0f;
@@ -23,7 +25,6 @@ public class Player : MonoBehaviour {
 	public Ball CarriedBall = null;
 	public Vector3 BallOffset = new Vector3(0, 1.0f, 0);
 	public GameObject ScoreBar;
-	public GameObject ScoreText;
 	public Team team;
 	
 	private OTAnimatingSprite sprite;
@@ -61,11 +62,13 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		HandleHorizontal();
-		HandleVertical();
+		if (canMove) {
 		
-		HandleJump();
-		
+			HandleHorizontal();
+			HandleVertical();
+			
+			HandleJump();
+		}
 		HandleAnimation();
 	}
 	

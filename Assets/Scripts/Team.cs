@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Team : MonoBehaviour {
 
+	public string teamName = "";
 	public float points = 0.0f;
 	public GameObject scoreBar;
 	public GameObject colorBar;
@@ -41,7 +42,11 @@ public class Team : MonoBehaviour {
 		points += points_given;
 		scoreBar.transform.localScale = new Vector3((points / (totalPoints / numberOfTeams)) * barHeight, 1, 1);
 		if (points >= totalPoints / 2) {
-			GameObject.Find("SceneManager").GetComponent<SceneManager>().LoadMainMenu();
+			GameObject.Find("GameController").GetComponent<GameController>().EndGame(this);
 		}
+	}
+	
+	public void SetTeamName(string name) {
+		teamName = name;
 	}
 }
