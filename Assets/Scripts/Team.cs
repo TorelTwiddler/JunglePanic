@@ -7,9 +7,10 @@ public class Team : MonoBehaviour {
 	public GameObject scoreBar;
 	public GameObject colorBar;
 	public float barHeight = 5;
+	public GameObject scoreText;
 	
 	private float totalPoints;
-	private Color color = Color.white;
+	private Color color = Color.magenta;
 	private int numberOfTeams;
 	
 	void Awake () {

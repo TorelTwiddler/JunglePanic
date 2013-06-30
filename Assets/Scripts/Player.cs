@@ -219,4 +219,8 @@ public class Player : MonoBehaviour {
 	public Color GetColor() {
 		return team.GetColor();
 	}
+	
+	public GameObject GetScoreText () {
+		return team.scoreText;
+	}
 }

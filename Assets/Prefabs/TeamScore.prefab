@@ -365,6 +365,7 @@ MonoBehaviour:
   scoreBar: {fileID: 100012}
   colorBar: {fileID: 100004}
   barHeight: 5
+  scoreText: {fileID: 100000, guid: e7b6d00ddd20692469f785c3174bb0cb, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
