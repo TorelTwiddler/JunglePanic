@@ -27,13 +27,10 @@ public class KeyConfigButton : SimpleButton {
 		}
 	}
 	
-	protected override void OnMouseUpAsButton(){
-		if(CurrentState != ButtonStates.Disabled){
-			ChangeState(ButtonStates.Hover);
-			if(ClickedFunctionName != ""){
-				//CallbackGameObject.SendMessage(ClickedFunctionName, ClickedFunctionParameter.GetValue(), SendMessageOptions.DontRequireReceiver);
-				StartKeybindListener(ClickedFunctionParameter.String);
-			}
+	protected override void OnButtonClicked(){
+		if(ClickedFunctionName != ""){
+			//CallbackGameObject.SendMessage(ClickedFunctionName, ClickedFunctionParameter.GetValue(), SendMessageOptions.DontRequireReceiver);
+			StartKeybindListener(ClickedFunctionParameter.String);
 		}
 	}
 	
