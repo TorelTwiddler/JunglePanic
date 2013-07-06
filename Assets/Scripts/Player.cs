@@ -32,6 +32,7 @@ public class Player : MonoBehaviour {
 	private GlobalOptions options;
 	
 	private bool OnPlatform = false;
+	public bool TouchingWall = false;
 	
 	void Awake () {
 		sprite = GetComponentInChildren<OTAnimatingSprite>();
@@ -176,6 +177,9 @@ public class Player : MonoBehaviour {
 			CanJump = true;
 			OnPlatform = true;
 			break;
+		case "Wall":
+			TouchingWall = true;
+			break;
 		case "Player":
 			Player otherPlayer = collision.gameObject.GetComponent<Player>();
 			if(otherPlayer.HasBall && !otherPlayer.IsInvulnerable && CanCatch){
@@ -185,6 +189,14 @@ public class Player : MonoBehaviour {
 				IsInvulnerable = true;
 				StartCoroutine(InvulnerableCooldown(f_InvulnerableCooldown));
 			}
+			break;
+		}
+	}
+	
+	void OnCollisionExit(Collision collision){
+		switch(collision.gameObject.tag){
+		case "Wall":
+			TouchingWall = false;
 			break;
 		}
 	}
