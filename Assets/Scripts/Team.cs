@@ -42,6 +42,7 @@ public class Team : MonoBehaviour {
 		points += points_given;
 		scoreBar.transform.localScale = new Vector3((points / (totalPoints / numberOfTeams)) * barHeight, 1, 1);
 		if (points >= totalPoints / 2) {
+			points = totalPoints / 2;
 			GameObject.Find("GameController").GetComponent<GameController>().EndGame(this);
 		}
 	}
