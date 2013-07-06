@@ -38,7 +38,7 @@ public class GlobalOptions{
 		PlayerConfigs[playerIndex][action] = newKey;
 	}
 	
-	public Dictionary<string,KeyCode> GetKeyConfig(int playerIndex){
+	public Dictionary<string,KeyCode> GetPlayerConfig(int playerIndex){
 		return PlayerConfigs[playerIndex];
 	}
 	
@@ -57,6 +57,13 @@ public class GlobalOptions{
 	
 	public void SetPlayerInputSource(int index, string source){
 		PlayerInputSources[index] = source;
+	}
+	
+	public string GetPlayerInputSource(int index){
+		if(index < 0){
+			return "";
+		}
+		return PlayerInputSources[index];
 	}
 	
 	/*public void SavePlayerConfigs(){

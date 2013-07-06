@@ -13,6 +13,11 @@ public class PlayerSetup : MonoBehaviour {
 	private KeyCode KeyToHold = KeyCode.None;
 	private float KeyHoldEnd = Mathf.Infinity;
 	private bool IsReady = false;
+	private string InputSource = "";
+	private string[] KeybindActions = new string[4]{"MoveLeft", "MoveRight", "MoveDown", "Jump"};
+	private int CurrentKeybindIndex = 0;
+	private bool RebindingKeys = false;
+	public TextMesh RebindButtonText;
 	
 	void Awake(){
 		PlayerManager = transform.parent.GetComponent<PlayerManager>();
@@ -35,6 +40,17 @@ public class PlayerSetup : MonoBehaviour {
 				//KeyToHold = KeyCode.None;
 			}
 		}
+		else if(RebindingKeys){
+			if(Input.GetKey(KeyToHold)){
+				if(Time.time > KeyHoldEnd){
+					BindKey(KeyToHold);
+				}
+			}
+			else{
+				KeyToHold = KeyCode.None;
+				ListeningForKey = true;
+			}
+		}
 	}
 	
 	void OnGUI(){
@@ -44,6 +60,9 @@ public class PlayerSetup : MonoBehaviour {
 		
 		Event e = Event.current;
 		if(e.keyCode != KeyCode.None){
+			KeyToHold = e.keyCode;
+			KeyHoldEnd = Time.time + 1.0f;
+			ListeningForKey = false;
 			//BindKey(e.keyCode);
 		}
 	}
@@ -67,7 +86,14 @@ public class PlayerSetup : MonoBehaviour {
 		PlayerJoined = true;
 		JoinText.renderer.enabled = false;
 		AllButtons.SetActive(true);
+		PlayerJoining = false;
 		PlayerManager.LockInputSource(PlayerIndex, KeyToHold);
+		if((int)KeyToHold >= 350){
+			InputSource = KeyToHold.ToString().Substring(0, 9);
+		}
+		else{
+			InputSource = "Keyboard";
+		}
 	}
 	
 	public void RemovePlayer(){
@@ -78,6 +104,7 @@ public class PlayerSetup : MonoBehaviour {
 		PlayerJoining = false;
 		//print("releasing input source " + KeyToHold.ToString());
 		PlayerManager.ReleaseInputSource(PlayerIndex, KeyToHold);
+		InputSource = "";
 	}
 	
 	public void ToggleStateChanged(string newState){
@@ -111,17 +138,41 @@ public class PlayerSetup : MonoBehaviour {
 		return IsReady;
 	}
 	
-	/*public void BindKey(KeyCode key){
+	public void StartRebind(){
+		if(InputSource == "Keyboard"){
+			if(!PlayerManager.KeyboardRebinding){
+				PlayerManager.KeyboardRebinding = true;
+				RebindingKeys = true;
+				ListeningForKey = true;
+				CurrentKeybindIndex = 0;
+				RebindButtonText.text = KeybindActions[CurrentKeybindIndex];
+			}
+		}
+		else{
+			RebindingKeys = true;
+			ListeningForKey = true;
+			CurrentKeybindIndex = KeybindActions.Length-1;
+			RebindButtonText.text = KeybindActions[CurrentKeybindIndex];
+		}
+	}
+	
+	public void EndRebind(){
+		PlayerManager.KeyboardRebinding = false;
+		RebindingKeys = false;
+		ListeningForKey = false;
+	}
+	
+	public void BindKey(KeyCode key){
 		GlobalOptions options = GlobalOptions.Instance;
-		//print(ConfigListenerAction + " bound to " + key);
-		string[] configAction = ConfigListenerAction.Split('_');
-		if(configAction[0] == "player1"){
-			options.SetKeyConfig(0, configAction[1], key);
+		options.SetKeyConfig(PlayerIndex, KeybindActions[CurrentKeybindIndex], key);
+		CurrentKeybindIndex++;
+		KeyToHold = KeyCode.None;
+		if(CurrentKeybindIndex < KeybindActions.Length){
+			RebindButtonText.text = KeybindActions[CurrentKeybindIndex];
 		}
-		else if(configAction[0] == "player2"){
-			options.SetKeyConfig(1, configAction[1], key);
+		else{
+			RebindButtonText.text = "Rebind";
+			EndRebind();
 		}
-		
-		KeyText.text = key.ToString();
-	}*/
+	}
 }

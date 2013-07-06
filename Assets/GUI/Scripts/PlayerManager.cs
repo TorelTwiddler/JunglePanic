@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour {
 	private bool ShouldStartPlayerJoin = false;
 	private KeyCode JoinKey = KeyCode.None;
 	private List<string> LockedInputs = new List<string>();
+	public bool KeyboardRebinding = false;
 	
 	void Awake(){
 		Players = GetComponentsInChildren<PlayerSetup>();
@@ -23,7 +24,7 @@ public class PlayerManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(ShouldStartPlayerJoin){
+		if(ShouldStartPlayerJoin && !KeyboardRebinding){
 			ShouldStartPlayerJoin = false;
 			StartPlayerJoin(JoinKey);
 			//JoinKey = KeyCode.None;
