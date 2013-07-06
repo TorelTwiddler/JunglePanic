@@ -51,6 +51,27 @@ public class PlayerSetup : MonoBehaviour {
 				ListeningForKey = true;
 			}
 		}
+		
+		if(ListeningForKey && InputSource != "Keyboard"){
+			int joystickNumber = int.Parse(InputSource[8].ToString());
+			for(int i = 0; i < 20; i++){
+				int keyInt = 330 + (20 * joystickNumber) + i;
+				if(Input.GetKeyDown((KeyCode)keyInt)){
+					KeyToHold = (KeyCode)keyInt;
+					KeyHoldEnd = Time.time + 1.0f;
+					ListeningForKey = false;
+				}
+			}
+			
+			/*string keyString = InputSource + "Button";
+			for(int i = 0; i < 20; i++){
+				if(Input.GetKeyDown((keyString + i).ToLower())){
+					KeyToHold = (KeyCode)System.Enum.Parse(typeof(KeyCode), (keyString + i).ToLower());
+					KeyHoldEnd = Time.time + 1.0f;
+					ListeningForKey = false;
+				}
+			}*/
+		}
 	}
 	
 	void OnGUI(){
@@ -88,6 +109,8 @@ public class PlayerSetup : MonoBehaviour {
 		AllButtons.SetActive(true);
 		PlayerJoining = false;
 		PlayerManager.LockInputSource(PlayerIndex, KeyToHold);
+		GlobalOptions options = GlobalOptions.Instance;
+		options.SetPlayerTeam(PlayerIndex, 0);
 		if((int)KeyToHold >= 350){
 			InputSource = KeyToHold.ToString().Substring(0, 9);
 		}
@@ -105,6 +128,8 @@ public class PlayerSetup : MonoBehaviour {
 		//print("releasing input source " + KeyToHold.ToString());
 		PlayerManager.ReleaseInputSource(PlayerIndex, KeyToHold);
 		InputSource = "";
+		GlobalOptions options = GlobalOptions.Instance;
+		options.SetPlayerTeam(PlayerIndex, -1);
 	}
 	
 	public void ToggleStateChanged(string newState){

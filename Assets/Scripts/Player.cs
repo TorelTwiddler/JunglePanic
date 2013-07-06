@@ -87,9 +87,14 @@ public class Player : MonoBehaviour {
 			}
 		}
 		else{
-			horizontal = Input.GetAxis(InputSource + "LeftX");
-			horizontal = horizontal == 0 ? Input.GetAxis(InputSource + "DpadX") : 0;
-			horizontal = horizontal == 0 ? Input.GetAxis(InputSource + "RightX") : 0;
+			string[] axes = new string[3]{"LeftX", "DpadX", "RightX"};
+			foreach(string axis in axes){
+				float value = Input.GetAxis(InputSource + axis);
+				if(Mathf.Abs(value) > 0.5f){
+					horizontal = value;
+					break;
+				}
+			}
 		}
 		
 		Vector3 velocity = rigidbody.velocity;
@@ -117,9 +122,14 @@ public class Player : MonoBehaviour {
 			}
 		}
 		else{
-			vertical = Input.GetAxis(InputSource + "LeftY");
-			vertical = vertical == 0 ? Input.GetAxis(InputSource + "DpadY") : 0;
-			vertical = vertical == 0 ? Input.GetAxis(InputSource + "RightY") : 0;
+			string[] axes = new string[3]{"LeftY", "DpadY", "RightY"};
+			foreach(string axis in axes){
+				float value = Input.GetAxis(InputSource + axis);
+				if(Mathf.Abs(value) > 0.5f){
+					vertical = value;
+					break;
+				}
+			}
 		}
 		
 		if(vertical < -0.9f && OnPlatform){
