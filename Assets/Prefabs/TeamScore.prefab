@@ -361,10 +361,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81fd8ec0f847d0447a8bfaa4ae018b78, type: 3}
   m_Name: 
+  teamName: 
   points: 0
   scoreBar: {fileID: 100012}
   colorBar: {fileID: 100004}
-  barHeight: 5
+  barHeight: 10
   scoreText: {fileID: 100000, guid: e7b6d00ddd20692469f785c3174bb0cb, type: 2}
 --- !u!1001 &100100000
 Prefab:
