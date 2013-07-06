@@ -1,93 +1,140 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour{
-
+	
+	public enum AUDIOTEMPLATE
+	{
+		AMBIENT,
+		MUSIC,
+		SFX,
+		FOOTSTEP,
+		JUMP,
+	}
+	
+	[SerializeField]
+	List<AUDIOTEMPLATE> TemplateKeys;
+	[SerializeField]
+	List<AudioSource> TemplateValues;
+	
+	public Dictionary<AUDIOTEMPLATE, AudioSource> AudioTempates = new Dictionary<AUDIOTEMPLATE, AudioSource>();
+	
 	private static AudioManager s_instance;
 	
 	public static AudioManager Get()
 	{
-		if(s_instance == null)
-		{
-			s_instance = (new GameObject("AudioManager")).AddComponent<AudioManager>();
-		}
-		return s_instance ;
+		return s_instance;
 	}
 	
-	private Dictionary<string, AudioSource> m_allSounds = new Dictionary<string, AudioSource>();
+	private List<AudioSource> m_allSounds = new List<AudioSource>();
+	
+	public AudioClip[] m_playerFootsteps;
+	
+	public AudioClip[] m_playerJumps;
+	
+	void Awake()
+	{
+		s_instance = this;
+		DontDestroyOnLoad(gameObject);
+		
+		for(int i = 0; i < TemplateKeys.Count; i++)
+		{
+			AudioTempates.Add(TemplateKeys[i], TemplateValues[i]);
+		}
+	}
 	
 	void Start()
 	{
+		
 	}
 	
 	void Update()
 	{
-		foreach(string key in m_allSounds.Keys)
+		for(int i = 0; i < m_allSounds.Count; i++)
 		{
-			AudioSource addedSound = m_allSounds[key];
+			AudioSource addedSound = m_allSounds[i];
 			if(!addedSound.isPlaying)
 			{
-				//Destroy(addedSound);
+				Destroy(addedSound);
+				m_allSounds.RemoveAt(i);
+				i--;
 			}
 		}
 	}
 	
 	public void StopAllSounds()
 	{
-		foreach(string key in m_allSounds.Keys)
+		for(int i = 0; i < m_allSounds.Count; i++)
 		{
-			AudioSource addedSound = m_allSounds[key];
-			if(!addedSound.isPlaying)
-			{
-				Destroy(addedSound);
-			}
+			AudioSource addedSound = m_allSounds[i];
+			Destroy(addedSound);
+			m_allSounds.RemoveAt(i);
+			i--;
 		}
 	}
 	
-	public string GenerateUniqueKey()
-	{
-		int intOffset = 0;
-		System.Diagnostics.StackFrame returnStack = new System.Diagnostics.StackFrame(2);
-		string returnString = string.Format("Line({0}):{1}-{2}",returnStack.GetFileLineNumber(), returnStack.GetMethod().Name, intOffset);
-		while(m_allSounds.ContainsKey(returnString))
-		{
-			returnString = string.Format("Line({0}):{1}-{2}",returnStack.GetFileLineNumber(), returnStack.GetMethod().Name,++intOffset);
-		}
-		
-		return returnString;
-	}
-
 	public AudioSource PlaySound(AudioClip soundClip)
-	{
-		return PlaySound(GenerateUniqueKey(), soundClip);
+	{		
+	 	return PlaySound(AUDIOTEMPLATE.SFX, soundClip);
 	}
 	
-	public AudioSource PlaySound(string key, AudioClip soundClip)
+	public AudioSource PlaySound( AUDIOTEMPLATE template, AudioClip soundClip)
 	{
-		if(m_allSounds.ContainsKey(key))
-		{
-			m_allSounds[key].Play();
-			return m_allSounds[key];
-		}
-		
-	 	AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+		AudioSource newAudio = s_instance.gameObject.AddComponent<AudioSource>();
 		newAudio.clip = soundClip;
 		
+		SetSourceToTemplate(template, newAudio);
+		
 		newAudio.Play();
-		m_allSounds.Add(key, newAudio);
+		m_allSounds.Add(newAudio);
 		return newAudio;
 	}
 	
-	public bool StopSound(string key, AudioClip soundClip)
+	private void SetSourceToTemplate(AUDIOTEMPLATE template, AudioSource source)
 	{
-		if(m_allSounds.ContainsKey(key))
+		AudioSource templateSource = AudioTempates[template];
+		source.dopplerLevel = templateSource.dopplerLevel;
+		source.ignoreListenerPause = templateSource.ignoreListenerPause;
+		source.ignoreListenerVolume = templateSource.ignoreListenerVolume;
+		source.loop = templateSource.loop;
+		source.maxDistance = templateSource.maxDistance;
+		source.minDistance = templateSource.minDistance;
+		source.pan = templateSource.pan;
+		source.panLevel = templateSource.panLevel;
+		if(template == AUDIOTEMPLATE.FOOTSTEP || template == AUDIOTEMPLATE.JUMP)
 		{
-			m_allSounds[key].Stop();
-			return true;
+			source.pitch = Random.Range(0.5f, 2.0f);
+		}
+		else
+		{
+			source.pitch = templateSource.pitch;
+		}
+		source.playOnAwake = templateSource.playOnAwake;
+		source.priority = templateSource.priority;
+		source.rolloffMode = templateSource.rolloffMode;
+		source.spread = templateSource.spread;
+		source.timeSamples = templateSource.timeSamples;
+		source.velocityUpdateMode = templateSource.velocityUpdateMode;
+		source.volume = templateSource.volume;
+	}
+	
+	public bool StopSound(AudioClip soundClip)
+	{
+		List<AudioSource> allMatches = m_allSounds.FindAll(x => x.clip == soundClip);
+
+		foreach(AudioSource source in allMatches)
+		{
+			source.Stop();
 		}
 		
 		return false;
+	}
+	
+	public AudioClip GetRandomFootstep()
+	{
+		return s_instance.m_playerFootsteps[Random.Range(0, s_instance.m_playerFootsteps.Length)];
 	}
 	
 	

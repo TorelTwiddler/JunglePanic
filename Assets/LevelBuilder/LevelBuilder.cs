@@ -68,9 +68,7 @@ public class LevelBuilder : MonoBehaviour {
 			m_totalWeights += val.m_weightPercent;
 		}
 		BuildNewRandomLevel(levelWidth,levelHeight);
-		gameObject.AddComponent<AudioManager>();
-				
-		AudioManager.Get().PlaySound("BGMusic", m_levelMusic);
+		//AudioManager.Get().PlaySound(m_levelMusic);
 		AddTeams(numberOfTeams);
 		AddPlayers(playerTeams);
 		AddBall();

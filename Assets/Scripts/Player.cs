@@ -26,9 +26,12 @@ public class Player : MonoBehaviour {
 	public Vector3 BallOffset = new Vector3(0, 1.0f, 0);
 	public GameObject ScoreBar;
 	public Team team;
+	public float f_footStepInterval = 0.2f;
 	
 	private OTAnimatingSprite sprite;
 	private string playingFrameset = "";
+	
+	private float f_elapsedFootTime = 0.0f;
 	
 	private GlobalOptions options;
 	
@@ -70,6 +73,7 @@ public class Player : MonoBehaviour {
 			HandleJump();
 		}
 		HandleAnimation();
+		HandleSound();
 	}
 	
 	public void HandleHorizontal(){
@@ -107,6 +111,7 @@ public class Player : MonoBehaviour {
 	public void HandleJump(){
 		if(CanJump){
 			if(Input.GetKeyDown(JumpKey)){
+				PlayJumpSound();
 				CanJump = false;
 				Vector3 velocity = rigidbody.velocity;
 				rigidbody.velocity = velocity + new Vector3(0, JumpHeight, 0);
@@ -209,6 +214,37 @@ public class Player : MonoBehaviour {
 			else {
 				// standing, no ball
 				PlayAnimation("Stand");
+			}
+		}
+	}
+	
+	void PlayJumpSound()
+	{
+		//AudioManager.Get().PlaySound(AudioManager.AUDIOTEMPLATE.JUMP, AudioManager.Get().GetJump());
+	}
+	
+	public void HandleSound(){
+		if(f_elapsedFootTime < 1.0f)
+		{
+			f_elapsedFootTime += Time.deltaTime;
+		}
+		
+		if(f_elapsedFootTime > f_footStepInterval)
+		{
+			if (HasBall) {
+				if (!IsJumping() && rigidbody.velocity.magnitude > 1) {
+					// has ball, walking
+					AudioManager.Get().PlaySound(AudioManager.AUDIOTEMPLATE.FOOTSTEP, AudioManager.Get().GetRandomFootstep());
+					f_elapsedFootTime = 0;
+				}
+			}
+			else {
+				if (!IsJumping() && rigidbody.velocity.magnitude > 1) {
+					// walking, no ball
+					PlayAnimation("Walk");
+					AudioManager.Get().PlaySound(AudioManager.AUDIOTEMPLATE.FOOTSTEP, AudioManager.Get().GetRandomFootstep());
+					f_elapsedFootTime = 0;
+				}
 			}
 		}
 	}
