@@ -765,10 +765,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
   _name: Hamburger Animation
-  _fps: 1
-  _duration: 1
+  _fps: 10
+  _duration: .600000024
   framesets:
-  - name: 
+  - name: Idle
     container: {fileID: 11400002}
     startFrame: 0
     endFrame: 0
@@ -779,6 +779,18 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
+    _containerName: Hamburger Container
+  - name: Shine
+    container: {fileID: 11400002}
+    startFrame: 1
+    endFrame: 5
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 1
     _containerName: Hamburger Container
 --- !u!114 &11400002
 MonoBehaviour:
@@ -792,10 +804,10 @@ MonoBehaviour:
   m_Name: 
   _name: Hamburger Container
   _sheetSize: {x: 0, y: 0}
-  texture: {fileID: 2800000, guid: 25f7bd45de033574ea6c1c3291966499, type: 3}
+  texture: {fileID: 2800000, guid: 1e1eb0d6d4909ea4b9fc6d568eaaa6c4, type: 3}
   sizeTextures: []
   generateSprites: 0
-  _framesXY: {x: 1, y: 1}
+  _framesXY: {x: 3, y: 3}
   _frameSize: {x: 0, y: 0}
 --- !u!114 &11400004
 MonoBehaviour:
@@ -808,10 +820,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
   _name: Donut Animation
-  _fps: 1
-  _duration: 1
+  _fps: 10
+  _duration: .600000024
   framesets:
-  - name: 
+  - name: Idle
     container: {fileID: 11400014}
     startFrame: 0
     endFrame: 0
@@ -822,6 +834,18 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
+    _containerName: Donut Container
+  - name: Shine
+    container: {fileID: 11400014}
+    startFrame: 1
+    endFrame: 5
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 1
     _containerName: Donut Container
 --- !u!114 &11400006
 MonoBehaviour:
@@ -984,10 +1008,10 @@ MonoBehaviour:
   m_Name: 
   _name: Donut Container
   _sheetSize: {x: 0, y: 0}
-  texture: {fileID: 2800000, guid: 7ac1585923f605a4cba49a862e6241b1, type: 3}
+  texture: {fileID: 2800000, guid: 95df1a0530496e342b75f35ef3d36926, type: 3}
   sizeTextures: []
   generateSprites: 0
-  _framesXY: {x: 1, y: 1}
+  _framesXY: {x: 3, y: 3}
   _frameSize: {x: 0, y: 0}
 --- !u!114 &11400016
 MonoBehaviour:
@@ -1173,10 +1197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
   _name: Cake Animation
-  _fps: 1
-  _duration: 1
+  _fps: 10
+  _duration: .600000024
   framesets:
-  - name: 
+  - name: Idle
     container: {fileID: 11400026}
     startFrame: 0
     endFrame: 0
@@ -1187,6 +1211,18 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
+    _containerName: Cake Container
+  - name: Shine
+    container: {fileID: 11400026}
+    startFrame: 1
+    endFrame: 5
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 1
     _containerName: Cake Container
 --- !u!114 &11400026
 MonoBehaviour:
@@ -1200,10 +1236,10 @@ MonoBehaviour:
   m_Name: 
   _name: Cake Container
   _sheetSize: {x: 0, y: 0}
-  texture: {fileID: 2800000, guid: daf95b4c7231e184dbc6248537b74315, type: 3}
+  texture: {fileID: 2800000, guid: c94ab550e4df9fb41b21bce22f7c51a9, type: 3}
   sizeTextures: []
   generateSprites: 0
-  _framesXY: {x: 1, y: 1}
+  _framesXY: {x: 3, y: 3}
   _frameSize: {x: 0, y: 0}
 --- !u!114 &11400028
 MonoBehaviour:
@@ -1216,10 +1252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
   _name: Bacon Animation
-  _fps: 1
-  _duration: 1
+  _fps: 10
+  _duration: .600000024
   framesets:
-  - name: 
+  - name: Idle
     container: {fileID: 11400030}
     startFrame: 0
     endFrame: 0
@@ -1230,6 +1266,18 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
+    _containerName: Bacon Container
+  - name: Shine
+    container: {fileID: 11400030}
+    startFrame: 1
+    endFrame: 5
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 1
     _containerName: Bacon Container
 --- !u!114 &11400030
 MonoBehaviour:
@@ -1243,10 +1291,10 @@ MonoBehaviour:
   m_Name: 
   _name: Bacon Container
   _sheetSize: {x: 0, y: 0}
-  texture: {fileID: 2800000, guid: a576e186c6187f040b5f60c8532add2d, type: 3}
+  texture: {fileID: 2800000, guid: 36b14fd058360f0498d7a47393fda651, type: 3}
   sizeTextures: []
   generateSprites: 0
-  _framesXY: {x: 1, y: 1}
+  _framesXY: {x: 3, y: 3}
   _frameSize: {x: 0, y: 0}
 --- !u!114 &11400032
 MonoBehaviour:
@@ -1515,9 +1563,7 @@ MonoBehaviour:
     container: {fileID: 11400046}
     startFrame: 0
     endFrame: 1
-    frameNames:
-    - 
-    - 
+    frameNames: []
     frameNameMask: 
     sortFrameNames: 0
     playCount: 1
@@ -1529,9 +1575,7 @@ MonoBehaviour:
     container: {fileID: 11400046}
     startFrame: 2
     endFrame: 3
-    frameNames:
-    - 
-    - 
+    frameNames: []
     frameNameMask: 
     sortFrameNames: 0
     playCount: 1
@@ -1567,10 +1611,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
   _name: HotDog Animation
-  _fps: 1
-  _duration: 1
+  _fps: 10
+  _duration: .600000024
   framesets:
-  - name: 
+  - name: Idle
     container: {fileID: 11400050}
     startFrame: 0
     endFrame: 0
@@ -1581,6 +1625,18 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
+    _containerName: HotDog Container
+  - name: Shine
+    container: {fileID: 11400050}
+    startFrame: 1
+    endFrame: 5
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 1
     _containerName: HotDog Container
 --- !u!114 &11400050
 MonoBehaviour:
@@ -1594,10 +1650,10 @@ MonoBehaviour:
   m_Name: 
   _name: HotDog Container
   _sheetSize: {x: 0, y: 0}
-  texture: {fileID: 2800000, guid: d2c2f4d6560e3e14ab619169517625aa, type: 3}
+  texture: {fileID: 2800000, guid: b1eb502afeb3c5042bcce632ae31b855, type: 3}
   sizeTextures: []
   generateSprites: 0
-  _framesXY: {x: 1, y: 1}
+  _framesXY: {x: 3, y: 3}
   _frameSize: {x: 0, y: 0}
 --- !u!1001 &100100000
 Prefab:

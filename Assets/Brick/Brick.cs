@@ -48,6 +48,7 @@ public class Brick : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		GetComponentInChildren<OTAnimatingSprite>().onAnimationFinish = OnAnimationFinish;
 	}
 	
 	// Update is called once per frame
@@ -79,5 +80,9 @@ public class Brick : MonoBehaviour {
 		material.color = new Color(color.r, color.g, color.b, scoreText.renderer.material.color.a);
 		scoreText.renderer.sharedMaterial = material;
 		scoreText.text = points.ToString();
+	}
+
+	public void OnAnimationFinish(OTObject owner) {
+		GetComponentInChildren<OTAnimatingSprite>().PlayLoop("Idle");
 	}
 }
