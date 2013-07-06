@@ -37,17 +37,19 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4649b442911745458e2a7d1a89acf08, type: 3}
   m_Name: 
-  TemplateKeys: 00000000010000000200000003000000
+  TemplateKeys: 0000000001000000020000000300000004000000
   TemplateValues:
   - {fileID: 8200000, guid: 8abea9c3091dbcd4099f34a1d68a72ac, type: 2}
   - {fileID: 8200000, guid: dadfea18c1fdb104db9e2f0c282f70f8, type: 2}
   - {fileID: 8200000, guid: f16ecdbf0a07ad04695a21f374d184c0, type: 2}
   - {fileID: 8200000, guid: da0f9a3e2342ca041b8f6a8c4b90f073, type: 2}
+  - {fileID: 8200000, guid: f2d276ca7dc0eff44b6f1c8fec1f43a1, type: 2}
   m_playerFootsteps:
   - {fileID: 8300000, guid: c334ac77310562a46b7f222482094bda, type: 3}
   - {fileID: 8300000, guid: 1551fa7e4b0523c4195eddfa349e9217, type: 3}
   - {fileID: 8300000, guid: 814d11f26e6fd3744907c87369114aaa, type: 3}
   - {fileID: 8300000, guid: 542e66d507ea6274baf4cedb819be0f5, type: 3}
+  m_playerJumps: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
