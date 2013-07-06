@@ -32,6 +32,8 @@ public class Player : MonoBehaviour {
 	
 	private GlobalOptions options;
 	
+	private bool OnPlatform = false;
+	
 	void Awake () {
 		sprite = GetComponentInChildren<OTAnimatingSprite>();
 		options = GlobalOptions.Instance;
@@ -98,9 +100,10 @@ public class Player : MonoBehaviour {
 	}
 	
 	public void HandleVertical(){
-		if(Input.GetKeyDown(DownKey)){
+		if(Input.GetKeyDown(DownKey) && OnPlatform){
 			gameObject.layer = 12;
 			CanJump = false;
+			OnPlatform = false;
 		}
 	}
 	
@@ -130,9 +133,11 @@ public class Player : MonoBehaviour {
 		switch (collision.gameObject.tag) {
 		case "Floor":
 			CanJump = true;
+			OnPlatform = false;
 			break;
 		case "Platform":
 			CanJump = true;
+			OnPlatform = true;
 			break;
 		case "Player":
 			Player otherPlayer = collision.gameObject.GetComponent<Player>();
