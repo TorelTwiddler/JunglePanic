@@ -9,11 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
-  - 23: {fileID: 2300000}
+  - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
-  m_Layer: 10
-  m_Name: Player1 AnimatingSprite
-  m_TagString: Untagged
+  m_Layer: 0
+  m_Name: Donut Brick
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,12 +27,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 33: {fileID: 3300002}
-  - 65: {fileID: 6500000}
-  - 54: {fileID: 5400000}
+  - 23: {fileID: 2300002}
   - 114: {fileID: 11400002}
-  m_Layer: 10
-  m_Name: Player1
-  m_TagString: Player
+  m_Layer: 0
+  m_Name: Donut AnimatingSprite
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,29 +42,29 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400002}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
+  m_LocalPosition: {x: -13.0684938, y: -9.79827118, z: -14.4083977}
+  m_LocalScale: {x: 2, y: 1, z: .5}
+  m_Children:
+  - {fileID: 400002}
+  m_Father: {fileID: 0}
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.48256016, y: -10, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children:
-  - {fileID: 400000}
-  m_Father: {fileID: 0}
---- !u!23 &2300000
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+--- !u!23 &2300002
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,35 +83,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3300002
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5400000
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 120
-  m_CollisionDetection: 0
+  m_Mesh: {fileID: 0}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
+  m_GameObject: {fileID: 100000}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -127,12 +111,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b8e95039e7d7e488be4a739f0f3e29, type: 3}
+  m_Name: 
+  m_weightPercent: 20
+  i_hitsLeft: 1
+  typeName: Donut
+  i_points: 200
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e0774980171c514ea93208b47048a0c, type: 3}
   m_Name: 
-  _name: Player1 AnimatingSprite
+  _name: Donut AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
-  _rotation: 0
+  _rotation: 180
   _pivot: 4
   _pivotPoint: {x: 0, y: 0}
   _registerInput: 0
@@ -152,8 +150,8 @@ MonoBehaviour:
     width: 0
     height: 0
   protoType: 
-  baseName: Player1 AnimatingSprite
-  oSize: {x: .592708349, y: .790277779}
+  baseName: Donut AnimatingSprite
+  oSize: {x: .948333323, y: .474166662}
   imageSize: {x: 0, y: 0}
   _offset: {x: 0, y: 0}
   _baseOffset: {x: 0, y: 0}
@@ -169,10 +167,10 @@ MonoBehaviour:
   _frameIndex: 0
   _frameName: frame0
   _spriteContainer: {fileID: 0}
-  _containerName: Player 1 Container
+  _containerName: Donut Container
   _newSprite: 0
   _animation: {fileID: 0}
-  _animationFrameset: 
+  _animationFrameset: Idle
   _speed: 1
   _looping: 1
   _numberOfPlays: -1
@@ -180,32 +178,7 @@ MonoBehaviour:
   _startAtRandomFrame: 0
   _destroyWhenFinished: 0
   animationPreview: 0
-  _animationName: Player 1 Animation
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19afa8d918a532a4f99b2e0d2efcacd0, type: 3}
-  m_Name: 
-  canMove: 1
-  InputType: 0
-  PlayerSpeed: 25
-  PlayerAcceleration: 300
-  JumpHeight: 20
-  IsInvulnerable: 0
-  f_InvulnerableCooldown: 1
-  CanJump: 1
-  HasBall: 0
-  CanCatch: 1
-  f_CatchCooldown: .5
-  CarriedBall: {fileID: 0}
-  BallOffset: {x: 0, y: 1.5, z: 0}
-  ScoreBar: {fileID: 0}
-  team: {fileID: 0}
+  _animationName: Donut Animation
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -215,6 +188,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 100002}
+  m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
   m_IsExploded: 1

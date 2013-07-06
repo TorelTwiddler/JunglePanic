@@ -66,11 +66,18 @@ public class Brick : MonoBehaviour {
 		
 		if(hitsLeft <= 0)
 		{
-			TextMesh scoreText = (Instantiate(owningPlayer.ScoreText, transform.position, new Quaternion(0,0,0,0)) as GameObject).GetComponent<TextMesh>();
-			scoreText.text = points.ToString();
+			SpawnText(owningPlayer);
 			owningPlayer.GivePoints(points);
 			Destroy(gameObject);
 		}
 	}
 	
+	public void SpawnText (Player player) {
+		TextMesh scoreText = (Instantiate(player.GetScoreText(), transform.position, new Quaternion(0,0,0,0)) as GameObject).GetComponent<TextMesh>();
+		Color color = player.GetColor();
+		Material material = new Material(scoreText.renderer.material);
+		material.color = new Color(color.r, color.g, color.b, scoreText.renderer.material.color.a);
+		scoreText.renderer.sharedMaterial = material;
+		scoreText.text = points.ToString();
+	}
 }

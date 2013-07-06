@@ -3,13 +3,15 @@ using System.Collections;
 
 public class Team : MonoBehaviour {
 
+	public string teamName = "";
 	public float points = 0.0f;
 	public GameObject scoreBar;
 	public GameObject colorBar;
 	public float barHeight = 5;
+	public GameObject scoreText;
 	
 	private float totalPoints;
-	private Color color = Color.white;
+	private Color color = Color.magenta;
 	private int numberOfTeams;
 	
 	void Awake () {
@@ -40,7 +42,11 @@ public class Team : MonoBehaviour {
 		points += points_given;
 		scoreBar.transform.localScale = new Vector3((points / (totalPoints / numberOfTeams)) * barHeight, 1, 1);
 		if (points >= totalPoints / 2) {
-			GameObject.Find("SceneManager").GetComponent<SceneManager>().LoadMainMenu();
+			GameObject.Find("GameController").GetComponent<GameController>().EndGame(this);
 		}
+	}
+	
+	public void SetTeamName(string name) {
+		teamName = name;
 	}
 }
