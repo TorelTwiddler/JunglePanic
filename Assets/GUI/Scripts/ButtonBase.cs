@@ -103,7 +103,7 @@ public class ButtonBase : MonoBehaviour {
 		
 	}
 	
-	protected void ChangeState(ButtonStates newState){
+	protected virtual void ChangeState(ButtonStates newState){
 		CurrentState = newState;
 		UpdateMaterial((int)newState);
 	}

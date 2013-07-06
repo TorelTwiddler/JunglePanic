@@ -6,6 +6,7 @@ public class MainMenuFunctions : MonoBehaviour {
 	private MenuController MenuController;
 	
 	public Vector3[] MenuCameraPositions;
+	public PlayerManager PlayerManager;
 	
 	void Awake(){
 		MenuController = GameObject.Find("MenuController").GetComponent<MenuController>();
@@ -27,6 +28,12 @@ public class MainMenuFunctions : MonoBehaviour {
 	
 	public void StartGame(){
 		MenuController.StartGame();
+	}
+	
+	public void ShowPlayerSetup(){
+		Transform t = Camera.main.transform;
+		t.position = MenuCameraPositions[3];
+		PlayerManager.enabled = true;
 	}
 	
 	public void ShowMainMenu(){
