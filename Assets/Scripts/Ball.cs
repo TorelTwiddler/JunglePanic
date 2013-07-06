@@ -9,11 +9,15 @@ public class Ball : MonoBehaviour {
 	public bool IsHeldByPlayer = false;
 	public Player CarryingPlayer;
 	public ParticleSystem Particles;
+	
+	private OTAnimatingSprite animatingSprite;
+	private bool isEating = false;
 
 	// Use this for initialization
 	void Start () {
 		// rigidbody.AddForce(Vector3.down * f_speed * Time.deltaTime, ForceMode.VelocityChange);
-	
+		animatingSprite = GetComponentInChildren<OTAnimatingSprite>();
+		animatingSprite.onAnimationFinish = OnAnimationFinish;
 	}
 	
 	// Update is called once per frame
@@ -46,6 +50,7 @@ public class Ball : MonoBehaviour {
 				break;
 			case "Brick":
 				collision.gameObject.GetComponent<Brick>().Damage(this.m_lastPlayer);
+				PlayEatAnimation();
 				RotateBall();
 				break;
 			default:
@@ -79,5 +84,18 @@ public class Ball : MonoBehaviour {
 		
 		IsHeldByPlayer = false;
 		CarryingPlayer = null;
+	}
+	
+	public void PlayEatAnimation() {
+		if (!isEating) {
+			animatingSprite.PlayOnce("Red Eat");
+			isEating = true;
+		}
+		
+	}
+	
+	public void OnAnimationFinish (OTObject owner) {
+		animatingSprite.Play("Red Idle");
+		isEating = false;
 	}
 }
