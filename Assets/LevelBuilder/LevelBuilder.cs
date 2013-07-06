@@ -39,7 +39,7 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private List<Player> players = new List<Player>();
 	
-	private Team[] teams;
+	private List<Team> teams = new List<Team>();
 	
 	private Transform[] teamScoreStarts = new Transform[4];
 	
@@ -263,14 +263,22 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private void AddTeams(int numberOfTeams)
 	{
-		teams = new Team[numberOfTeams];
+		GlobalOptions options = GlobalOptions.Instance;
+		//teams = new Team[numberOfTeams];
 		for (int i = 0; i < numberOfTeams; i++) {
+			if(!options.TeamsInGame[i]){
+				return;
+			}
 			GameObject teamScore = (Instantiate(teamScorePrefab, teamScoreStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
 			teamScore.name = teamScore.name.Replace("(Clone)", "");
-			teams[i] = teamScore.GetComponent<Team>();
+			teams.Add(teamScore.GetComponent<Team>());
 			teams[i].SetColor(teamColors[i]);
 			teams[i].SetTeamName(teamNames[i]);
 		}
+	}
+	
+	public int GetNumberOfTeams(){
+		return teams.Count;
 	}
 	
 	private void StartGame() {
