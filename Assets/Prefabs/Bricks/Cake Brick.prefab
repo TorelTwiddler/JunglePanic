@@ -117,6 +117,7 @@ MonoBehaviour:
   i_hitsLeft: 3
   typeName: Cake
   i_points: 500
+  crumbMaterial: {fileID: 2100000, guid: 86ce7f4f192e6be4bb24c5098809b914, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

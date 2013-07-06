@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: HotDog Brick
+  m_Name: Cookie Brick
   m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2300002}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: HotDog AnimatingSprite
+  m_Name: Cookie AnimatingSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -113,11 +113,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2b8e95039e7d7e488be4a739f0f3e29, type: 3}
   m_Name: 
-  m_weightPercent: 35
+  m_weightPercent: 10
   i_hitsLeft: 1
-  typeName: HotDog
+  typeName: Cookie
   i_points: 100
-  crumbMaterial: {fileID: 2100000, guid: 9e5a54b0e2b298a40b612d7ccde2f652, type: 2}
+  crumbMaterial: {fileID: 2100000, guid: 7058cc0128eca5742b7afd964633d4d4, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,10 +128,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e0774980171c514ea93208b47048a0c, type: 3}
   m_Name: 
-  _name: HotDog AnimatingSprite
+  _name: Cookie AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
-  _rotation: 180.000015
+  _rotation: 2.36782926e-05
   _pivot: 4
   _pivotPoint: {x: 0, y: 0}
   _registerInput: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
     width: 0
     height: 0
   protoType: 
-  baseName: HotDog AnimatingSprite
+  baseName: Cookie AnimatingSprite
   oSize: {x: 2.84500003, y: 1.42250001}
   imageSize: {x: 0, y: 0}
   _offset: {x: 0, y: 0}

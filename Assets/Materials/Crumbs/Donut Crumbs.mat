@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Ball
-  m_Shader: {fileID: 30, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: Donut Crumbs
+  m_Shader: {fileID: 10751, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_SavedProperties:
     serializedVersion: 2
@@ -16,21 +16,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: ae8f5c2b2965e984fb69a5bbf69e7546, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Illum
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+          m_Texture: {fileID: 2800000, guid: 95df1a0530496e342b75f35ef3d36926, type: 3}
+          m_Scale: {x: .239999995, y: .200000003}
+          m_Offset: {x: .0500000007, y: .725000024}
     m_Floats:
       data:
         first:
-          name: _EmissionLM
-        second: 0
+          name: _Cutoff
+        second: .515384614
     m_Colors:
       data:
         first:

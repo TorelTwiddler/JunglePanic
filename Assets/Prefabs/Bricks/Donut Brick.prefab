@@ -117,6 +117,7 @@ MonoBehaviour:
   i_hitsLeft: 1
   typeName: Donut
   i_points: 200
+  crumbMaterial: {fileID: 2100000, guid: 4dd5c0b6209cce7418a71e3799b22a00, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

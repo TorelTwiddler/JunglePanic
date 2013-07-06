@@ -117,6 +117,7 @@ MonoBehaviour:
   i_hitsLeft: 2
   typeName: Bacon
   i_points: 300
+  crumbMaterial: {fileID: 2100000, guid: d49b757bb5d48244d8d316fad55c09f6, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,10 +9,12 @@ public class Team : MonoBehaviour {
 	public GameObject colorBar;
 	public float barHeight = 5;
 	public GameObject scoreText;
+	public Transform particlePoint;
 	
 	private float totalPoints;
 	private Color color = Color.magenta;
 	private int numberOfTeams;
+	
 	
 	void Awake () {
 		totalPoints = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>().totalPoints;
@@ -49,5 +51,9 @@ public class Team : MonoBehaviour {
 	
 	public void SetTeamName(string name) {
 		teamName = name;
+	}
+	
+	public Transform GetParticlePoint() {
+		return particlePoint;
 	}
 }
