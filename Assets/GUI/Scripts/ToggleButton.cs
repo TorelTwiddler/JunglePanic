@@ -22,5 +22,9 @@ public class ToggleButton : ButtonBase {
 	protected virtual void NextToggleState(){
 		//print("Go to the next toggle state");
 		CurrentToggleState = CurrentToggleState >= ToggleStates.Count - 1 ? 0 : CurrentToggleState + 1;
+		CallbackGameObject.SendMessage("ToggleStateChanged", ToggleStates[CurrentToggleState], SendMessageOptions.DontRequireReceiver);
+		if(ButtonText != null){
+			ButtonText.text = ToggleStates[CurrentToggleState];
+		}
 	}
 }

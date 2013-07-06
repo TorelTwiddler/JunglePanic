@@ -37,7 +37,7 @@ public class LevelBuilder : MonoBehaviour {
 	
 	public int[] playerTeams;
 	
-	private Player[] players;
+	private List<Player> players = new List<Player>();
 	
 	private Team[] teams;
 	
@@ -50,6 +50,8 @@ public class LevelBuilder : MonoBehaviour {
 	private OTAnimation ballAnimation;
 	
 	void Awake () {
+		GlobalOptions options = GlobalOptions.Instance;
+		playerTeams = options.GetPlayerTeams();
 		// This is hardcoded to 4 players and 4 teams.
 		for (int i = 0; i < 4; i++) {
 			GameObject player = playerPrefabs[i];
@@ -235,14 +237,17 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private void AddPlayers(int[] playerTeams)
 	{
-		players = new Player[playerTeams.Length];
+		//players = new Player[playerTeams.Length];
 		for (int i = 0; i < playerTeams.Length; i++) {
+			if(playerTeams[i] < 0){
+				return;
+			}
 			GameObject player = (Instantiate(playerPrefabs[i], playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
 			player.name = player.name.Replace("(Clone)", "");
 			player.GetComponent<Player>().team = teams[playerTeams[i]];
 			OTAnimatingSprite playerSprite = player.GetComponentInChildren<OTAnimatingSprite>();
 			playerSprite.animation = playerAnimations[i];
-			players[i] = player.GetComponent<Player>();
+			players.Add(player.GetComponent<Player>());
 		}
 	}
 	
@@ -268,6 +273,6 @@ public class LevelBuilder : MonoBehaviour {
 	
 	private void StartGame() {
 		GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
-		gameController.StartGame(players);
+		gameController.StartGame(players.ToArray());
 	}
 }

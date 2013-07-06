@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,6 +17,8 @@ public class GlobalOptions{
 		PlayerConfigs.Add(new Dictionary<string,KeyCode>(){{"MoveLeft",KeyCode.LeftArrow},{"MoveRight",KeyCode.RightArrow},{"MoveDown",KeyCode.DownArrow},{"Jump",KeyCode.KeypadEnter}});
 		PlayerConfigs.Add(new Dictionary<string,KeyCode>(){{"MoveLeft",KeyCode.Z},{"MoveRight",KeyCode.C},{"MoveDown",KeyCode.X},{"Jump",KeyCode.V}});
 		PlayerConfigs.Add(new Dictionary<string,KeyCode>(){{"MoveLeft",KeyCode.Q},{"MoveRight",KeyCode.E},{"MoveDown",KeyCode.W},{"Jump",KeyCode.R}});
+		
+		TeamsInGame[0] = true;	//Red team is automatically included
 		//LoadPlayerConfig();
 	}
 	
@@ -24,14 +27,47 @@ public class GlobalOptions{
 	};
 	
 	public List<Dictionary<string,KeyCode>> PlayerConfigs = new List<Dictionary<string,KeyCode>>();
+	//team order is Red, Blue, Green, White
+	public bool[] TeamsInGame = new bool[4];
+	public int[] PlayerTeamAssignment = new int[4]{-1, -1, -1, -1};	//default everyone to no team
+	//this will be "Keyboard", "Joystick1", "Joystick2", "Joystick3", "Joystick4", or ""
+	public string[] PlayerInputSources = new string[4];
 	
 	public void SetKeyConfig(int playerIndex, string action, KeyCode newKey){
 		//Debug.Log("Player " + playerIndex + "s " + action + " changed to " + newKey.ToString());
 		PlayerConfigs[playerIndex][action] = newKey;
 	}
 	
-	public Dictionary<string,KeyCode> GetKeyConfig(int playerIndex){
+	public Dictionary<string,KeyCode> GetPlayerConfig(int playerIndex){
 		return PlayerConfigs[playerIndex];
+	}
+	
+	public void SetPlayerTeam(int index, int team){
+		PlayerTeamAssignment[index] = team;
+		int indexOf = -1;
+		for(int i = 0; i < 4; i++){
+			indexOf = Array.IndexOf(PlayerTeamAssignment, i);
+			TeamsInGame[i] = indexOf >= 0;
+		}
+		/*foreach(bool element in TeamsInGame){
+			Debug.Log(element.ToString());
+		}*/
+		//Debug.Log(string.Join(',', TeamsInGame));
+	}
+	
+	public int[] GetPlayerTeams(){
+		return PlayerTeamAssignment;
+	}
+	
+	public void SetPlayerInputSource(int index, string source){
+		PlayerInputSources[index] = source;
+	}
+	
+	public string GetPlayerInputSource(int index){
+		if(index < 0){
+			return "";
+		}
+		return PlayerInputSources[index];
 	}
 	
 	/*public void SavePlayerConfigs(){

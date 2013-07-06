@@ -4,14 +4,10 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 	
-	public enum InputTypes{
-		Keyboard,
-		Controller
-	};
 	
 	public bool canMove = true;
 	
-	public InputTypes InputType = InputTypes.Keyboard;
+	public string InputSource = "Keyboard";
 	private KeyCode LeftKey, RightKey, DownKey, JumpKey;
 	public float PlayerSpeed = 25.0f;
 	public float PlayerAcceleration = 300.0f;
@@ -35,6 +31,8 @@ public class Player : MonoBehaviour {
 	
 	private GlobalOptions options;
 	
+	private bool OnPlatform = false;
+	
 	void Awake () {
 		sprite = GetComponentInChildren<OTAnimatingSprite>();
 		options = GlobalOptions.Instance;
@@ -42,24 +40,30 @@ public class Player : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		Dictionary<string,KeyCode> playerConfig = new Dictionary<string,KeyCode>();
+		int playerIndex = -1;
 		switch (name){
 			case "Player1":
-				playerConfig = options.PlayerConfigs[0];
+				playerIndex = 0;
 				break;
 			case "Player2":
-				playerConfig = options.PlayerConfigs[1];
+				playerIndex = 1;
 				break;
 			case "Player3":
-				playerConfig = options.PlayerConfigs[2];
+				playerIndex = 2;
 				break;
 			case "Player4":
-				playerConfig = options.PlayerConfigs[3];
+				playerIndex = 3;
 				break;
 		}
-		LeftKey = playerConfig["MoveLeft"];
-		RightKey = playerConfig["MoveRight"];
-		DownKey = playerConfig["MoveDown"];
+		
+		InputSource = options.GetPlayerInputSource(playerIndex);
+		Dictionary<string,KeyCode> playerConfig = new Dictionary<string,KeyCode>();
+		playerConfig = options.GetPlayerConfig(playerIndex);
+		if(InputSource == "Keyboard"){
+			LeftKey = playerConfig["MoveLeft"];
+			RightKey = playerConfig["MoveRight"];
+			DownKey = playerConfig["MoveDown"];
+		}
 		JumpKey = playerConfig["Jump"];
 	}
 	
@@ -78,12 +82,25 @@ public class Player : MonoBehaviour {
 	
 	public void HandleHorizontal(){
 		float horizontal = 0.0f;
-		if(Input.GetKey(LeftKey)){
-			horizontal = -1.0f;
+		if(InputSource == "Keyboard"){
+			if(Input.GetKey(LeftKey)){
+				horizontal = -1.0f;
+			}
+			else if(Input.GetKey(RightKey)){
+				horizontal = 1.0f;
+			}
 		}
-		else if(Input.GetKey(RightKey)){
-			horizontal = 1.0f;
+		else{
+			string[] axes = new string[3]{"LeftX", "DpadX", "RightX"};
+			foreach(string axis in axes){
+				float value = Input.GetAxis(InputSource + axis);
+				if(Mathf.Abs(value) > 0.5f){
+					horizontal = value;
+					break;
+				}
+			}
 		}
+		
 		Vector3 velocity = rigidbody.velocity;
 		if(horizontal == 0){
 			velocity.x = 0;
@@ -102,9 +119,27 @@ public class Player : MonoBehaviour {
 	}
 	
 	public void HandleVertical(){
-		if(Input.GetKeyDown(DownKey)){
+		float vertical = 0.0f;
+		if(InputSource == "Keyboard"){
+			if(Input.GetKey(DownKey)){
+				vertical = -1.0f;
+			}
+		}
+		else{
+			string[] axes = new string[3]{"LeftY", "DpadY", "RightY"};
+			foreach(string axis in axes){
+				float value = Input.GetAxis(InputSource + axis);
+				if(Mathf.Abs(value) > 0.5f){
+					vertical = value;
+					break;
+				}
+			}
+		}
+		
+		if(vertical < -0.9f && OnPlatform){
 			gameObject.layer = 12;
 			CanJump = false;
+			OnPlatform = false;
 		}
 	}
 	
@@ -135,9 +170,11 @@ public class Player : MonoBehaviour {
 		switch (collision.gameObject.tag) {
 		case "Floor":
 			CanJump = true;
+			OnPlatform = false;
 			break;
 		case "Platform":
 			CanJump = true;
+			OnPlatform = true;
 			break;
 		case "Player":
 			Player otherPlayer = collision.gameObject.GetComponent<Player>();
