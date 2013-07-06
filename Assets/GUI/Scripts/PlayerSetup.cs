@@ -5,6 +5,7 @@ public class PlayerSetup : MonoBehaviour {
 	
 	public TextMesh JoinText;
 	public GameObject AllButtons;
+	public int PlayerIndex;
 	private PlayerManager PlayerManager;
 	private bool PlayerJoined = false;
 	private bool PlayerJoining = false;
@@ -27,13 +28,11 @@ public class PlayerSetup : MonoBehaviour {
 		if(PlayerJoining){
 			if(Input.GetKey(KeyToHold)){
 				if(Time.time > KeyHoldEnd){
-					PlayerJoined = true;
-					JoinText.renderer.enabled = false;
-					AllButtons.SetActive(true);
+					AddPlayer();
 				}
 			}
 			else{
-				KeyToHold = KeyCode.None;
+				//KeyToHold = KeyCode.None;
 			}
 		}
 	}
@@ -64,15 +63,25 @@ public class PlayerSetup : MonoBehaviour {
 		return PlayerJoined;
 	}
 	
+	public void AddPlayer(){
+		PlayerJoined = true;
+		JoinText.renderer.enabled = false;
+		AllButtons.SetActive(true);
+		PlayerManager.LockInputSource(PlayerIndex, KeyToHold);
+	}
+	
 	public void RemovePlayer(){
 		AllButtons.SetActive(false);
 		enabled = false;
 		JoinText.renderer.enabled = true;
 		PlayerJoined = false;
 		PlayerJoining = false;
+		//print("releasing input source " + KeyToHold.ToString());
+		PlayerManager.ReleaseInputSource(PlayerIndex, KeyToHold);
 	}
 	
 	public void ToggleStateChanged(string newState){
+		GlobalOptions options = GlobalOptions.Instance;
 		switch(newState){
 			case "Ready!":
 				IsReady = true;
@@ -80,6 +89,18 @@ public class PlayerSetup : MonoBehaviour {
 				break;
 			case "Ready?":
 				IsReady = false;
+				break;
+			case "Red":
+				options.SetPlayerTeam(PlayerIndex, 0);
+				break;
+			case "Blue":
+				options.SetPlayerTeam(PlayerIndex, 1);
+				break;
+			case "Green":
+				options.SetPlayerTeam(PlayerIndex, 2);
+				break;
+			case "White":
+				options.SetPlayerTeam(PlayerIndex, 3);
 				break;
 			default:
 				break;
