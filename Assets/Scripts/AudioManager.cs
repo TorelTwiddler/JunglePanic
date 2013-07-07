@@ -30,10 +30,6 @@ public class AudioManager : MonoBehaviour{
 	
 	private List<AudioSource> m_allSounds = new List<AudioSource>();
 	
-	public AudioClip[] m_playerFootsteps;
-	
-	public AudioClip[] m_playerJumps;
-	
 	void Awake()
 	{
 		s_instance = this;
@@ -77,16 +73,21 @@ public class AudioManager : MonoBehaviour{
 	
 	public AudioSource PlaySound(AudioClip soundClip)
 	{		
-	 	return PlaySound(AUDIOTEMPLATE.SFX, soundClip);
+	 	return PlaySound(0.0f, AUDIOTEMPLATE.SFX, soundClip);
 	}
 	
-	public AudioSource PlaySound( AUDIOTEMPLATE template, AudioClip soundClip)
+	public AudioSource PlaySound( float panAmount, AUDIOTEMPLATE template, AudioClip soundClip)
 	{
+		if(soundClip == null)
+		{
+			return null;
+		}
+		
 		AudioSource newAudio = s_instance.gameObject.AddComponent<AudioSource>();
 		newAudio.clip = soundClip;
 		
 		SetSourceToTemplate(template, newAudio);
-		
+		newAudio.pan = panAmount;
 		newAudio.Play();
 		m_allSounds.Add(newAudio);
 		return newAudio;
@@ -103,9 +104,13 @@ public class AudioManager : MonoBehaviour{
 		source.minDistance = templateSource.minDistance;
 		source.pan = templateSource.pan;
 		source.panLevel = templateSource.panLevel;
-		if(template == AUDIOTEMPLATE.FOOTSTEP || template == AUDIOTEMPLATE.JUMP)
+		if(template == AUDIOTEMPLATE.FOOTSTEP)
 		{
 			source.pitch = Random.Range(0.5f, 2.0f);
+		}
+		else if ( template == AUDIOTEMPLATE.JUMP)
+		{
+			source.pitch = Random.Range(0.9f, 1.1f);
 		}
 		else
 		{
@@ -130,11 +135,6 @@ public class AudioManager : MonoBehaviour{
 		}
 		
 		return false;
-	}
-	
-	public AudioClip GetRandomFootstep()
-	{
-		return s_instance.m_playerFootsteps[Random.Range(0, s_instance.m_playerFootsteps.Length)];
 	}
 	
 	
