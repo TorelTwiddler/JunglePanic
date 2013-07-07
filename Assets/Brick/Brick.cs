@@ -17,7 +17,7 @@ public class Brick : MonoBehaviour {
 		}
 	}
 	
-	public int m_weightPercent = 25;
+	public float m_weightPercent = 25.0f;
 	
 	public delegate void BrickHitDelegate(Brick hitBrick, int hitsLeft);
 	
@@ -46,6 +46,8 @@ public class Brick : MonoBehaviour {
 	public string typeName;
 	public int i_points;
 	
+	public Material crumbMaterial;
+	
 	// Use this for initialization
 	void Start () {
 		GetComponentInChildren<OTAnimatingSprite>().onAnimationFinish = OnAnimationFinish;
@@ -58,6 +60,7 @@ public class Brick : MonoBehaviour {
 	
 	public void Damage(Player owningPlayer)
 	{
+		SpawnCrumbs(owningPlayer);
 		hitsLeft -= 1;
 		
 		if(OnHit != null)
@@ -84,5 +87,12 @@ public class Brick : MonoBehaviour {
 
 	public void OnAnimationFinish(OTObject owner) {
 		GetComponentInChildren<OTAnimatingSprite>().PlayLoop("Idle");
+	}
+	
+	public void SpawnCrumbs (Player owningPlayer) {
+		GameObject particles = Instantiate(Resources.Load("Crumb Particle System"), transform.position, new Quaternion(0,0,0,0)) as GameObject;
+		particles.GetComponent<ParticleSystem>().renderer.material = crumbMaterial;
+		
+		particles.GetComponent<ParticleDirector>().target = owningPlayer.GetParticlePoint();
 	}
 }

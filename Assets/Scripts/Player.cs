@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	public string InputSource = "Keyboard";
 	private KeyCode LeftKey, RightKey, DownKey, JumpKey;
 	public float PlayerSpeed = 25.0f;
+	public float BallCarrySpeed = 20.0f;
 	public float PlayerAcceleration = 300.0f;
 	public float JumpHeight = 20.0f;
 	public bool IsInvulnerable = false;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour {
 	private GlobalOptions options;
 	
 	private bool OnPlatform = false;
+	public bool TouchingWall = false;
 	
 	void Awake () {
 		sprite = GetComponentInChildren<OTAnimatingSprite>();
@@ -94,7 +96,7 @@ public class Player : MonoBehaviour {
 			string[] axes = new string[3]{"LeftX", "DpadX", "RightX"};
 			foreach(string axis in axes){
 				float value = Input.GetAxis(InputSource + axis);
-				if(Mathf.Abs(value) > 0.5f){
+				if(Mathf.Abs(value) > 0.1f){
 					horizontal = value;
 					break;
 				}
@@ -114,7 +116,8 @@ public class Player : MonoBehaviour {
 			transform.eulerAngles = Vector3.zero;
 		}
 		velocity.x += horizontal * PlayerAcceleration * Time.deltaTime;
-		velocity.x = Mathf.Clamp(velocity.x, -PlayerSpeed, PlayerSpeed);
+		float maxSpeed = HasBall ? BallCarrySpeed : PlayerSpeed;
+		velocity.x = Mathf.Clamp(velocity.x, -maxSpeed, maxSpeed);
 		rigidbody.velocity = velocity;
 	}
 	
@@ -129,14 +132,14 @@ public class Player : MonoBehaviour {
 			string[] axes = new string[3]{"LeftY", "DpadY", "RightY"};
 			foreach(string axis in axes){
 				float value = Input.GetAxis(InputSource + axis);
-				if(Mathf.Abs(value) > 0.5f){
+				if(Mathf.Abs(value) > 0.1f){
 					vertical = value;
 					break;
 				}
 			}
 		}
 		
-		if(vertical < -0.9f && OnPlatform){
+		if(vertical < -0.5f && OnPlatform){
 			gameObject.layer = 12;
 			CanJump = false;
 			OnPlatform = false;
@@ -176,6 +179,9 @@ public class Player : MonoBehaviour {
 			CanJump = true;
 			OnPlatform = true;
 			break;
+		case "Wall":
+			TouchingWall = true;
+			break;
 		case "Player":
 			Player otherPlayer = collision.gameObject.GetComponent<Player>();
 			if(otherPlayer.HasBall && !otherPlayer.IsInvulnerable && CanCatch){
@@ -185,6 +191,14 @@ public class Player : MonoBehaviour {
 				IsInvulnerable = true;
 				StartCoroutine(InvulnerableCooldown(f_InvulnerableCooldown));
 			}
+			break;
+		}
+	}
+	
+	void OnCollisionExit(Collision collision){
+		switch(collision.gameObject.tag){
+		case "Wall":
+			TouchingWall = false;
 			break;
 		}
 	}
@@ -318,5 +332,9 @@ public class Player : MonoBehaviour {
 	
 	public GameObject GetScoreText () {
 		return team.scoreText;
+	}
+	
+	public Transform GetParticlePoint () {
+		return team.GetParticlePoint();
 	}
 }
