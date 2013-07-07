@@ -668,6 +668,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 250826cea4bc5bc43a52f94b6acd9840, type: 2}
   - {fileID: 11400000, guid: 27197c6a1e5f2f44a9e6c3780ac81682, type: 2}
   - {fileID: 11400000, guid: 60e3d46b74d0e0f439d14ddd50811340, type: 2}
+  - {fileID: 11400000, guid: 8e7124d5d9eedf64cbec510709cb1e66, type: 2}
+  - {fileID: 11400000, guid: d834809f869ff204bb4c4359fad12e8a, type: 2}
   m_levelMusic: {fileID: 0}
   playerPrefabs:
   - {fileID: 100002, guid: 0108498cfa8581747ac20de50c46bc07, type: 2}
@@ -735,8 +737,8 @@ MonoBehaviour:
   _alpha: 1
   _image: {fileID: 0}
   sizeImages: []
-  _frameIndex: 0
-  _frameName: frame0
+  _frameIndex: 2
+  _frameName: frame2
   _spriteContainer: {fileID: 0}
   _containerName: BG Container
   _newSprite: 0

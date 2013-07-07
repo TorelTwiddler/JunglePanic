@@ -42,8 +42,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
-  m_LocalPosition: {x: -13.0684938, y: -9.79827118, z: -14.4083977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1, z: .5}
   m_Children:
   - {fileID: 400002}
@@ -117,6 +117,7 @@ MonoBehaviour:
   i_hitsLeft: 1
   typeName: HotDog
   i_points: 100
+  crumbMaterial: {fileID: 2100000, guid: 9e5a54b0e2b298a40b612d7ccde2f652, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,7 +131,7 @@ MonoBehaviour:
   _name: HotDog AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
-  _rotation: 180.000015
+  _rotation: 0
   _pivot: 4
   _pivotPoint: {x: 0, y: 0}
   _registerInput: 0

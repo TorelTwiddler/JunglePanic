@@ -42,8 +42,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
-  m_LocalPosition: {x: -13.0684938, y: -9.79827118, z: -14.4083977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1, z: .5}
   m_Children:
   - {fileID: 400002}
@@ -113,10 +113,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2b8e95039e7d7e488be4a739f0f3e29, type: 3}
   m_Name: 
-  m_weightPercent: 5
+  m_weightPercent: 2.5
   i_hitsLeft: 3
   typeName: Cake
   i_points: 500
+  crumbMaterial: {fileID: 2100000, guid: 86ce7f4f192e6be4bb24c5098809b914, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,7 +131,7 @@ MonoBehaviour:
   _name: Cake AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
-  _rotation: 180.000015
+  _rotation: 0
   _pivot: 4
   _pivotPoint: {x: 0, y: 0}
   _registerInput: 0

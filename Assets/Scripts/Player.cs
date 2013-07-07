@@ -313,4 +313,8 @@ public class Player : MonoBehaviour {
 	public GameObject GetScoreText () {
 		return team.scoreText;
 	}
+	
+	public Transform GetParticlePoint () {
+		return team.GetParticlePoint();
+	}
 }
