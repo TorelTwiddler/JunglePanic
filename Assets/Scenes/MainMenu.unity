@@ -257,6 +257,7 @@ MonoBehaviour:
   JoinText: {fileID: 1571631756}
   AllButtons: {fileID: 1157752130}
   PlayerIndex: 2
+  RebindButtonText: {fileID: 419848277}
 --- !u!1001 &26658472
 Prefab:
   m_ObjectHideFlags: 0
@@ -307,6 +308,14 @@ Prefab:
     - target: {fileID: 400002, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
       propertyPath: m_LocalScale.x
       value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
+      propertyPath: CallbackGameObject
+      value: 
+      objectReference: {fileID: 1473875399}
+    - target: {fileID: 11400000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
+      propertyPath: ClickedFunctionName
+      value: StartRebind
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
@@ -361,7 +370,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: efdd1aa53a2fb7140bf30da960838f2c, type: 2}
   - {fileID: 2100000, guid: d07cd9d5431883b48b4d108bf4c4a92b, type: 2}
   ButtonTexture: {fileID: 0}
-  CallbackGameObject: {fileID: 0}
+  CallbackGameObject: {fileID: 739214548}
   ButtonText: {fileID: 0}
   HoverFunctionName: 
   HoverFunctionParameter:
@@ -370,7 +379,7 @@ MonoBehaviour:
     Integer: 0
     Float: 0
     String: 
-  ClickedFunctionName: 
+  ClickedFunctionName: StartRebind
   ClickedFunctionParameter:
     Type: 0
     Boolean: 0
@@ -1055,7 +1064,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: efdd1aa53a2fb7140bf30da960838f2c, type: 2}
   - {fileID: 2100000, guid: d07cd9d5431883b48b4d108bf4c4a92b, type: 2}
   ButtonTexture: {fileID: 0}
-  CallbackGameObject: {fileID: 0}
+  CallbackGameObject: {fileID: 1473875399}
   ButtonText: {fileID: 0}
   HoverFunctionName: 
   HoverFunctionParameter:
@@ -1064,7 +1073,7 @@ MonoBehaviour:
     Integer: 0
     Float: 0
     String: 
-  ClickedFunctionName: 
+  ClickedFunctionName: StartRebind
   ClickedFunctionParameter:
     Type: 0
     Boolean: 0
@@ -1860,6 +1869,7 @@ MonoBehaviour:
   JoinText: {fileID: 674257957}
   AllButtons: {fileID: 1117800027}
   PlayerIndex: 0
+  RebindButtonText: {fileID: 988176308}
 --- !u!1 &571405598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,6 +2635,7 @@ MonoBehaviour:
   JoinText: {fileID: 621897198}
   AllButtons: {fileID: 600745799}
   PlayerIndex: 3
+  RebindButtonText: {fileID: 1766269214}
 --- !u!1 &750295161
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,7 +3170,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: efdd1aa53a2fb7140bf30da960838f2c, type: 2}
   - {fileID: 2100000, guid: d07cd9d5431883b48b4d108bf4c4a92b, type: 2}
   ButtonTexture: {fileID: 0}
-  CallbackGameObject: {fileID: 0}
+  CallbackGameObject: {fileID: 23944981}
   ButtonText: {fileID: 0}
   HoverFunctionName: 
   HoverFunctionParameter:
@@ -3168,7 +3179,7 @@ MonoBehaviour:
     Integer: 0
     Float: 0
     String: 
-  ClickedFunctionName: 
+  ClickedFunctionName: StartRebind
   ClickedFunctionParameter:
     Type: 0
     Boolean: 0
@@ -3256,6 +3267,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe8e3120cc8cca74f846e9888690137e, type: 3}
   m_Name: 
+  KeyboardRebinding: 0
 --- !u!1 &1006529532
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,6 +3410,14 @@ Prefab:
     - target: {fileID: 400002, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
       propertyPath: m_LocalScale.x
       value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
+      propertyPath: CallbackGameObject
+      value: 
+      objectReference: {fileID: 23944981}
+    - target: {fileID: 11400000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
+      propertyPath: ClickedFunctionName
+      value: StartRebind
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
@@ -4478,6 +4498,7 @@ MonoBehaviour:
   JoinText: {fileID: 1528086641}
   AllButtons: {fileID: 571405598}
   PlayerIndex: 1
+  RebindButtonText: {fileID: 1998571278}
 --- !u!1 &1495632620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4695,6 +4716,14 @@ Prefab:
     - target: {fileID: 400002, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
       propertyPath: m_LocalScale.x
       value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
+      propertyPath: CallbackGameObject
+      value: 
+      objectReference: {fileID: 554459755}
+    - target: {fileID: 11400000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
+      propertyPath: ClickedFunctionName
+      value: StartRebind
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
@@ -5564,7 +5593,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: efdd1aa53a2fb7140bf30da960838f2c, type: 2}
   - {fileID: 2100000, guid: d07cd9d5431883b48b4d108bf4c4a92b, type: 2}
   ButtonTexture: {fileID: 0}
-  CallbackGameObject: {fileID: 0}
+  CallbackGameObject: {fileID: 554459755}
   ButtonText: {fileID: 0}
   HoverFunctionName: 
   HoverFunctionParameter:
@@ -5573,7 +5602,7 @@ MonoBehaviour:
     Integer: 0
     Float: 0
     String: 
-  ClickedFunctionName: 
+  ClickedFunctionName: StartRebind
   ClickedFunctionParameter:
     Type: 0
     Boolean: 0
@@ -6716,6 +6745,14 @@ Prefab:
     - target: {fileID: 400002, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
       propertyPath: m_LocalScale.x
       value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
+      propertyPath: CallbackGameObject
+      value: 
+      objectReference: {fileID: 739214548}
+    - target: {fileID: 11400000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}
+      propertyPath: ClickedFunctionName
+      value: StartRebind
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4946ac9c65408b0419b14dc7dfa48405, type: 2}

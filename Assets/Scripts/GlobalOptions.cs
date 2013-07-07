@@ -29,7 +29,7 @@ public class GlobalOptions{
 	public List<Dictionary<string,KeyCode>> PlayerConfigs = new List<Dictionary<string,KeyCode>>();
 	//team order is Red, Blue, Green, White
 	public bool[] TeamsInGame = new bool[4];
-	public int[] PlayerTeamAssignment = new int[4];	//default everyone to the red team
+	public int[] PlayerTeamAssignment = new int[4]{-1, -1, -1, -1};	//default everyone to no team
 	//this will be "Keyboard", "Joystick1", "Joystick2", "Joystick3", "Joystick4", or ""
 	public string[] PlayerInputSources = new string[4];
 	
@@ -38,7 +38,7 @@ public class GlobalOptions{
 		PlayerConfigs[playerIndex][action] = newKey;
 	}
 	
-	public Dictionary<string,KeyCode> GetKeyConfig(int playerIndex){
+	public Dictionary<string,KeyCode> GetPlayerConfig(int playerIndex){
 		return PlayerConfigs[playerIndex];
 	}
 	
@@ -55,8 +55,19 @@ public class GlobalOptions{
 		//Debug.Log(string.Join(',', TeamsInGame));
 	}
 	
+	public int[] GetPlayerTeams(){
+		return PlayerTeamAssignment;
+	}
+	
 	public void SetPlayerInputSource(int index, string source){
 		PlayerInputSources[index] = source;
+	}
+	
+	public string GetPlayerInputSource(int index){
+		if(index < 0){
+			return "";
+		}
+		return PlayerInputSources[index];
 	}
 	
 	/*public void SavePlayerConfigs(){
