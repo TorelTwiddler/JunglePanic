@@ -94,10 +94,14 @@ public class PlayerManager : MonoBehaviour {
 			}
 		}
 		
-		MenuController.StartGame();
+		StartGame();
 	}
 	
 	public string GetInputSource(KeyCode key){
 		return "keyboard";
+	}
+	
+	public void StartGame(){
+		MenuController.StartGame();
 	}
 }
