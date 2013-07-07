@@ -441,7 +441,7 @@ GameObject:
   - 4: {fileID: 400054}
   - 114: {fileID: 11400052}
   m_Layer: 0
-  m_Name: HotDog Animation
+  m_Name: Steak Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,6 +456,38 @@ GameObject:
   m_Component:
   - 4: {fileID: 400056}
   - 114: {fileID: 11400054}
+  m_Layer: 0
+  m_Name: Steak Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100058
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400058}
+  - 114: {fileID: 11400056}
+  m_Layer: 0
+  m_Name: HotDog Animation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100060
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400060}
+  - 114: {fileID: 11400058}
   m_Layer: 0
   m_Name: HotDog Container
   m_TagString: Untagged
@@ -535,11 +567,12 @@ Transform:
   - {fileID: 400052}
   - {fileID: 400020}
   - {fileID: 400002}
-  - {fileID: 400056}
+  - {fileID: 400060}
   - {fileID: 400034}
   - {fileID: 400042}
   - {fileID: 400012}
   - {fileID: 400018}
+  - {fileID: 400056}
   m_Father: {fileID: 400024}
 --- !u!4 &400012
 Transform:
@@ -580,11 +613,12 @@ Transform:
   - {fileID: 400050}
   - {fileID: 400004}
   - {fileID: 400000}
-  - {fileID: 400054}
+  - {fileID: 400058}
   - {fileID: 400044}
   - {fileID: 400038}
   - {fileID: 400022}
   - {fileID: 400014}
+  - {fileID: 400054}
   m_Father: {fileID: 400024}
 --- !u!4 &400018
 Transform:
@@ -810,6 +844,28 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
+--- !u!4 &400058
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 276.670624, y: -15.0754004, z: -17.6875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400016}
+--- !u!4 &400060
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.1866798, y: -14.8388662, z: 14.9551516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400010}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -944,7 +1000,7 @@ MonoBehaviour:
   m_Name: 
   _name: Player3 Container
   _sheetSize: {x: 0, y: 0}
-  texture: {fileID: 2800000, guid: 324f662f31687f041997dd53553f7de1, type: 3}
+  texture: {fileID: 2800000, guid: 1f457da328f22684c91603d443185c3b, type: 3}
   sizeTextures: []
   generateSprites: 0
   _framesXY: {x: 4, y: 4}
@@ -1096,7 +1152,7 @@ MonoBehaviour:
     startIndex: 0
     _containerName: Player3 Container
   - name: StandCarry
-    container: {fileID: 11400032}
+    container: {fileID: 11400008}
     startFrame: 1
     endFrame: 1
     frameNames: []
@@ -1106,9 +1162,9 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 1
-    _containerName: Player1 Container
+    _containerName: Player3 Container
   - name: Walk
-    container: {fileID: 11400032}
+    container: {fileID: 11400008}
     startFrame: 2
     endFrame: 5
     frameNames: []
@@ -1118,9 +1174,9 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 2
-    _containerName: Player1 Container
+    _containerName: Player3 Container
   - name: WalkCarry
-    container: {fileID: 11400032}
+    container: {fileID: 11400008}
     startFrame: 6
     endFrame: 9
     frameNames: []
@@ -1130,9 +1186,9 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 6
-    _containerName: Player1 Container
+    _containerName: Player3 Container
   - name: Jump
-    container: {fileID: 11400032}
+    container: {fileID: 11400008}
     startFrame: 4
     endFrame: 4
     frameNames: []
@@ -1142,9 +1198,9 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 10
-    _containerName: Player1 Container
+    _containerName: Player3 Container
   - name: JumpCarry
-    container: {fileID: 11400032}
+    container: {fileID: 11400008}
     startFrame: 6
     endFrame: 6
     frameNames: []
@@ -1154,7 +1210,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 11
-    _containerName: Player1 Container
+    _containerName: Player3 Container
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1757,7 +1813,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
-  _name: HotDog Animation
+  _name: Steak Animation
   _fps: 10
   _duration: .600000024
   framesets:
@@ -1772,7 +1828,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
-    _containerName: HotDog Container
+    _containerName: Steak Container
   - name: Shine
     container: {fileID: 11400054}
     startFrame: 1
@@ -1784,13 +1840,68 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 1
-    _containerName: HotDog Container
+    _containerName: Steak Container
 --- !u!114 &11400054
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
+  m_Name: 
+  _name: Steak Container
+  _sheetSize: {x: 0, y: 0}
+  texture: {fileID: 2800000, guid: 2d1036be144155f40861fbc8a5bedc26, type: 3}
+  sizeTextures: []
+  generateSprites: 0
+  _framesXY: {x: 3, y: 3}
+  _frameSize: {x: 0, y: 0}
+--- !u!114 &11400056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
+  m_Name: 
+  _name: HotDog Animation
+  _fps: 10
+  _duration: .600000024
+  framesets:
+  - name: Idle
+    container: {fileID: 11400058}
+    startFrame: 0
+    endFrame: 0
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 0
+    _containerName: HotDog Container
+  - name: Shine
+    container: {fileID: 11400058}
+    startFrame: 1
+    endFrame: 5
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 1
+    _containerName: HotDog Container
+--- !u!114 &11400058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}

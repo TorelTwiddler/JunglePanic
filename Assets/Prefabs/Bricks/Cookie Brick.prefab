@@ -42,8 +42,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
-  m_LocalPosition: {x: -13.0684938, y: -9.79827118, z: -14.4083977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1, z: .5}
   m_Children:
   - {fileID: 400002}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_weightPercent: 10
   i_hitsLeft: 1
   typeName: Cookie
-  i_points: 100
+  i_points: 300
   crumbMaterial: {fileID: 2100000, guid: 7058cc0128eca5742b7afd964633d4d4, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
@@ -131,7 +131,7 @@ MonoBehaviour:
   _name: Cookie AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
-  _rotation: 2.36782926e-05
+  _rotation: 0
   _pivot: 4
   _pivotPoint: {x: 0, y: 0}
   _registerInput: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
     height: 0
   protoType: 
   baseName: Cookie AnimatingSprite
-  oSize: {x: 2.84500003, y: 1.42250001}
+  oSize: {x: 1.00760412, y: .53343749}
   imageSize: {x: 0, y: 0}
   _offset: {x: 0, y: 0}
   _baseOffset: {x: 0, y: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   _frameIndex: 0
   _frameName: frame0
   _spriteContainer: {fileID: 0}
-  _containerName: HotDog Container
+  _containerName: Cookie Container
   _newSprite: 0
   _animation: {fileID: 0}
   _animationFrameset: Idle
@@ -179,7 +179,7 @@ MonoBehaviour:
   _startAtRandomFrame: 0
   _destroyWhenFinished: 0
   animationPreview: 0
-  _animationName: HotDog Animation
+  _animationName: Cookie Animation
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

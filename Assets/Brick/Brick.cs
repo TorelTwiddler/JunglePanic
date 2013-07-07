@@ -17,7 +17,7 @@ public class Brick : MonoBehaviour {
 		}
 	}
 	
-	public int m_weightPercent = 25;
+	public float m_weightPercent = 25.0f;
 	
 	public delegate void BrickHitDelegate(Brick hitBrick, int hitsLeft);
 	

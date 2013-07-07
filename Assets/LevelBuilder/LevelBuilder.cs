@@ -14,7 +14,7 @@ public class LevelBuilder : MonoBehaviour {
 	
 	public int percentBrickBlank = 90;
 
-	private int m_totalWeights = 0;
+	private float m_totalWeights = 0.0f;
 	
 	public int levelWidth = 10;
 	public int levelHeight = 4;
@@ -178,7 +178,6 @@ public class LevelBuilder : MonoBehaviour {
 		m_map[x][y] = (Instantiate(brick, startingPos, new Quaternion(0,0,0,0)) as GameObject).GetComponent<Brick>();
 		m_map[x][y].name = string.Format("Brick({2}): [{0}][{1}]", x,y, m_map[x][y].typeName);
 		m_map[x][y].gameObject.transform.parent = gameObject.transform;
-		m_map[x][y].transform.eulerAngles = new Vector3(0, 0, 180);
 		m_map[x][y].OnHit += onBrickHit;
 	}
 	
@@ -216,13 +215,13 @@ public class LevelBuilder : MonoBehaviour {
 			return null;
 		}
 		
-		int randomNumber = Random.Range(0, m_totalWeights);
+		float randomNumber = Random.Range(0.0f, 100.0f);
 
         Brick selectedBrick = null;
         for (int i = 0; i < m_bricks.Length; i++)
         {
-			int brickweight = m_bricks[i].m_weightPercent;
-           if (randomNumber < brickweight)
+			float brickweight = m_bricks[i].m_weightPercent;
+			if (randomNumber < brickweight)
             {
                 selectedBrick = m_bricks[i];
                 break;
