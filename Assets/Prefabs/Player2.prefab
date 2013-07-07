@@ -129,7 +129,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19afa8d918a532a4f99b2e0d2efcacd0, type: 3}
   m_Name: 
-  InputType: 0
+  canMove: 1
+  InputSource: 
   PlayerSpeed: 25
   PlayerAcceleration: 300
   JumpHeight: 20
@@ -141,10 +142,24 @@ MonoBehaviour:
   f_CatchCooldown: .5
   CarriedBall: {fileID: 0}
   BallOffset: {x: 0, y: 1.5, z: 0}
-  Points: 0
   ScoreBar: {fileID: 0}
-  ScoreText: {fileID: 100000, guid: 03cec4c6df491da4e9b657da00d4678d, type: 2}
-  PlayerColor: {r: .409769297, g: .350746274, b: 1, a: 1}
+  team: {fileID: 0}
+  f_footStepInterval: .200000003
+  playerSoundProfile:
+    Jump:
+    - {fileID: 8300000, guid: c9a264277a13fd04d8edccf656c6f21b, type: 3}
+    Land:
+    - {fileID: 8300000, guid: 542e66d507ea6274baf4cedb819be0f5, type: 3}
+    - {fileID: 8300000, guid: 1551fa7e4b0523c4195eddfa349e9217, type: 3}
+    Footstep:
+    - {fileID: 8300000, guid: c334ac77310562a46b7f222482094bda, type: 3}
+    - {fileID: 8300000, guid: 1551fa7e4b0523c4195eddfa349e9217, type: 3}
+    - {fileID: 8300000, guid: 814d11f26e6fd3744907c87369114aaa, type: 3}
+    - {fileID: 8300000, guid: 542e66d507ea6274baf4cedb819be0f5, type: 3}
+    Hit: []
+    Catch: []
+    Celebrate: []
+    Death: []
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

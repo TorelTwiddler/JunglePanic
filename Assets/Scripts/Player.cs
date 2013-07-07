@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 	
-	
 	public bool canMove = true;
 	
 	public string InputSource = "Keyboard";
@@ -23,6 +22,7 @@ public class Player : MonoBehaviour {
 	public GameObject ScoreBar;
 	public Team team;
 	public float f_footStepInterval = 0.2f;
+	public SoundProfile playerSoundProfile;
 	
 	private OTAnimatingSprite sprite;
 	private string playingFrameset = "";
@@ -199,6 +199,7 @@ public class Player : MonoBehaviour {
 			CarriedBall = ball;
 			CarriedBall.rigidbody.velocity = Vector3.zero;
 			CarriedBall.GrabBall(this);
+			PlayCatchSound();
 		}
 	}
 	
@@ -207,6 +208,7 @@ public class Player : MonoBehaviour {
 		CanCatch = false;
 		CarriedBall = null;
 		StartCoroutine(CatchCooldown(f_CatchCooldown));
+		PlayHitSound();
 	}
 	
 	public void ReleaseBall(Vector3 velocity){
@@ -257,7 +259,25 @@ public class Player : MonoBehaviour {
 	
 	void PlayJumpSound()
 	{
-		//AudioManager.Get().PlaySound(AudioManager.AUDIOTEMPLATE.JUMP, AudioManager.Get().GetJump());
+		AudioManager.Get().PlaySound(GetCurrentPanAmount(), AudioManager.AUDIOTEMPLATE.JUMP, playerSoundProfile.GetJump());
+	}
+	
+	void PlayHitSound()
+	{
+		AudioManager.Get().PlaySound(GetCurrentPanAmount(), AudioManager.AUDIOTEMPLATE.JUMP, playerSoundProfile.GetHit());
+	}
+	
+	void PlayCatchSound()
+	{
+		AudioManager.Get().PlaySound(GetCurrentPanAmount(), AudioManager.AUDIOTEMPLATE.JUMP, playerSoundProfile.GetCatch());
+	}
+	
+	float GetCurrentPanAmount()
+	{
+		Vector3 viewPos = Camera.main.WorldToViewportPoint(gameObject.transform.position);
+		
+		return (viewPos.x*2) - 1 ;
+		
 	}
 	
 	public void HandleSound(){
@@ -271,7 +291,7 @@ public class Player : MonoBehaviour {
 			if (HasBall) {
 				if (!IsJumping() && rigidbody.velocity.magnitude > 1) {
 					// has ball, walking
-					AudioManager.Get().PlaySound(AudioManager.AUDIOTEMPLATE.FOOTSTEP, AudioManager.Get().GetRandomFootstep());
+					AudioManager.Get().PlaySound(GetCurrentPanAmount(), AudioManager.AUDIOTEMPLATE.FOOTSTEP, playerSoundProfile.GetFootstep());
 					f_elapsedFootTime = 0;
 				}
 			}
@@ -279,7 +299,7 @@ public class Player : MonoBehaviour {
 				if (!IsJumping() && rigidbody.velocity.magnitude > 1) {
 					// walking, no ball
 					PlayAnimation("Walk");
-					AudioManager.Get().PlaySound(AudioManager.AUDIOTEMPLATE.FOOTSTEP, AudioManager.Get().GetRandomFootstep());
+					AudioManager.Get().PlaySound(GetCurrentPanAmount(), AudioManager.AUDIOTEMPLATE.FOOTSTEP, playerSoundProfile.GetFootstep());
 					f_elapsedFootTime = 0;
 				}
 			}
