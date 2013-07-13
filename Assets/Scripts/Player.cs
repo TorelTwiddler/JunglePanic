@@ -25,6 +25,8 @@ public class Player : MonoBehaviour {
 	public float f_footStepInterval = 0.2f;
 	public SoundProfile playerSoundProfile;
 	
+	public int playerIndex = -1;
+	
 	private OTAnimatingSprite sprite;
 	private string playingFrameset = "";
 	
@@ -42,22 +44,6 @@ public class Player : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		int playerIndex = -1;
-		switch (name){
-			case "Player1":
-				playerIndex = 0;
-				break;
-			case "Player2":
-				playerIndex = 1;
-				break;
-			case "Player3":
-				playerIndex = 2;
-				break;
-			case "Player4":
-				playerIndex = 3;
-				break;
-		}
-		
 		InputSource = options.GetPlayerInputSource(playerIndex);
 		Dictionary<string,KeyCode> playerConfig = new Dictionary<string,KeyCode>();
 		playerConfig = options.GetPlayerConfig(playerIndex);

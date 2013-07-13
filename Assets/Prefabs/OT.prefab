@@ -104,7 +104,7 @@ GameObject:
   - 4: {fileID: 400012}
   - 114: {fileID: 11400008}
   m_Layer: 0
-  m_Name: Player3 Container
+  m_Name: Player LunchBot Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ GameObject:
   - 4: {fileID: 400014}
   - 114: {fileID: 11400010}
   m_Layer: 0
-  m_Name: Player4 Animation
+  m_Name: Player Handibear Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ GameObject:
   - 4: {fileID: 400018}
   - 114: {fileID: 11400012}
   m_Layer: 0
-  m_Name: Player4 Container
+  m_Name: Player Handibear Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ GameObject:
   - 4: {fileID: 400022}
   - 114: {fileID: 11400016}
   m_Layer: 0
-  m_Name: Player3 Animation
+  m_Name: Player LunchBot Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +281,7 @@ GameObject:
   - 4: {fileID: 400034}
   - 114: {fileID: 11400032}
   m_Layer: 0
-  m_Name: Player1 Container
+  m_Name: Player SirFari Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ GameObject:
   - 4: {fileID: 400038}
   - 114: {fileID: 11400036}
   m_Layer: 0
-  m_Name: Player2 Animation
+  m_Name: Player Genette Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,7 +345,7 @@ GameObject:
   - 4: {fileID: 400042}
   - 114: {fileID: 11400040}
   m_Layer: 0
-  m_Name: Player2 Container
+  m_Name: Player Genette Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +361,7 @@ GameObject:
   - 4: {fileID: 400044}
   - 114: {fileID: 11400042}
   m_Layer: 0
-  m_Name: Player1 Animation
+  m_Name: Player SirFari Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -998,7 +998,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
-  _name: Player3 Container
+  _name: Player LunchBot Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 1f457da328f22684c91603d443185c3b, type: 3}
   sizeTextures: []
@@ -1015,9 +1015,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
-  _name: Player4 Animation
+  _name: Player Handibear Animation
   _fps: 16
-  _duration: .75
+  _duration: .875
   framesets:
   - name: Stand
     container: {fileID: 11400012}
@@ -1030,7 +1030,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
-    _containerName: Player4 Container
+    _containerName: Player Handibear Container
   - name: StandCarry
     container: {fileID: 11400012}
     startFrame: 1
@@ -1042,7 +1042,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 1
-    _containerName: Player4 Container
+    _containerName: Player Handibear Container
   - name: Walk
     container: {fileID: 11400012}
     startFrame: 2
@@ -1054,7 +1054,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 2
-    _containerName: Player4 Container
+    _containerName: Player Handibear Container
   - name: WalkCarry
     container: {fileID: 11400012}
     startFrame: 6
@@ -1066,7 +1066,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 6
-    _containerName: Player4 Container
+    _containerName: Player Handibear Container
   - name: Jump
     container: {fileID: 11400012}
     startFrame: 4
@@ -1078,7 +1078,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 10
-    _containerName: Player4 Container
+    _containerName: Player Handibear Container
   - name: JumpCarry
     container: {fileID: 11400012}
     startFrame: 6
@@ -1090,7 +1090,31 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 11
-    _containerName: Player4 Container
+    _containerName: Player Handibear Container
+  - name: Grab
+    container: {fileID: 11400012}
+    startFrame: 10
+    endFrame: 10
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 12
+    _containerName: Player Handibear Container
+  - name: GrabCarry
+    container: {fileID: 11400012}
+    startFrame: 11
+    endFrame: 11
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 13
+    _containerName: Player Handibear Container
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1101,7 +1125,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
-  _name: Player4 Container
+  _name: Player Handibear Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 09d83a26954a8fc488a8be0a180d7c7c, type: 3}
   sizeTextures: []
@@ -1135,9 +1159,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
-  _name: Player3 Animation
+  _name: Player LunchBot Animation
   _fps: 16
-  _duration: .75
+  _duration: .875
   framesets:
   - name: Stand
     container: {fileID: 11400008}
@@ -1150,7 +1174,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
-    _containerName: Player3 Container
+    _containerName: Player LunchBot Container
   - name: StandCarry
     container: {fileID: 11400008}
     startFrame: 1
@@ -1162,7 +1186,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 1
-    _containerName: Player3 Container
+    _containerName: Player LunchBot Container
   - name: Walk
     container: {fileID: 11400008}
     startFrame: 2
@@ -1174,7 +1198,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 2
-    _containerName: Player3 Container
+    _containerName: Player LunchBot Container
   - name: WalkCarry
     container: {fileID: 11400008}
     startFrame: 6
@@ -1186,7 +1210,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 6
-    _containerName: Player3 Container
+    _containerName: Player LunchBot Container
   - name: Jump
     container: {fileID: 11400008}
     startFrame: 4
@@ -1198,7 +1222,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 10
-    _containerName: Player3 Container
+    _containerName: Player LunchBot Container
   - name: JumpCarry
     container: {fileID: 11400008}
     startFrame: 6
@@ -1210,7 +1234,31 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 11
-    _containerName: Player3 Container
+    _containerName: Player LunchBot Container
+  - name: Grab
+    container: {fileID: 11400008}
+    startFrame: 10
+    endFrame: 10
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 12
+    _containerName: Player LunchBot Container
+  - name: GrabCarry
+    container: {fileID: 11400008}
+    startFrame: 11
+    endFrame: 11
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 13
+    _containerName: Player LunchBot Container
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1418,7 +1466,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
-  _name: Player1 Container
+  _name: Player SirFari Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 324f662f31687f041997dd53553f7de1, type: 3}
   sizeTextures: []
@@ -1497,9 +1545,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
-  _name: Player2 Animation
+  _name: Player Genette Animation
   _fps: 16
-  _duration: .75
+  _duration: .875
   framesets:
   - name: Stand
     container: {fileID: 11400040}
@@ -1512,7 +1560,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
-    _containerName: Player2 Container
+    _containerName: Player Genette Container
   - name: StandCarry
     container: {fileID: 11400040}
     startFrame: 1
@@ -1524,7 +1572,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 1
-    _containerName: Player2 Container
+    _containerName: Player Genette Container
   - name: Walk
     container: {fileID: 11400040}
     startFrame: 2
@@ -1536,7 +1584,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 2
-    _containerName: Player2 Container
+    _containerName: Player Genette Container
   - name: WalkCarry
     container: {fileID: 11400040}
     startFrame: 6
@@ -1548,7 +1596,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 6
-    _containerName: Player2 Container
+    _containerName: Player Genette Container
   - name: Jump
     container: {fileID: 11400040}
     startFrame: 4
@@ -1560,7 +1608,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 10
-    _containerName: Player2 Container
+    _containerName: Player Genette Container
   - name: JumpCarry
     container: {fileID: 11400040}
     startFrame: 6
@@ -1572,7 +1620,31 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 11
-    _containerName: Player2 Container
+    _containerName: Player Genette Container
+  - name: Grab
+    container: {fileID: 11400040}
+    startFrame: 10
+    endFrame: 10
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 12
+    _containerName: Player Genette Container
+  - name: GrabCarry
+    container: {fileID: 11400040}
+    startFrame: 11
+    endFrame: 11
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 13
+    _containerName: Player Genette Container
 --- !u!114 &11400038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1600,7 +1672,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
-  _name: Player2 Container
+  _name: Player Genette Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 37381ca1af9b77049be5fe5a121f4d9a, type: 3}
   sizeTextures: []
@@ -1617,9 +1689,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
-  _name: Player1 Animation
+  _name: Player SirFari Animation
   _fps: 16
-  _duration: .75
+  _duration: .875
   framesets:
   - name: Stand
     container: {fileID: 11400032}
@@ -1632,7 +1704,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 0
-    _containerName: Player1 Container
+    _containerName: Player SirFari Container
   - name: StandCarry
     container: {fileID: 11400032}
     startFrame: 1
@@ -1644,7 +1716,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 1
-    _containerName: Player1 Container
+    _containerName: Player SirFari Container
   - name: Walk
     container: {fileID: 11400032}
     startFrame: 2
@@ -1656,7 +1728,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 2
-    _containerName: Player1 Container
+    _containerName: Player SirFari Container
   - name: WalkCarry
     container: {fileID: 11400032}
     startFrame: 6
@@ -1668,7 +1740,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 6
-    _containerName: Player1 Container
+    _containerName: Player SirFari Container
   - name: Jump
     container: {fileID: 11400032}
     startFrame: 4
@@ -1680,7 +1752,7 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 10
-    _containerName: Player1 Container
+    _containerName: Player SirFari Container
   - name: JumpCarry
     container: {fileID: 11400032}
     startFrame: 6
@@ -1692,7 +1764,31 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 11
-    _containerName: Player1 Container
+    _containerName: Player SirFari Container
+  - name: Grab
+    container: {fileID: 11400032}
+    startFrame: 10
+    endFrame: 10
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 12
+    _containerName: Player SirFari Container
+  - name: GrabCarry
+    container: {fileID: 11400032}
+    startFrame: 11
+    endFrame: 11
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 13
+    _containerName: Player SirFari Container
 --- !u!114 &11400044
 MonoBehaviour:
   m_ObjectHideFlags: 1

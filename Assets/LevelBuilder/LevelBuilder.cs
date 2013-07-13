@@ -55,7 +55,7 @@ public class LevelBuilder : MonoBehaviour {
 		// This is hardcoded to 4 players and 4 teams.
 		for (int i = 0; i < 4; i++) {
 			GameObject player = playerPrefabs[i];
-			playerStarts[i] = GameObject.Find(player.name + " Start").GetComponent<Transform>();
+			playerStarts[i] = GameObject.Find("Player" + (i + 1).ToString() + " Start").GetComponent<Transform>();
 			playerAnimations[i] = GameObject.Find(player.name + " Animation").GetComponent<OTAnimation>();
 			teamScoreStarts[i] = GameObject.Find("TeamScore" + (i + 1).ToString() + " Start").GetComponent<Transform>();
 		}
@@ -244,6 +244,7 @@ public class LevelBuilder : MonoBehaviour {
 			GameObject player = (Instantiate(playerPrefabs[i], playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
 			player.name = player.name.Replace("(Clone)", "");
 			player.GetComponent<Player>().team = teams[playerTeams[i]];
+			player.GetComponent<Player>().playerIndex = i;
 			OTAnimatingSprite playerSprite = player.GetComponentInChildren<OTAnimatingSprite>();
 			playerSprite.animation = playerAnimations[i];
 			players.Add(player.GetComponent<Player>());
