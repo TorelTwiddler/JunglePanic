@@ -19,6 +19,7 @@ public class PlayerSetup : MonoBehaviour {
 	private int CurrentKeybindIndex = 0;
 	private bool RebindingKeys = false;
 	private bool InitialRebindDone = false;
+	private Cursor cursor = null;
 	public TextMesh RebindButtonText;
 	
 	void Awake(){
@@ -118,6 +119,9 @@ public class PlayerSetup : MonoBehaviour {
 	public void OnPlayerAdded(){
 		//InputSource is "Joystick1", "Joystick2", etc.
 		//AcceptKey is the KeyCode for accepting stuff
+		cursor = ((Instantiate(Resources.Load("Cursor"), Camera.main.transform.position, Quaternion.identity))
+				as GameObject).GetComponent<Cursor>();
+		cursor.Setup(InputSource, AcceptKey);
 	}
 	
 	public void RemovePlayer(){
@@ -136,7 +140,9 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void OnPlayerRemoved(){
-		
+		if (cursor != null) {
+			cursor.Remove();
+		}
 	}
 	
 	public void ToggleStateChanged(string newState){
