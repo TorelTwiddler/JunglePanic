@@ -21,6 +21,7 @@ public class PlayerSetup : MonoBehaviour {
 	private bool InitialRebindDone = false;
 	private Cursor cursor = null;
 	public TextMesh RebindButtonText;
+	private int CurrentCharacter = -1;
 	
 	void Awake(){
 		PlayerManager = transform.parent.GetComponent<PlayerManager>();
@@ -113,6 +114,7 @@ public class PlayerSetup : MonoBehaviour {
 		else{
 			InputSource = "Keyboard";
 		}
+		CycleCharacter(1);
 		StartRebind();
 	}
 	
@@ -219,5 +221,16 @@ public class PlayerSetup : MonoBehaviour {
 			EndRebind();
 		}
 		KeyToHold = KeyCode.None;
+	}
+	
+	public int GetCurrentCharacter(){
+		return CurrentCharacter;
+	}
+	
+	public void CycleCharacter(int direction){
+		int index = CurrentCharacter;
+		CurrentCharacter = -1;
+		CurrentCharacter = PlayerManager.GetNextAvailableCharacter(index, direction);
+		//change character portrait
 	}
 }

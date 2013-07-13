@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour {
 	private KeyCode JoinKey = KeyCode.None;
 	private List<string> LockedInputs = new List<string>();
 	public bool KeyboardRebinding = false;
+	public int NumberOfCharacters = 4;
 	
 	void Awake(){
 		Players = GetComponentsInChildren<PlayerSetup>();
@@ -99,6 +100,26 @@ public class PlayerManager : MonoBehaviour {
 	
 	public string GetInputSource(KeyCode key){
 		return "keyboard";
+	}
+	
+	public bool GetIsCharacterAvailable(int index){
+		for(int i = 0; i < Players.Length; i++){
+			if(index == Players[i].GetCurrentCharacter()){
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public int GetNextAvailableCharacter(int index, int direction){
+		int newIndex = index + direction;
+		if(GetIsCharacterAvailable(newIndex)){
+			return newIndex;
+		}
+		else{
+			return GetNextAvailableCharacter(newIndex, direction);
+		}
 	}
 	
 	public void StartGame(){
