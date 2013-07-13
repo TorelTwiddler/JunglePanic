@@ -113,7 +113,8 @@ public class PlayerManager : MonoBehaviour {
 	}
 	
 	public int GetNextAvailableCharacter(int index, int direction){
-		int newIndex = index + direction;
+		int newIndex = (index + direction) % NumberOfCharacters;
+		newIndex = newIndex < 0 ? NumberOfCharacters-1 : newIndex;
 		if(GetIsCharacterAvailable(newIndex)){
 			return newIndex;
 		}

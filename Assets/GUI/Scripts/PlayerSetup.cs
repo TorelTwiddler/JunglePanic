@@ -21,7 +21,7 @@ public class PlayerSetup : MonoBehaviour {
 	private bool InitialRebindDone = false;
 	private Cursor cursor = null;
 	public TextMesh RebindButtonText;
-	private int CurrentCharacter = -1;
+	public int CurrentCharacter = -1;
 	
 	void Awake(){
 		PlayerManager = transform.parent.GetComponent<PlayerManager>();

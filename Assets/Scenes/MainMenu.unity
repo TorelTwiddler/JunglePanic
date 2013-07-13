@@ -258,7 +258,7 @@ MonoBehaviour:
   AllButtons: {fileID: 1157752130}
   PlayerIndex: 2
   RebindButtonText: {fileID: 419848277}
-  CurrentCharacter: 0
+  CurrentCharacter: -1
 --- !u!1001 &26658472
 Prefab:
   m_ObjectHideFlags: 0
@@ -2464,7 +2464,7 @@ MonoBehaviour:
   AllButtons: {fileID: 1117800027}
   PlayerIndex: 0
   RebindButtonText: {fileID: 988176308}
-  CurrentCharacter: 0
+  CurrentCharacter: -1
 --- !u!1 &571405598
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,7 +3483,7 @@ MonoBehaviour:
   AllButtons: {fileID: 600745799}
   PlayerIndex: 3
   RebindButtonText: {fileID: 1766269214}
-  CurrentCharacter: 0
+  CurrentCharacter: -1
 --- !u!1 &745090234
 GameObject:
   m_ObjectHideFlags: 0
@@ -4365,6 +4365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8e3120cc8cca74f846e9888690137e, type: 3}
   m_Name: 
   KeyboardRebinding: 0
+  NumberOfCharacters: 4
 --- !u!1 &1006529532
 GameObject:
   m_ObjectHideFlags: 0
@@ -6157,7 +6158,7 @@ MonoBehaviour:
   AllButtons: {fileID: 571405598}
   PlayerIndex: 1
   RebindButtonText: {fileID: 1998571278}
-  CurrentCharacter: 0
+  CurrentCharacter: -1
 --- !u!1 &1495632620
 GameObject:
   m_ObjectHideFlags: 0
