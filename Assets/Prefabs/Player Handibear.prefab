@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Name: 
   canMove: 1
   InputSource: 
-  PlayerSpeed: 25
-  BallCarrySpeed: 20
+  PlayerSpeed: 20
+  BallCarrySpeed: 15
   PlayerAcceleration: 300
   JumpHeight: 20
   IsInvulnerable: 0

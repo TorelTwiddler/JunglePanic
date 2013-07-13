@@ -231,6 +231,8 @@ public class PlayerSetup : MonoBehaviour {
 		int index = CurrentCharacter;
 		CurrentCharacter = -1;
 		CurrentCharacter = PlayerManager.GetNextAvailableCharacter(index, direction);
+		GlobalOptions options = GlobalOptions.Instance;
+		options.SetPlayerCharacter(PlayerIndex, CurrentCharacter);
 		//change character portrait
 	}
 }

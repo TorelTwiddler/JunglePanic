@@ -52,6 +52,7 @@ public class LevelBuilder : MonoBehaviour {
 	void Awake () {
 		GlobalOptions options = GlobalOptions.Instance;
 		playerTeams = options.GetPlayerTeams();
+		playerCharacters = options.GetPlayerCharacters();
 		// This is hardcoded to 4 players and 4 teams.
 		for (int i = 0; i < 4; i++) {
 			GameObject player = playerPrefabs[i];

@@ -30,6 +30,7 @@ public class GlobalOptions{
 	//team order is Red, Blue, Green, White
 	public bool[] TeamsInGame = new bool[4];
 	public int[] PlayerTeamAssignment = new int[4]{-1, -1, -1, -1};	//default everyone to no team
+	public int[] PlayerCharacters = new int[4]{-1, -1, -1, -1};
 	//this will be "Keyboard", "Joystick1", "Joystick2", "Joystick3", "Joystick4", or ""
 	public string[] PlayerInputSources = new string[4];
 	
@@ -53,6 +54,14 @@ public class GlobalOptions{
 			Debug.Log(element.ToString());
 		}*/
 		//Debug.Log(string.Join(',', TeamsInGame));
+	}
+	
+	public void SetPlayerCharacter(int index, int character){
+		PlayerCharacters[index] = character;
+	}
+	
+	public int[] GetPlayerCharacters(){
+		return PlayerCharacters;
 	}
 	
 	public int[] GetPlayerTeams(){
