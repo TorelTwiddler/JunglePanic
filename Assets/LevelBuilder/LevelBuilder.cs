@@ -239,7 +239,7 @@ public class LevelBuilder : MonoBehaviour {
 		//players = new Player[playerTeams.Length];
 		for (int i = 0; i < playerTeams.Length; i++) {
 			if(playerTeams[i] < 0){
-				return;
+				continue;
 			}
 			GameObject player = (Instantiate(playerPrefabs[i], playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
 			player.name = player.name.Replace("(Clone)", "");
