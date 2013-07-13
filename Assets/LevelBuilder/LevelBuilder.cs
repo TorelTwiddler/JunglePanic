@@ -36,6 +36,7 @@ public class LevelBuilder : MonoBehaviour {
 	public Color[] teamColors;
 	
 	public int[] playerTeams;
+	public int[] playerCharacters;
 	
 	private List<Player> players = new List<Player>();
 	
@@ -46,7 +47,6 @@ public class LevelBuilder : MonoBehaviour {
 	private Transform[] playerStarts = new Transform[4];
 	private Transform ballStart;
 	
-	private OTAnimation[] playerAnimations = new OTAnimation[4];
 	private OTAnimation ballAnimation;
 	
 	void Awake () {
@@ -56,7 +56,6 @@ public class LevelBuilder : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 			GameObject player = playerPrefabs[i];
 			playerStarts[i] = GameObject.Find("Player" + (i + 1).ToString() + " Start").GetComponent<Transform>();
-			playerAnimations[i] = GameObject.Find(player.name + " Animation").GetComponent<OTAnimation>();
 			teamScoreStarts[i] = GameObject.Find("TeamScore" + (i + 1).ToString() + " Start").GetComponent<Transform>();
 		}
 		ballStart = GameObject.Find("Ball Start").GetComponent<Transform>();
@@ -241,12 +240,14 @@ public class LevelBuilder : MonoBehaviour {
 			if(playerTeams[i] < 0){
 				continue;
 			}
-			GameObject player = (Instantiate(playerPrefabs[i], playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
+			GameObject player = (Instantiate(playerPrefabs[playerCharacters[i]],
+					playerStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
 			player.name = player.name.Replace("(Clone)", "");
 			player.GetComponent<Player>().team = teams[playerTeams[i]];
 			player.GetComponent<Player>().playerIndex = i;
 			OTAnimatingSprite playerSprite = player.GetComponentInChildren<OTAnimatingSprite>();
-			playerSprite.animation = playerAnimations[i];
+			OTAnimation playerAnimation = GameObject.Find(player.name + " Animation").GetComponent<OTAnimation>();
+			playerSprite.animation = playerAnimation;
 			players.Add(player.GetComponent<Player>());
 		}
 	}

@@ -1401,10 +1401,10 @@ Transform:
   - {fileID: 902487149}
   - {fileID: 2006420683}
   - {fileID: 1536346664}
-  - {fileID: 952562828}
   - {fileID: 1318052161}
-  - {fileID: 408830116}
   - {fileID: 1653668601}
+  - {fileID: 408830116}
+  - {fileID: 952562828}
   - {fileID: 2070635202}
   m_Father: {fileID: 2026303709}
 --- !u!1 &902487148
@@ -2447,10 +2447,10 @@ Transform:
   - {fileID: 1942626712}
   - {fileID: 440593655}
   - {fileID: 1058491931}
-  - {fileID: 1872324220}
   - {fileID: 1156156914}
-  - {fileID: 503345529}
   - {fileID: 1844356944}
+  - {fileID: 503345529}
+  - {fileID: 1872324220}
   - {fileID: 801251098}
   m_Father: {fileID: 2026303709}
 --- !u!1 &1266407304
@@ -2513,6 +2513,7 @@ MonoBehaviour:
   - {r: 0, g: .815686285, b: 0, a: 0}
   - {r: 1, g: 1, b: 1, a: 0}
   playerTeams: 00000000010000000200000003000000
+  playerCharacters: 01000000030000000000000002000000
 --- !u!4 &1266407306
 Transform:
   m_ObjectHideFlags: 0
@@ -2572,6 +2573,43 @@ Prefab:
   m_RootGameObject: {fileID: 973966686}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!21 &1292017346
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: OTMaterial-transparent
+  m_Shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: []
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 7b503af22013f774fab378fbcda1287e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _InvFade
+        second: 1
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: .5, g: .5, b: .5, a: .5}
+      data:
+        first:
+          name: _EmisColor
+        second: {r: .200000003, g: .200000003, b: .200000003, a: 0}
 --- !u!1 &1295599119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,6 +3128,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: playerCharacters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1598994ee52911444b090b30b3705019, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3129,7 +3171,7 @@ Prefab:
     - target: {fileID: 2300008, guid: 1598994ee52911444b090b30b3705019, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1898472272}
+      objectReference: {fileID: 1292017346}
     - target: {fileID: 3300008, guid: 1598994ee52911444b090b30b3705019, type: 2}
       propertyPath: m_Mesh
       value: 
@@ -3141,6 +3183,18 @@ Prefab:
     - target: {fileID: 100006, guid: 1598994ee52911444b090b30b3705019, type: 2}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: playerCharacters.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: playerCharacters.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: playerCharacters.Array.data[3]
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1598994ee52911444b090b30b3705019, type: 2}
@@ -3461,7 +3515,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 1898472272}
+  - {fileID: 1292017346}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3613,43 +3667,6 @@ MonoBehaviour:
     singleDuration: 0
     startIndex: 13
     _containerName: Player SirFari Container
---- !u!21 &1898472272
-Material:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: OTMaterial-transparent
-  m_Shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: []
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-      data:
-        first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 7b503af22013f774fab378fbcda1287e, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-    m_Floats:
-      data:
-        first:
-          name: _InvFade
-        second: 1
-    m_Colors:
-      data:
-        first:
-          name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _TintColor
-        second: {r: .5, g: .5, b: .5, a: .5}
-      data:
-        first:
-          name: _EmisColor
-        second: {r: .200000003, g: .200000003, b: .200000003, a: 0}
 --- !u!1 &1922660741
 GameObject:
   m_ObjectHideFlags: 0
