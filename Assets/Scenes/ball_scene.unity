@@ -774,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   _name: Player3 Animation
   _fps: 16
-  _duration: .75
+  _duration: .875
   framesets:
   - name: Stand
     container: {fileID: 408830117}
@@ -848,6 +848,30 @@ MonoBehaviour:
     singleDuration: 0
     startIndex: 11
     _containerName: Player3 Container
+  - name: Grab
+    container: {fileID: 408830117}
+    startFrame: 10
+    endFrame: 10
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 12
+    _containerName: Player3 Container
+  - name: GrabCarry
+    container: {fileID: 408830117}
+    startFrame: 11
+    endFrame: 11
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 13
+    _containerName: Player3 Container
 --- !u!1 &522009461
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,43 +898,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2026303709}
---- !u!21 &560506671
-Material:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: OTMaterial-transparent
-  m_Shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: []
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-      data:
-        first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 7b503af22013f774fab378fbcda1287e, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-    m_Floats:
-      data:
-        first:
-          name: _InvFade
-        second: 1
-    m_Colors:
-      data:
-        first:
-          name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _TintColor
-        second: {r: .5, g: .5, b: .5, a: .5}
-      data:
-        first:
-          name: _EmisColor
-        second: {r: .200000003, g: .200000003, b: .200000003, a: 0}
 --- !u!1 &624640662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1023,22 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400024, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1063,6 +1066,246 @@ Prefab:
     - target: {fileID: 400024, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].name
+      value: Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].container
+      value: 
+      objectReference: {fileID: 952562827}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].startFrame
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].endFrame
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].playCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].startIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6]._containerName
+      value: Player1 Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].name
+      value: GrabCarry
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].container
+      value: 
+      objectReference: {fileID: 952562827}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].startFrame
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].endFrame
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].playCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].startIndex
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7]._containerName
+      value: Player1 Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400042, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: _duration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].name
+      value: Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].container
+      value: 
+      objectReference: {fileID: 1318052162}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].startFrame
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].endFrame
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].playCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].startIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6]._containerName
+      value: Player2 Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].name
+      value: GrabCarry
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].container
+      value: 
+      objectReference: {fileID: 1318052162}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].startFrame
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].endFrame
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].playCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].startIndex
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7]._containerName
+      value: Player2 Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400036, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: _duration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].name
+      value: Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].container
+      value: 
+      objectReference: {fileID: 408830117}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].startFrame
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].endFrame
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].playCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].startIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6]._containerName
+      value: Player3 Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].name
+      value: GrabCarry
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].container
+      value: 
+      objectReference: {fileID: 408830117}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].startFrame
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].endFrame
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].playCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].startIndex
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7]._containerName
+      value: Player3 Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: _duration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].name
+      value: Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].container
+      value: 
+      objectReference: {fileID: 1653668602}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].startFrame
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].endFrame
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].playCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6].startIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[6]._containerName
+      value: Player4 Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].name
+      value: GrabCarry
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].container
+      value: 
+      objectReference: {fileID: 1653668602}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].startFrame
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].endFrame
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].playCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7].startIndex
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: framesets.Array.data[7]._containerName
+      value: Player4 Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
+      propertyPath: _duration
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5757fb31cfe71740a45340fc24b89cf, type: 2}
@@ -1259,7 +1502,7 @@ GameObject:
   - 23: {fileID: 805752753}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2101,7 +2344,7 @@ MonoBehaviour:
   m_Name: 
   _name: Player2 Animation
   _fps: 16
-  _duration: .75
+  _duration: .875
   framesets:
   - name: Stand
     container: {fileID: 1318052162}
@@ -2174,6 +2417,30 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 11
+    _containerName: Player2 Container
+  - name: Grab
+    container: {fileID: 1318052162}
+    startFrame: 10
+    endFrame: 10
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 12
+    _containerName: Player2 Container
+  - name: GrabCarry
+    container: {fileID: 1318052162}
+    startFrame: 11
+    endFrame: 11
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 13
     _containerName: Player2 Container
 --- !u!1001 &1157630658
 Prefab:
@@ -2265,6 +2532,43 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 907234687}
+--- !u!21 &1247711047
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: OTMaterial-transparent
+  m_Shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: []
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 7b503af22013f774fab378fbcda1287e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _InvFade
+        second: 1
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: .5, g: .5, b: .5, a: .5}
+      data:
+        first:
+          name: _EmisColor
+        second: {r: .200000003, g: .200000003, b: .200000003, a: 0}
 --- !u!1 &1259315519
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,11 +3422,19 @@ Prefab:
     - target: {fileID: 2300008, guid: 1598994ee52911444b090b30b3705019, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 560506671}
+      objectReference: {fileID: 1247711047}
     - target: {fileID: 3300008, guid: 1598994ee52911444b090b30b3705019, type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1611649261}
+    - target: {fileID: 100000, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 1598994ee52911444b090b30b3705019, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1598994ee52911444b090b30b3705019, type: 2}
   m_RootGameObject: {fileID: 1466468500}
@@ -3239,7 +3551,7 @@ MonoBehaviour:
   m_Name: 
   _name: Player4 Animation
   _fps: 16
-  _duration: .75
+  _duration: .875
   framesets:
   - name: Stand
     container: {fileID: 1653668602}
@@ -3312,6 +3624,30 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 11
+    _containerName: Player4 Container
+  - name: Grab
+    container: {fileID: 1653668602}
+    startFrame: 10
+    endFrame: 10
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 12
+    _containerName: Player4 Container
+  - name: GrabCarry
+    container: {fileID: 1653668602}
+    startFrame: 11
+    endFrame: 11
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 13
     _containerName: Player4 Container
 --- !u!1 &1850144075
 GameObject:
@@ -3418,7 +3754,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 560506671}
+  - {fileID: 1247711047}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3472,7 +3808,7 @@ MonoBehaviour:
   m_Name: 
   _name: Player1 Animation
   _fps: 16
-  _duration: .75
+  _duration: .875
   framesets:
   - name: Stand
     container: {fileID: 952562827}
@@ -3545,6 +3881,30 @@ MonoBehaviour:
     pingPong: 0
     singleDuration: 0
     startIndex: 11
+    _containerName: Player1 Container
+  - name: Grab
+    container: {fileID: 952562827}
+    startFrame: 10
+    endFrame: 10
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 12
+    _containerName: Player1 Container
+  - name: GrabCarry
+    container: {fileID: 952562827}
+    startFrame: 11
+    endFrame: 11
+    frameNames: []
+    frameNameMask: 
+    sortFrameNames: 0
+    playCount: 1
+    pingPong: 0
+    singleDuration: 0
+    startIndex: 13
     _containerName: Player1 Container
 --- !u!1 &1922660741
 GameObject:
@@ -3902,7 +4262,7 @@ GameObject:
   - 23: {fileID: 2053102319}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

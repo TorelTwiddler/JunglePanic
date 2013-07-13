@@ -242,7 +242,10 @@ public class Player : MonoBehaviour {
 	
 	public void HandleAnimation(){
 		if (HasBall) {
-			if (IsJumping()) {
+			if(TouchingWall){
+				PlayAnimation("GrabCarry");
+			}
+			else if (IsJumping()) {
 				// has ball, jumping
 				PlayAnimation("JumpCarry");
 			}
@@ -256,7 +259,10 @@ public class Player : MonoBehaviour {
 			}
 		}
 		else {
-			if (IsJumping()) {
+			if(TouchingWall){
+				PlayAnimation("Grab");
+			}
+			else if (IsJumping()) {
 				// jumping, no ball
 				PlayAnimation("Jump");
 			}
