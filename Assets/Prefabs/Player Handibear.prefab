@@ -13,7 +13,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   m_Layer: 10
-  m_Name: Player4
+  m_Name: Player Handibear
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,8 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19afa8d918a532a4f99b2e0d2efcacd0, type: 3}
   m_Name: 
   canMove: 1
-  InputType: 0
+  InputSource: 
   PlayerSpeed: 25
+  BallCarrySpeed: 20
   PlayerAcceleration: 300
   JumpHeight: 20
   IsInvulnerable: 0
@@ -144,6 +145,17 @@ MonoBehaviour:
   BallOffset: {x: 0, y: 1.5, z: 0}
   ScoreBar: {fileID: 0}
   team: {fileID: 0}
+  f_footStepInterval: .200000003
+  playerSoundProfile:
+    Jump: []
+    Land: []
+    Footstep: []
+    Hit: []
+    Catch: []
+    Celebrate: []
+    Death: []
+  playerIndex: -1
+  TouchingWall: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

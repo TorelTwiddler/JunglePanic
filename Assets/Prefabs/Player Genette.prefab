@@ -13,7 +13,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   m_Layer: 10
-  m_Name: Player2
+  m_Name: Player Genette
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   canMove: 1
   InputSource: 
   PlayerSpeed: 25
+  BallCarrySpeed: 20
   PlayerAcceleration: 300
   JumpHeight: 20
   IsInvulnerable: 0
@@ -160,6 +161,8 @@ MonoBehaviour:
     Catch: []
     Celebrate: []
     Death: []
+  playerIndex: -1
+  TouchingWall: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
