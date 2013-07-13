@@ -117,6 +117,11 @@ public class PlayerSetup : MonoBehaviour {
 		else{
 			InputSource = "Keyboard";
 		}
+		OnPlayerAdded();
+	}
+	
+	public void OnPlayerAdded(){
+		//InputSource is "Joystick1", "Joystick2", etc.
 	}
 	
 	public void RemovePlayer(){
@@ -130,6 +135,11 @@ public class PlayerSetup : MonoBehaviour {
 		InputSource = "";
 		GlobalOptions options = GlobalOptions.Instance;
 		options.SetPlayerTeam(PlayerIndex, -1);
+		OnPlayerRemoved();
+	}
+	
+	public void OnPlayerRemoved(){
+		
 	}
 	
 	public void ToggleStateChanged(string newState){
