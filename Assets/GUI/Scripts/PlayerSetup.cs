@@ -11,12 +11,14 @@ public class PlayerSetup : MonoBehaviour {
 	private bool PlayerJoining = false;
 	private bool ListeningForKey = false;
 	private KeyCode KeyToHold = KeyCode.None;
+	private KeyCode AcceptKey = KeyCode.None;
 	private float KeyHoldEnd = Mathf.Infinity;
 	private bool IsReady = false;
 	private string InputSource = "";
 	private string[] KeybindActions = new string[4]{"MoveLeft", "MoveRight", "MoveDown", "Jump"};
 	private int CurrentKeybindIndex = 0;
 	private bool RebindingKeys = false;
+	private bool InitialRebindDone = false;
 	public TextMesh RebindButtonText;
 	
 	void Awake(){
@@ -34,9 +36,11 @@ public class PlayerSetup : MonoBehaviour {
 			if(Input.GetKey(KeyToHold)){
 				if(Time.time > KeyHoldEnd){
 					AddPlayer();
+					KeyToHold = KeyCode.None;
 				}
 			}
 			else{
+				PlayerJoining = false;
 				//KeyToHold = KeyCode.None;
 			}
 		}
@@ -62,15 +66,6 @@ public class PlayerSetup : MonoBehaviour {
 					ListeningForKey = false;
 				}
 			}
-			
-			/*string keyString = InputSource + "Button";
-			for(int i = 0; i < 20; i++){
-				if(Input.GetKeyDown((keyString + i).ToLower())){
-					KeyToHold = (KeyCode)System.Enum.Parse(typeof(KeyCode), (keyString + i).ToLower());
-					KeyHoldEnd = Time.time + 1.0f;
-					ListeningForKey = false;
-				}
-			}*/
 		}
 	}
 	
@@ -117,11 +112,12 @@ public class PlayerSetup : MonoBehaviour {
 		else{
 			InputSource = "Keyboard";
 		}
-		OnPlayerAdded();
+		StartRebind();
 	}
 	
 	public void OnPlayerAdded(){
 		//InputSource is "Joystick1", "Joystick2", etc.
+		//AcceptKey is the KeyCode for accepting stuff
 	}
 	
 	public void RemovePlayer(){
@@ -135,6 +131,7 @@ public class PlayerSetup : MonoBehaviour {
 		InputSource = "";
 		GlobalOptions options = GlobalOptions.Instance;
 		options.SetPlayerTeam(PlayerIndex, -1);
+		InitialRebindDone = false;
 		OnPlayerRemoved();
 	}
 	
@@ -195,19 +192,24 @@ public class PlayerSetup : MonoBehaviour {
 		PlayerManager.KeyboardRebinding = false;
 		RebindingKeys = false;
 		ListeningForKey = false;
+		if(!InitialRebindDone){
+			InitialRebindDone = true;
+			OnPlayerAdded();
+		}
 	}
 	
 	public void BindKey(KeyCode key){
 		GlobalOptions options = GlobalOptions.Instance;
 		options.SetKeyConfig(PlayerIndex, KeybindActions[CurrentKeybindIndex], key);
 		CurrentKeybindIndex++;
-		KeyToHold = KeyCode.None;
 		if(CurrentKeybindIndex < KeybindActions.Length){
 			RebindButtonText.text = KeybindActions[CurrentKeybindIndex];
 		}
 		else{
+			AcceptKey = KeyToHold;
 			RebindButtonText.text = "Rebind";
 			EndRebind();
 		}
+		KeyToHold = KeyCode.None;
 	}
 }
