@@ -34,6 +34,8 @@ public class GlobalOptions{
 	//this will be "Keyboard", "Joystick1", "Joystick2", "Joystick3", "Joystick4", or ""
 	public string[] PlayerInputSources = new string[4];
 	
+	private bool AlreadyInitializedPlayers = false;
+	
 	public void SetKeyConfig(int playerIndex, string action, KeyCode newKey){
 		//Debug.Log("Player " + playerIndex + "s " + action + " changed to " + newKey.ToString());
 		PlayerConfigs[playerIndex][action] = newKey;
@@ -77,6 +79,14 @@ public class GlobalOptions{
 			return "";
 		}
 		return PlayerInputSources[index];
+	}
+	
+	public void SetAlreadyInitializedPlayers(bool value){
+		AlreadyInitializedPlayers = value;
+	}
+	
+	public bool GetAlreadyInitializedPlayers(){
+		return AlreadyInitializedPlayers;
 	}
 	
 	/*public void SavePlayerConfigs(){

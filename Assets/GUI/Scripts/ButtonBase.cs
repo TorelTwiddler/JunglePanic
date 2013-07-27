@@ -53,6 +53,7 @@ public class ButtonBase : MonoBehaviour {
 		if(textMesh){
 			ButtonText = textMesh;
 		}
+		UpdateMaterial(0);
 	}
 
 	// Use this for initialization
@@ -61,7 +62,6 @@ public class ButtonBase : MonoBehaviour {
 			print("The button " + gameObject.name + " serves no purpose.");
 			enabled = false;
 		}
-		UpdateMaterial(0);
 	}
 	
 	// Update is called once per frame

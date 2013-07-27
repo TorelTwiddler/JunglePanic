@@ -14,12 +14,19 @@ public class MainMenuFunctions : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		GlobalOptions options = GlobalOptions.Instance;
+		if(options.GetAlreadyInitializedPlayers()){
+			ShowPlayerSetup();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		/*GlobalOptions options = GlobalOptions.Instance;
+		if(options.GetAlreadyInitializedPlayers()){
+			ShowPlayerSetup();
+		}*/
+		//enabled = false;
 	}
 	
 	public void ButtonHover(string name = "default"){
@@ -33,7 +40,7 @@ public class MainMenuFunctions : MonoBehaviour {
 	public void ShowPlayerSetup(){
 		Transform t = Camera.main.transform;
 		t.position = MenuCameraPositions[3];
-		PlayerManager.enabled = true;
+		PlayerManager.Initialize();
 	}
 	
 	public void ShowMainMenu(){

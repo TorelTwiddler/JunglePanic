@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4649b442911745458e2a7d1a89acf08, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   TemplateKeys: 0000000001000000020000000300000004000000
   TemplateValues:
   - {fileID: 8200000, guid: 8abea9c3091dbcd4099f34a1d68a72ac, type: 2}
@@ -134,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1605057434
 Transform:
   m_ObjectHideFlags: 0
@@ -158,6 +159,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a2b63a4e66ffec41a3630dae02e6907, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1889047057
 Prefab:
   m_ObjectHideFlags: 0
@@ -195,7 +197,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d8b447bcd4c26934688288434db61fa1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8b447bcd4c26934688288434db61fa1, type: 2}
