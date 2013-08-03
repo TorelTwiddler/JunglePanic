@@ -8,8 +8,8 @@ public class Cursor : MonoBehaviour {
 	
 	public float cursorSpeed = 1.0f;
 	
-	public float screenHClamp = 10.0f;
-	public float screenVClamp = 10.0f;
+	public float screenHClamp = 14.2f;
+	public float screenVClamp = 8.0f;
 	
 	string[] hAxes = new string[3]{"LeftX", "DpadX", "RightX"};
 	string[] vAxes = new string[3]{"LeftY", "DpadY", "RightY"};

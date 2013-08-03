@@ -54,6 +54,8 @@ public class PlayerSetup : MonoBehaviour {
 			TeamToggleButton.SetToggleState(team);
 			CurrentCharacter = options.GetPlayerCharacters()[PlayerIndex];
 			SetCharacterPortrait(CurrentCharacter);
+			OnPlayerAdded();
+			SetMeterProgress(0.0f);
 		}
 		else{
 			RemovePlayer();
