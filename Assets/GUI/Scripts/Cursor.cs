@@ -33,6 +33,10 @@ public class Cursor : MonoBehaviour {
 		transform.Translate(Vector3.forward * 5);
 	}
 	
+	public void SetAcceptKey(KeyCode acceptKey){
+		AcceptKeyCode = acceptKey;
+	}
+	
 	void Move() {
 		float horizontal = 0.0f;
 		foreach(string axis in hAxes){

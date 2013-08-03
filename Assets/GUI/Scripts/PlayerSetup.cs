@@ -26,7 +26,7 @@ public class PlayerSetup : MonoBehaviour {
 	private int CurrentCharacter = -1;
 	private MeshRenderer CharacterPortrait;
 	public Texture[] CharacterPortraits = new Texture[4];
-	public TeamToggle TeamToggleButton;
+	private TeamToggle TeamToggleButton;
 	private GameObject ProgressMeter;
 	
 	
@@ -192,7 +192,7 @@ public class PlayerSetup : MonoBehaviour {
 		PlayerJoined = false;
 		PlayerJoining = false;
 		//print("releasing input source " + KeyToHold.ToString());
-		PlayerManager.ReleaseInputSource(PlayerIndex, KeyToHold);
+		PlayerManager.ReleaseInputSource(PlayerIndex, AcceptKey);
 		//GlobalOptions options = GlobalOptions.Instance;
 		foreach(KeyCode key in options.GetPlayerConfig(PlayerIndex).Values){
 			PlayerManager.UnlockKey(key);
@@ -287,6 +287,9 @@ public class PlayerSetup : MonoBehaviour {
 		if(!InitialRebindDone){
 			InitialRebindDone = true;
 			OnPlayerAdded();
+		}
+		else if(InputSource != "Keyboard"){
+			cursor.SetAcceptKey(AcceptKey);
 		}
 	}
 	
