@@ -15,7 +15,7 @@ public class SceneManager : MonoBehaviour {
 	
 	public void StartGame() {
 		//Application.LoadLevel(0);
-		Application.LoadLevel(2);
+		Application.LoadLevel(1);
 	}
 	
 	public void LoadMainMenu(){
