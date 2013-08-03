@@ -21,4 +21,8 @@ public class SceneManager : MonoBehaviour {
 	public void LoadMainMenu(){
 		Application.LoadLevel("MainMenu");
 	}
+	
+	public void LoadWinnerScene(){
+		Application.LoadLevel("WinnerScene");
+	}
 }
