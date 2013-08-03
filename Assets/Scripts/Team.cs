@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Team : MonoBehaviour {
 
@@ -15,9 +16,11 @@ public class Team : MonoBehaviour {
 	private Color color = Color.magenta;
 	private int numberOfTeams;
 	private LevelBuilder LevelBuilder;
+	GlobalOptions options;
 	
 	
 	void Awake () {
+		options = GlobalOptions.Instance;
 		LevelBuilder = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>();
 		totalPoints = LevelBuilder.totalPoints;
 		//numberOfTeams = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>().numberOfTeams;

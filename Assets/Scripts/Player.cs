@@ -44,6 +44,9 @@ public class Player : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		if (playerIndex == -1) {
+			return;
+		}
 		InputSource = options.GetPlayerInputSource(playerIndex);
 		Dictionary<string,KeyCode> playerConfig = new Dictionary<string,KeyCode>();
 		playerConfig = options.GetPlayerConfig(playerIndex);

@@ -16,7 +16,6 @@ public class WinnerSceneController : MonoBehaviour {
 	void Update () {
 		if (Time.time >= endTime) {
 			if (Input.anyKeyDown) {
-				print ("CHANGE SCENE!!!");
 				GameObject.FindWithTag("SceneManager").GetComponent<SceneManager>().LoadMainMenu();
 			}
 		}
