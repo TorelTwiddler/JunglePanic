@@ -267,7 +267,8 @@ public class LevelBuilder : MonoBehaviour {
 		//teams = new Team[numberOfTeams];
 		for (int i = 0; i < numberOfTeams; i++) {
 			if(!options.TeamsInGame[i]){
-				return;
+				teams.Add(null);
+				continue;
 			}
 			GameObject teamScore = (Instantiate(teamScorePrefab, teamScoreStarts[i].position, new Quaternion(0,0,0,0)) as GameObject);
 			teamScore.name = teamScore.name.Replace("(Clone)", "");
@@ -278,7 +279,13 @@ public class LevelBuilder : MonoBehaviour {
 	}
 	
 	public int GetNumberOfTeams(){
-		return teams.Count;
+		int count = 0;
+		for(int i = 0; i < teams.Count; i++){
+			if(teams[i] != null){
+				count++;
+			}
+		}
+		return count;
 	}
 	
 	private void StartGame() {

@@ -52,10 +52,9 @@ public class GlobalOptions{
 			indexOf = Array.IndexOf(PlayerTeamAssignment, i);
 			TeamsInGame[i] = indexOf >= 0;
 		}
-		/*foreach(bool element in TeamsInGame){
+		/*foreach(int element in PlayerTeamAssignment){
 			Debug.Log(element.ToString());
 		}*/
-		//Debug.Log(string.Join(',', TeamsInGame));
 	}
 	
 	public void SetPlayerCharacter(int index, int character){

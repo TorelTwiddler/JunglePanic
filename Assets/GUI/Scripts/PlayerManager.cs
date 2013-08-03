@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour {
 	
-	private MenuController MenuController;
+	private MainMenuFunctions MainMenuFunctions;
 	private PlayerSetup[] Players;
 	private bool ShouldStartPlayerJoin = false;
 	private KeyCode JoinKey = KeyCode.None;
@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour {
 	
 	void Awake(){
 		Players = GetComponentsInChildren<PlayerSetup>();
-		MenuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+		MainMenuFunctions = GameObject.Find("MainMenu").GetComponent<MainMenuFunctions>();
 		enabled = false;
 	}
 
@@ -171,6 +171,6 @@ public class PlayerManager : MonoBehaviour {
 	}
 	
 	public void StartGame(){
-		MenuController.StartGame();
+		MainMenuFunctions.StartGame();
 	}
 }

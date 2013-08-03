@@ -3,13 +3,13 @@ using System.Collections;
 
 public class MainMenuFunctions : MonoBehaviour {
 	
-	private MenuController MenuController;
-	
 	public Vector3[] MenuCameraPositions;
 	public PlayerManager PlayerManager;
+	private SceneManager SceneManager;
+	public GameObject SceneManagerPrefab;
 	
 	void Awake(){
-		MenuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+		
 	}
 
 	// Use this for initialization
@@ -18,6 +18,12 @@ public class MainMenuFunctions : MonoBehaviour {
 		if(options.GetAlreadyInitializedPlayers()){
 			ShowPlayerSetup();
 		}
+		
+		GameObject obj = GameObject.FindWithTag("SceneManager");
+		if(obj == null){
+			obj = Instantiate(SceneManagerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		}
+		SceneManager = obj.GetComponent<SceneManager>();
 	}
 	
 	// Update is called once per frame
@@ -34,7 +40,7 @@ public class MainMenuFunctions : MonoBehaviour {
 	}
 	
 	public void StartGame(){
-		MenuController.StartGame();
+		SceneManager.StartGame();
 	}
 	
 	public void ShowPlayerSetup(){

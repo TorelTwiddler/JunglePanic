@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		if (Time.time > endTime) {
 			if (didGameEnd) {
-				GameObject.Find("SceneManager").GetComponent<SceneManager>().LoadMainMenu();
+				GameObject.FindWithTag("SceneManager").GetComponent<SceneManager>().LoadMainMenu();
 			}
 			else if (didGoGui) {
 				endTime = Mathf.Infinity;

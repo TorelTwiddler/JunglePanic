@@ -3,10 +3,10 @@ using System.Collections;
 
 public class OptionsFunctions : MonoBehaviour {
 	
-	private MenuController MenuController;
+	private MainMenuFunctions MainMenuFunctions;
 	
 	void Awake(){
-		MenuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+		MainMenuFunctions = GameObject.Find("MainMenu").GetComponent<MainMenuFunctions>();
 	}
 
 	// Use this for initialization

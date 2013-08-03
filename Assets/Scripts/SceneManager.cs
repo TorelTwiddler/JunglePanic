@@ -6,7 +6,7 @@ public class SceneManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad(gameObject);
-		LoadMainMenu();
+		//LoadMainMenu();
 	}
 	
 	// Update is called once per frame

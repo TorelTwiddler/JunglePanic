@@ -89,7 +89,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1300661
 Transform:
   m_ObjectHideFlags: 0
@@ -6555,6 +6555,7 @@ MonoBehaviour:
   - {x: 48, y: 0, z: -10}
   - {x: 0, y: 24, z: -10}
   PlayerManager: {fileID: 997902166}
+  SceneManagerPrefab: {fileID: 100002, guid: d8b447bcd4c26934688288434db61fa1, type: 2}
 --- !u!1001 &1360555172
 Prefab:
   m_ObjectHideFlags: 0
@@ -10014,6 +10015,10 @@ Prefab:
       propertyPath: ButtonTexture
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 88f0b94f63cf41143bd2edcbd2246f14, type: 2}
+      propertyPath: SceneManagerPrefab
+      value: 
+      objectReference: {fileID: 100002, guid: d8b447bcd4c26934688288434db61fa1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88f0b94f63cf41143bd2edcbd2246f14, type: 2}
   m_RootGameObject: {fileID: 1307171653}
