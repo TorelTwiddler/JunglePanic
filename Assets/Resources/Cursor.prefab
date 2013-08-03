@@ -42,7 +42,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -65,11 +65,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a943459edd2af82458cb6921fd0b8e1c, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   InputSource: Joystick3
   AcceptKeyCode: 0
   cursorSpeed: 10
-  screenHClamp: 10
-  screenVClamp: 10
+  screenHClamp: 14.1999998
+  screenVClamp: 8
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
