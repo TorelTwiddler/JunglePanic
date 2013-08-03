@@ -26,7 +26,7 @@ public class PlayerSetup : MonoBehaviour {
 	private int CurrentCharacter = -1;
 	private MeshRenderer CharacterPortrait;
 	public Texture[] CharacterPortraits = new Texture[4];
-	public TeamToggle TeamToggleButton;
+	private TeamToggle TeamToggleButton;
 	private GameObject ProgressMeter;
 	
 	
