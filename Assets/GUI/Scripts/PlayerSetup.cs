@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerSetup : MonoBehaviour {
 	
+	private GlobalOptions options;
 	private TextMesh JoinText;
 	private TextMesh RebindText;
 	public GameObject AllButtons;
@@ -36,6 +37,7 @@ public class PlayerSetup : MonoBehaviour {
 		JoinText = transform.Find("JoinText").GetComponent<TextMesh>();
 		RebindText = transform.Find("RebindText").GetComponent<TextMesh>();
 		CharacterPortrait = transform.Find("Buttons/CharacterPortrait").GetComponent<MeshRenderer>();
+		options = GlobalOptions.Instance;
 	}
 
 	// Use this for initialization
@@ -44,12 +46,13 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void Initialize(){
-		GlobalOptions options = GlobalOptions.Instance;
+		//GlobalOptions options = GlobalOptions.Instance;
 		int team = options.GetPlayerTeams()[PlayerIndex];
 		if(team >= 0){
 			InitPlayerSettings();
 			RebindText.renderer.enabled = false;
 			InputSource = options.GetPlayerInputSource(PlayerIndex);
+			AcceptKey = options.GetPlayerConfig(PlayerIndex)["Jump"];
 			PlayerManager.LockInputSource(PlayerIndex, InputSource);
 			TeamToggleButton.SetToggleState(team);
 			CurrentCharacter = options.GetPlayerCharacters()[PlayerIndex];
@@ -116,7 +119,7 @@ public class PlayerSetup : MonoBehaviour {
 		}
 		
 		Event e = Event.current;
-		if(e.keyCode != KeyCode.None){
+		if(e.keyCode != KeyCode.None && InputSource == "Keyboard"){
 			if(PlayerManager.GetIsKeyAvailable(e.keyCode)){
 				KeyToHold = e.keyCode;
 				KeyHoldEnd = Time.time + 1.0f;
@@ -128,7 +131,9 @@ public class PlayerSetup : MonoBehaviour {
 	
 	public void StartPlayerJoin(KeyCode key){
 		if(PlayerManager.GetIsKeyAvailable(key)){
-			PlayerManager.KeyboardRebinding = true;
+			if((int)key < 350){
+				PlayerManager.KeyboardRebinding = true;
+			}
 			enabled = true;
 			PlayerJoining = true;
 			KeyToHold = key;
@@ -155,7 +160,7 @@ public class PlayerSetup : MonoBehaviour {
 	public void AddPlayer(){
 		InitPlayerSettings();
 		PlayerManager.LockInputSource(PlayerIndex, KeyToHold);
-		GlobalOptions options = GlobalOptions.Instance;
+		//GlobalOptions options = GlobalOptions.Instance;
 		options.SetPlayerTeam(PlayerIndex, 0);
 		if((int)KeyToHold >= 350){
 			InputSource = KeyToHold.ToString().Substring(0, 9);
@@ -188,7 +193,7 @@ public class PlayerSetup : MonoBehaviour {
 		PlayerJoining = false;
 		//print("releasing input source " + KeyToHold.ToString());
 		PlayerManager.ReleaseInputSource(PlayerIndex, KeyToHold);
-		GlobalOptions options = GlobalOptions.Instance;
+		//GlobalOptions options = GlobalOptions.Instance;
 		foreach(KeyCode key in options.GetPlayerConfig(PlayerIndex).Values){
 			PlayerManager.UnlockKey(key);
 		}
@@ -206,7 +211,7 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void ToggleStateChanged(string newState){
-		GlobalOptions options = GlobalOptions.Instance;
+		//GlobalOptions options = GlobalOptions.Instance;
 		switch(newState){
 			case "Ready!":
 				IsReady = true;
@@ -239,7 +244,7 @@ public class PlayerSetup : MonoBehaviour {
 	public void StartRebind(){
 		if(InputSource == "Keyboard"){
 			//if(!PlayerManager.KeyboardRebinding){
-				GlobalOptions options = GlobalOptions.Instance;
+				//GlobalOptions options = GlobalOptions.Instance;
 				foreach(KeyCode key in options.GetPlayerConfig(PlayerIndex).Values){
 					PlayerManager.UnlockKey(key);
 				}
@@ -255,7 +260,7 @@ public class PlayerSetup : MonoBehaviour {
 			//}
 		}
 		else{
-			GlobalOptions options = GlobalOptions.Instance;
+			//GlobalOptions options = GlobalOptions.Instance;
 			foreach(KeyCode key in options.GetPlayerConfig(PlayerIndex).Values){
 				PlayerManager.UnlockKey(key);
 			}
@@ -271,7 +276,9 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void EndRebind(){
-		PlayerManager.KeyboardRebinding = false;
+		if(InputSource == "Keyboard"){
+			PlayerManager.KeyboardRebinding = false;
+		}
 		RebindingKeys = false;
 		AllButtons.SetActive(true);
 		ProgressMeter.SetActive(false);
@@ -284,7 +291,7 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void BindKey(KeyCode key){
-		GlobalOptions options = GlobalOptions.Instance;
+		//GlobalOptions options = GlobalOptions.Instance;
 		options.SetKeyConfig(PlayerIndex, KeybindActions[CurrentKeybindIndex], key);
 		PlayerManager.LockKey(key);
 		CurrentKeybindIndex++;
@@ -307,7 +314,7 @@ public class PlayerSetup : MonoBehaviour {
 		int index = CurrentCharacter;
 		CurrentCharacter = -1;
 		CurrentCharacter = PlayerManager.GetNextAvailableCharacter(index, direction);
-		GlobalOptions options = GlobalOptions.Instance;
+		//GlobalOptions options = GlobalOptions.Instance;
 		options.SetPlayerCharacter(PlayerIndex, CurrentCharacter);
 		SetCharacterPortrait(CurrentCharacter);
 	}
