@@ -15,7 +15,7 @@ public class SceneManager : MonoBehaviour {
 	
 	public void StartGame() {
 		//Application.LoadLevel(0);
-		Application.LoadLevel(1);
+		Application.LoadLevel("ball_scene");
 	}
 	
 	public void LoadMainMenu(){
