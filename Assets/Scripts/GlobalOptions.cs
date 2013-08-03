@@ -40,7 +40,7 @@ public class GlobalOptions{
 	
 	//-------- Win Scene Options --------
 	public int[] TeamWins = new int[4]{0, 0, 0, 0};
-	public int MostRecentWinningTeam = -1;
+	public Team MostRecentWinningTeam = null;
 	
 	
 	//-------- FUNctions --------
@@ -122,4 +122,5 @@ public class GlobalOptions{
 	public string GetTeamName(int index){
 		return TeamNames[index];
 	}
+	
 }

@@ -8,8 +8,7 @@ public class GameController : MonoBehaviour {
 	public GameObject goGui;
 	public float goSeconds = 1.0f;
 	
-	public GameObject teamGui;
-	public GameObject winsGui;
+	public GameObject gameEndsGui;
 	
 	public float teamWinsSeconds = 5.0f;
 	
@@ -19,17 +18,18 @@ public class GameController : MonoBehaviour {
 	public bool didGameEnd = false;
 	
 	private Player[] players;
+	private GlobalOptions options;
 
 	// Use this for initialization
 	void Start () {
-	
+		options = GlobalOptions.Instance;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Time.time > endTime) {
 			if (didGameEnd) {
-				GameObject.FindWithTag("SceneManager").GetComponent<SceneManager>().LoadMainMenu();
+				GameObject.FindWithTag("SceneManager").GetComponent<SceneManager>().LoadWinnerScene();
 			}
 			else if (didGoGui) {
 				endTime = Mathf.Infinity;
@@ -75,10 +75,8 @@ public class GameController : MonoBehaviour {
 		goGui.SetActive(false);
 	}
 	
-	public void DisplayTeamWins(Team team) {
-		teamGui.SetActive(true);
-		teamGui.GetComponent<TextMesh>().text = team.teamName;
-		winsGui.SetActive(true);
+	public void DisplayGameEnd() {
+		gameEndsGui.SetActive(true);
 	}
 	
 	public void FreezePlayers() {
@@ -96,7 +94,8 @@ public class GameController : MonoBehaviour {
 	public void EndGame(Team winningTeam) {
 		didGameEnd = true;
 		FreezePlayers();
-		DisplayTeamWins(winningTeam);
+		DisplayGameEnd();
 		endTime = Time.time + teamWinsSeconds;
+		options.MostRecentWinningTeam = winningTeam;
 	}
 }
