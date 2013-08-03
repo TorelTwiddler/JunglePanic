@@ -123,4 +123,8 @@ public class GlobalOptions{
 		return TeamNames[index];
 	}
 	
+	public Team GetMostRecentWinningTeam(){
+		return MostRecentWinningTeam;
+	}
+	
 }

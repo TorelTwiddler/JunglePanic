@@ -9,7 +9,7 @@ public class TeamText : MonoBehaviour {
 	void Start () {
 		
 		options = GlobalOptions.Instance;
-		Team winningTeam = options.MostRecentWinningTeam;
+		Team winningTeam = options.GetMostRecentWinningTeam();
 		GetComponent<TextMesh>().text = winningTeam.teamName;
 	}
 	
