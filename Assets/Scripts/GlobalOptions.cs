@@ -22,10 +22,11 @@ public class GlobalOptions{
 		//LoadPlayerConfig();
 	}
 	
-	public struct ControllerConfig{
-		public string MovementAxis, JumpButton;
-	};
+	//-------- Setup Options --------
+	public string[] TeamNames = new string[4]
+		{"Red Team", "Blue Team", "Green Team", "White Team"};
 	
+	//-------- In Game Options --------
 	public List<Dictionary<string,KeyCode>> PlayerConfigs = new List<Dictionary<string,KeyCode>>();
 	//team order is Red, Blue, Green, White
 	public bool[] TeamsInGame = new bool[4];
@@ -36,6 +37,13 @@ public class GlobalOptions{
 	
 	private bool AlreadyInitializedPlayers = false;
 	
+	
+	//-------- Win Scene Options --------
+	public int[] TeamWins = new int[4]{0, 0, 0, 0};
+	public int MostRecentWinningTeam = -1;
+	
+	
+	//-------- FUNctions --------
 	public void SetKeyConfig(int playerIndex, string action, KeyCode newKey){
 		//Debug.Log("Player " + playerIndex + "s " + action + " changed to " + newKey.ToString());
 		PlayerConfigs[playerIndex][action] = newKey;
@@ -110,4 +118,8 @@ public class GlobalOptions{
 			}
 		}
 	}*/
+	
+	public string GetTeamName(int index){
+		return TeamNames[index];
+	}
 }

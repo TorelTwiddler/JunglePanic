@@ -32,7 +32,6 @@ public class LevelBuilder : MonoBehaviour {
 	
 	public int numberOfTeams = 4;
 	public GameObject teamScorePrefab;
-	public string[] teamNames;
 	public Color[] teamColors;
 	
 	public int[] playerTeams;
@@ -274,7 +273,7 @@ public class LevelBuilder : MonoBehaviour {
 			teamScore.name = teamScore.name.Replace("(Clone)", "");
 			teams.Add(teamScore.GetComponent<Team>());
 			teams[i].SetColor(teamColors[i]);
-			teams[i].SetTeamName(teamNames[i]);
+			teams[i].SetTeamName(options.GetTeamName(i));
 		}
 	}
 	
