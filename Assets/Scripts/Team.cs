@@ -23,8 +23,8 @@ public class Team : MonoBehaviour {
 	void Awake () {
 		options = GlobalOptions.Instance;
 		LevelBuilder = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>();
-		if (GameObject.Find("LevelBuilder") != null) {
-			brickBuilder = GameObject.Find("LevelBuilder").GetComponent<BrickBuilder>();
+		brickBuilder = GameObject.Find("LevelBuilder").GetComponent<BrickBuilder>();
+		if (brickBuilder != null) {
 			totalPoints = brickBuilder.totalPoints;
 		}
 		//numberOfTeams = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>().numberOfTeams;
