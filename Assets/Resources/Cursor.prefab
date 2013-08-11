@@ -68,6 +68,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputSource: Joystick3
   AcceptKeyCode: 0
+  CursorMaterials:
+  - {fileID: 2100000, guid: d6cad7357bb0deb4f829a4fce5d08f54, type: 2}
+  - {fileID: 2100000, guid: 5cdf290528ccbac47a470f5a522b4c2e, type: 2}
+  - {fileID: 2100000, guid: e213d37ae14a7de48abd1e447de2c0bf, type: 2}
+  - {fileID: 2100000, guid: 39e7b1eed4f060b4e9accf63e97841f1, type: 2}
   cursorSpeed: 10
   screenHClamp: 14.1999998
   screenVClamp: 8
