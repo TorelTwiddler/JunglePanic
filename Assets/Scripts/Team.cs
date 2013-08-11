@@ -16,13 +16,17 @@ public class Team : MonoBehaviour {
 	private Color color = Color.magenta;
 	private int numberOfTeams;
 	private LevelBuilder LevelBuilder;
+	private BrickBuilder brickBuilder;
 	GlobalOptions options;
 	
 	
 	void Awake () {
 		options = GlobalOptions.Instance;
 		LevelBuilder = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>();
-		totalPoints = LevelBuilder.totalPoints;
+		if (GameObject.Find("LevelBuilder") != null) {
+			brickBuilder = GameObject.Find("LevelBuilder").GetComponent<BrickBuilder>();
+			totalPoints = brickBuilder.totalPoints;
+		}
 		//numberOfTeams = GameObject.Find("LevelBuilder").GetComponent<LevelBuilder>().numberOfTeams;
 	}
 
