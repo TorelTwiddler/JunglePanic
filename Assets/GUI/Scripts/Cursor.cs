@@ -30,7 +30,7 @@ public class Cursor : MonoBehaviour {
 		InputSource = inputSource;
 		AcceptKeyCode = acceptKeyCode;
 		transform.parent = Camera.main.transform;
-		transform.Translate(Vector3.forward * 5);
+		transform.Translate(Vector3.forward * -5);
 	}
 	
 	public void SetAcceptKey(KeyCode acceptKey){

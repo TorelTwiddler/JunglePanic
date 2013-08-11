@@ -185,7 +185,7 @@ public class PlayerSetup : MonoBehaviour {
 		//InputSource is "Joystick1", "Joystick2", etc.
 		//AcceptKey is the KeyCode for accepting stuff
 		if (InputSource != "Keyboard") {
-			cursor = ((Instantiate(Resources.Load("Cursor"), Camera.main.transform.position, Quaternion.identity))
+			cursor = ((Instantiate(Resources.Load("Cursor"), CharacterPortrait.transform.position, Quaternion.identity))
 					as GameObject).GetComponent<Cursor>();
 			cursor.Setup(InputSource, AcceptKey);
 		}
