@@ -10,9 +10,12 @@ public class Celebrate : MonoBehaviour {
 	
 	private Player player;
 	
+	void Awake () {
+		player = gameObject.GetComponent<Player>();
+	}
+	
 	// Use this for initialization
 	void Start () {
-		player = gameObject.GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
