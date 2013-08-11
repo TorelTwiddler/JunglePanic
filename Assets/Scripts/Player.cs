@@ -38,6 +38,8 @@ public class Player : MonoBehaviour {
 	private bool OnPlatform = false;
 	public bool TouchingWall = false;
 	
+	private float height;
+	
 	void Awake () {
 		sprite = GetComponentInChildren<OTAnimatingSprite>();
 		options = GlobalOptions.Instance;
@@ -57,6 +59,7 @@ public class Player : MonoBehaviour {
 			DownKey = playerConfig["MoveDown"];
 		}
 		JumpKey = playerConfig["Jump"];
+		height = collider.bounds.size.y;
 	}
 	
 	// Update is called once per frame
@@ -175,16 +178,37 @@ public class Player : MonoBehaviour {
 			TouchingWall = true;
 			break;
 		case "Player":
-			Player otherPlayer = collision.gameObject.GetComponent<Player>();
-			if(otherPlayer.HasBall && !otherPlayer.IsInvulnerable && CanCatch
-					&& team != otherPlayer.team){
-				Ball theBall = otherPlayer.CarriedBall;
-				otherPlayer.LoseBall();
-				CatchBall(theBall);
-				IsInvulnerable = true;
-				StartCoroutine(InvulnerableCooldown(f_InvulnerableCooldown));
-			}
+			PlayerCollision(collision);
 			break;
+		}
+	}
+	
+	void PlayerCollision (Collision collision) {
+		Player otherPlayer = collision.gameObject.GetComponent<Player>();
+		if(CanStealBall(otherPlayer)){
+			Ball theBall = otherPlayer.CarriedBall;
+			otherPlayer.LoseBall();
+			CatchBall(theBall);
+			IsInvulnerable = true;
+			StartCoroutine(InvulnerableCooldown(f_InvulnerableCooldown));
+		}
+		
+		// If the colliding player's position is more than one height of a player,
+		// then we can jump again!
+		float distanceUp = transform.position.y - collision.transform.position.y;
+		if (distanceUp > height * 0.9) {
+			CanJump = true;
+		}
+	}
+	
+	bool CanStealBall(Player otherPlayer) {
+		if(otherPlayer.HasBall
+				&& !otherPlayer.IsInvulnerable
+				&& CanCatch
+				&& team != otherPlayer.team){
+			return true;
+		} else {
+			return false;
 		}
 	}
 	
