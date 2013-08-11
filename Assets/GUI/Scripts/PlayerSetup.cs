@@ -39,7 +39,7 @@ public class PlayerSetup : MonoBehaviour {
 		RebindBackground = transform.Find("RebindBackground").gameObject;
 		RebindInstructionsRenderer = transform.Find("RebindBackground/Instructions").renderer;
 		ProgressMeter = transform.Find("ProgressMeter").gameObject;
-		TeamToggleButton = GetComponentInChildren<TeamToggle>();
+		TeamToggleButton = transform.Find("Buttons/TeamToggle").gameObject.GetComponentInChildren<TeamToggle>();
 		//JoinText = transform.Find("JoinText").GetComponent<TextMesh>();
 		//RebindText = transform.Find("RebindText").GetComponent<TextMesh>();
 		CharacterPortrait = transform.Find("Buttons/CharacterPortrait").GetComponent<MeshRenderer>();
@@ -166,10 +166,11 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void AddPlayer(){
+		//options.SetPlayerTeam(PlayerIndex, PlayerIndex);
+		TeamToggleButton.SetToggleState(PlayerIndex);
 		InitPlayerSettings();
 		PlayerManager.LockInputSource(PlayerIndex, KeyToHold);
 		//GlobalOptions options = GlobalOptions.Instance;
-		options.SetPlayerTeam(PlayerIndex, 0);
 		if((int)KeyToHold >= 350){
 			InputSource = KeyToHold.ToString().Substring(0, 9);
 		}
