@@ -61,6 +61,7 @@ public class PlayerSetup : MonoBehaviour {
 			InputSource = options.GetPlayerInputSource(PlayerIndex);
 			AcceptKey = options.GetPlayerConfig(PlayerIndex)["Jump"];
 			PlayerManager.LockInputSource(PlayerIndex, InputSource);
+			TeamToggleButton.CurrentToggleState = team;
 			TeamToggleButton.SetToggleState(team);
 			CurrentCharacter = options.GetPlayerCharacters()[PlayerIndex];
 			SetCharacterPortrait(CurrentCharacter);
@@ -167,6 +168,7 @@ public class PlayerSetup : MonoBehaviour {
 	
 	public void AddPlayer(){
 		//options.SetPlayerTeam(PlayerIndex, PlayerIndex);
+		TeamToggleButton.CurrentToggleState = PlayerIndex;
 		TeamToggleButton.SetToggleState(PlayerIndex);
 		InitPlayerSettings();
 		PlayerManager.LockInputSource(PlayerIndex, KeyToHold);
@@ -187,7 +189,7 @@ public class PlayerSetup : MonoBehaviour {
 		if (InputSource != "Keyboard") {
 			cursor = ((Instantiate(Resources.Load("Cursor"), CharacterPortrait.transform.position, Quaternion.identity))
 					as GameObject).GetComponent<Cursor>();
-			cursor.Setup(InputSource, AcceptKey);
+			cursor.Setup(InputSource, AcceptKey, PlayerIndex);
 		}
 	}
 	

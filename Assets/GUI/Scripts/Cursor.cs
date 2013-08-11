@@ -5,6 +5,7 @@ public class Cursor : MonoBehaviour {
 
 	public string InputSource;
 	public KeyCode AcceptKeyCode;
+	public Material[] CursorMaterials = new Material[4];
 	
 	public float cursorSpeed = 1.0f;
 	
@@ -26,11 +27,12 @@ public class Cursor : MonoBehaviour {
 		HandleButton();
 	}
 	
-	public void Setup(string inputSource, KeyCode acceptKeyCode){
+	public void Setup(string inputSource, KeyCode acceptKeyCode, int playerIndex){
 		InputSource = inputSource;
 		AcceptKeyCode = acceptKeyCode;
 		transform.parent = Camera.main.transform;
 		transform.Translate(Vector3.forward * -5);
+		renderer.material = CursorMaterials[playerIndex];
 	}
 	
 	public void SetAcceptKey(KeyCode acceptKey){
