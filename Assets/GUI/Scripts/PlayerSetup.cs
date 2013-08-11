@@ -358,6 +358,6 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void SetMeterProgress(float value){
-		ProgressMeter.transform.localScale = new Vector3(value * 7, 1, 1);
+		ProgressMeter.transform.localScale = new Vector3(value * 6.61f, 1, 1);
 	}
 }
