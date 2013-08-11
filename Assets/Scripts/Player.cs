@@ -319,7 +319,6 @@ public class Player : MonoBehaviour {
 	}
 	
 	public void PlayAnimation(string frameset) {
-		print (frameset);
 		if (playingFrameset != frameset) {
 			sprite.PlayLoop(frameset);
 		}

@@ -19,7 +19,6 @@ public class Celebrate : MonoBehaviour {
 	void Update () {
 		if (Time.time > switchTime) {
 			switchTime = Time.time + cycleTime;
-			print (switchTime);
 			if (handsUp) {
 				PlayHandsDown();
 				handsUp = false;
