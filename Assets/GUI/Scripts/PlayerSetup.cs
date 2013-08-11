@@ -4,9 +4,11 @@ using System.Collections;
 public class PlayerSetup : MonoBehaviour {
 	
 	private GlobalOptions options;
-	private TextMesh JoinText;
-	private TextMesh RebindText;
-	public GameObject AllButtons;
+	//private TextMesh JoinText;
+	//private TextMesh RebindText;
+	private GameObject RebindBackground;
+	private Renderer RebindInstructionsRenderer;
+	private GameObject AllButtons;
 	public int PlayerIndex;
 	private PlayerManager PlayerManager;
 	private bool PlayerJoined = false;
@@ -26,16 +28,20 @@ public class PlayerSetup : MonoBehaviour {
 	private int CurrentCharacter = -1;
 	private MeshRenderer CharacterPortrait;
 	public Texture[] CharacterPortraits = new Texture[4];
+	public Texture[] RebindInstructions = new Texture[4];
 	private TeamToggle TeamToggleButton;
 	private GameObject ProgressMeter;
 	
 	
 	void Awake(){
 		PlayerManager = transform.parent.GetComponent<PlayerManager>();
+		AllButtons = transform.Find("Buttons").gameObject;
+		RebindBackground = transform.Find("RebindBackground").gameObject;
+		RebindInstructionsRenderer = transform.Find("RebindBackground/Instructions").renderer;
 		ProgressMeter = transform.Find("ProgressMeter").gameObject;
 		TeamToggleButton = GetComponentInChildren<TeamToggle>();
-		JoinText = transform.Find("JoinText").GetComponent<TextMesh>();
-		RebindText = transform.Find("RebindText").GetComponent<TextMesh>();
+		//JoinText = transform.Find("JoinText").GetComponent<TextMesh>();
+		//RebindText = transform.Find("RebindText").GetComponent<TextMesh>();
 		CharacterPortrait = transform.Find("Buttons/CharacterPortrait").GetComponent<MeshRenderer>();
 		options = GlobalOptions.Instance;
 	}
@@ -50,7 +56,8 @@ public class PlayerSetup : MonoBehaviour {
 		int team = options.GetPlayerTeams()[PlayerIndex];
 		if(team >= 0){
 			InitPlayerSettings();
-			RebindText.renderer.enabled = false;
+			//RebindText.renderer.enabled = false;
+			RebindBackground.SetActive(false);
 			InputSource = options.GetPlayerInputSource(PlayerIndex);
 			AcceptKey = options.GetPlayerConfig(PlayerIndex)["Jump"];
 			PlayerManager.LockInputSource(PlayerIndex, InputSource);
@@ -151,8 +158,9 @@ public class PlayerSetup : MonoBehaviour {
 	
 	private void InitPlayerSettings(){
 		PlayerJoined = true;
-		JoinText.renderer.enabled = false;
-		RebindText.renderer.enabled = true;
+		//JoinText.renderer.enabled = false;
+		//RebindText.renderer.enabled = true;
+		RebindBackground.SetActive(true);
 		//AllButtons.SetActive(true);
 		PlayerJoining = false;
 	}
@@ -187,8 +195,9 @@ public class PlayerSetup : MonoBehaviour {
 		ProgressMeter.SetActive(true);
 		SetMeterProgress(0.0f);
 		enabled = false;
-		RebindText.renderer.enabled = false;
-		JoinText.renderer.enabled = true;
+		//RebindText.renderer.enabled = false;
+		RebindBackground.SetActive(false);
+		//JoinText.renderer.enabled = true;
 		PlayerJoined = false;
 		PlayerJoining = false;
 		//print("releasing input source " + KeyToHold.ToString());
@@ -253,10 +262,12 @@ public class PlayerSetup : MonoBehaviour {
 				AllButtons.SetActive(false);
 				ProgressMeter.SetActive(true);
 				SetMeterProgress(0.0f);
-				RebindText.renderer.enabled = true;
+				//RebindText.renderer.enabled = true;
+				RebindBackground.SetActive(true);
 				ListeningForKey = true;
 				CurrentKeybindIndex = 0;
-				RebindText.text = InputSource + "\nHold the button for " + KeybindActions[CurrentKeybindIndex];
+				//RebindText.text = InputSource + "\n" + KeybindActions[CurrentKeybindIndex];
+				SetRebindInstructions(CurrentKeybindIndex, InputSource);
 			//}
 		}
 		else{
@@ -268,10 +279,12 @@ public class PlayerSetup : MonoBehaviour {
 			AllButtons.SetActive(false);
 			ProgressMeter.SetActive(true);
 			SetMeterProgress(0.0f);
-			RebindText.renderer.enabled = true;
+			//RebindText.renderer.enabled = true;
+			RebindBackground.SetActive(true);
 			ListeningForKey = true;
 			CurrentKeybindIndex = KeybindActions.Length-1;
-			RebindText.text = InputSource + "\nHold the button for " + KeybindActions[CurrentKeybindIndex];
+			//RebindText.text = InputSource + "\n" + KeybindActions[CurrentKeybindIndex];
+			SetRebindInstructions(CurrentKeybindIndex, InputSource);
 		}
 	}
 	
@@ -282,7 +295,8 @@ public class PlayerSetup : MonoBehaviour {
 		RebindingKeys = false;
 		AllButtons.SetActive(true);
 		ProgressMeter.SetActive(false);
-		RebindText.renderer.enabled = false;
+		//RebindText.renderer.enabled = false;
+		RebindBackground.SetActive(false);
 		ListeningForKey = false;
 		if(!InitialRebindDone){
 			InitialRebindDone = true;
@@ -299,7 +313,8 @@ public class PlayerSetup : MonoBehaviour {
 		PlayerManager.LockKey(key);
 		CurrentKeybindIndex++;
 		if(CurrentKeybindIndex < KeybindActions.Length){
-			RebindText.text = InputSource + "\nHold the button for " + KeybindActions[CurrentKeybindIndex];
+			//RebindText.text = InputSource + "\n" + KeybindActions[CurrentKeybindIndex];
+			SetRebindInstructions(CurrentKeybindIndex, InputSource);
 		}
 		else{
 			AcceptKey = KeyToHold;
@@ -307,6 +322,14 @@ public class PlayerSetup : MonoBehaviour {
 			EndRebind();
 		}
 		KeyToHold = KeyCode.None;
+	}
+	
+	private void SetRebindInstructions(int index, string inputSource){
+		TextMesh inputText = RebindBackground.GetComponentInChildren<TextMesh>();
+		inputText.text = inputSource;
+		Material mat = new Material(RebindInstructionsRenderer.material);
+		mat.mainTexture = RebindInstructions[index];
+		RebindInstructionsRenderer.sharedMaterial = mat;
 	}
 	
 	public int GetCurrentCharacter(){
@@ -329,6 +352,6 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void SetMeterProgress(float value){
-		ProgressMeter.transform.localScale = new Vector3(value * 12, 1, 1);
+		ProgressMeter.transform.localScale = new Vector3(value * 7, 1, 1);
 	}
 }
