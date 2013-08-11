@@ -254,6 +254,9 @@ public class PlayerSetup : MonoBehaviour {
 	}
 	
 	public void StartRebind(){
+		if (cursor != null) {
+			cursor.Remove();
+		}
 		if(InputSource == "Keyboard"){
 			//if(!PlayerManager.KeyboardRebinding){
 				//GlobalOptions options = GlobalOptions.Instance;
@@ -301,9 +304,9 @@ public class PlayerSetup : MonoBehaviour {
 		//RebindText.renderer.enabled = false;
 		RebindBackground.SetActive(false);
 		ListeningForKey = false;
+		OnPlayerAdded();
 		if(!InitialRebindDone){
 			InitialRebindDone = true;
-			OnPlayerAdded();
 		}
 		else if(InputSource != "Keyboard"){
 			cursor.SetAcceptKey(AcceptKey);
