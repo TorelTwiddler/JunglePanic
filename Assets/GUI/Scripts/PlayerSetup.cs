@@ -17,6 +17,7 @@ public class PlayerSetup : MonoBehaviour {
 	private KeyCode KeyToHold = KeyCode.None;
 	private KeyCode AcceptKey = KeyCode.None;
 	private float KeyHoldEnd = Mathf.Infinity;
+	private float KeyHoldDuration = 0.5f;
 	private bool IsReady = false;
 	private string InputSource = "";
 	private string[] KeybindActions = new string[4]{"MoveLeft", "MoveRight", "MoveDown", "Jump"};
@@ -82,7 +83,7 @@ public class PlayerSetup : MonoBehaviour {
 					KeyToHold = KeyCode.None;
 				}
 				else{
-					SetMeterProgress(1 - (KeyHoldEnd - Time.time));
+					SetMeterProgress((KeyHoldDuration - (KeyHoldEnd - Time.time)) / KeyHoldDuration);
 				}
 			}
 			else{
@@ -98,7 +99,7 @@ public class PlayerSetup : MonoBehaviour {
 					BindKey(KeyToHold);
 				}
 				else{
-					SetMeterProgress(1 - (KeyHoldEnd - Time.time));
+					SetMeterProgress((KeyHoldDuration - (KeyHoldEnd - Time.time)) / KeyHoldDuration);
 				}
 			}
 			else{
@@ -114,7 +115,7 @@ public class PlayerSetup : MonoBehaviour {
 				int keyInt = 330 + (20 * joystickNumber) + i;
 				if(Input.GetKeyDown((KeyCode)keyInt)){
 					KeyToHold = (KeyCode)keyInt;
-					KeyHoldEnd = Time.time + 1.0f;
+					KeyHoldEnd = Time.time + KeyHoldDuration;
 					ListeningForKey = false;
 				}
 			}
@@ -130,7 +131,7 @@ public class PlayerSetup : MonoBehaviour {
 		if(e.keyCode != KeyCode.None && InputSource == "Keyboard"){
 			if(PlayerManager.GetIsKeyAvailable(e.keyCode)){
 				KeyToHold = e.keyCode;
-				KeyHoldEnd = Time.time + 1.0f;
+				KeyHoldEnd = Time.time + KeyHoldDuration;
 				ListeningForKey = false;
 				//BindKey(e.keyCode);
 			}
@@ -145,7 +146,7 @@ public class PlayerSetup : MonoBehaviour {
 			enabled = true;
 			PlayerJoining = true;
 			KeyToHold = key;
-			KeyHoldEnd = Time.time + 1.0f;
+			KeyHoldEnd = Time.time + KeyHoldDuration;
 		}
 	}
 	

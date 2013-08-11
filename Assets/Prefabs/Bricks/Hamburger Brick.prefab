@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3300000}
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hamburger Brick
   m_TagString: Brick
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 33: {fileID: 3300002}
   - 23: {fileID: 2300002}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hamburger AnimatingSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2b8e95039e7d7e488be4a739f0f3e29, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   m_weightPercent: 10
   i_hitsLeft: 1
   typeName: Hamburger
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e0774980171c514ea93208b47048a0c, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Hamburger AnimatingSprite
   _position: {x: 0, y: 0}
   _size: {x: 1, y: 1}
