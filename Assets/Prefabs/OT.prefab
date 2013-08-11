@@ -568,10 +568,10 @@ Transform:
   - {fileID: 400020}
   - {fileID: 400002}
   - {fileID: 400060}
-  - {fileID: 400034}
   - {fileID: 400042}
-  - {fileID: 400012}
   - {fileID: 400018}
+  - {fileID: 400012}
+  - {fileID: 400034}
   - {fileID: 400056}
   m_Father: {fileID: 400024}
 --- !u!4 &400012
@@ -614,10 +614,10 @@ Transform:
   - {fileID: 400004}
   - {fileID: 400000}
   - {fileID: 400058}
-  - {fileID: 400044}
   - {fileID: 400038}
-  - {fileID: 400022}
   - {fileID: 400014}
+  - {fileID: 400022}
+  - {fileID: 400044}
   - {fileID: 400054}
   m_Father: {fileID: 400024}
 --- !u!4 &400018
@@ -876,6 +876,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Hamburger Animation
   _fps: 10
   _duration: .600000024
@@ -914,6 +915,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Hamburger Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 1e1eb0d6d4909ea4b9fc6d568eaaa6c4, type: 3}
@@ -931,6 +933,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Donut Animation
   _fps: 10
   _duration: .600000024
@@ -969,6 +972,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcb3151926952d240ba095713745f034, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   cameraOverride: {fileID: 0}
   _zoom: 0
   _position: {x: 0, y: 0}
@@ -998,6 +1002,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Player LunchBot Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 1f457da328f22684c91603d443185c3b, type: 3}
@@ -1015,6 +1020,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Player Handibear Animation
   _fps: 16
   _duration: .875
@@ -1125,6 +1131,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Player Handibear Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 09d83a26954a8fc488a8be0a180d7c7c, type: 3}
@@ -1142,6 +1149,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Donut Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 95df1a0530496e342b75f35ef3d36926, type: 3}
@@ -1159,6 +1167,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Player LunchBot Animation
   _fps: 16
   _duration: .875
@@ -1269,6 +1278,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7fd059584f74b4fa508205f4eb6d94, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   mute: 0
   volume: 1
   soundClips: []
@@ -1282,6 +1292,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44deb34871f7e654d9aa02cb60595c81, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   tracing: 1
   traceMaterials: 0
 --- !u!114 &11400022
@@ -1294,6 +1305,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d5babc1b7b3f401aa32b828892605bb, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   objectPrototypes:
   - name: Sprite
     prototype: {fileID: 100000, guid: dde1095e7f0e5f24e9e0e4bed757b6c8, type: 2}
@@ -1356,6 +1368,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Cake Animation
   _fps: 10
   _duration: .600000024
@@ -1394,6 +1407,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Cake Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: c94ab550e4df9fb41b21bce22f7c51a9, type: 3}
@@ -1411,6 +1425,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Bacon Animation
   _fps: 10
   _duration: .600000024
@@ -1449,6 +1464,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Bacon Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 36b14fd058360f0498d7a47393fda651, type: 3}
@@ -1466,6 +1482,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Player SirFari Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 324f662f31687f041997dd53553f7de1, type: 3}
@@ -1483,6 +1500,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Ball Animation
   _fps: 10
   _duration: 1.79999995
@@ -1545,6 +1563,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Player Genette Animation
   _fps: 16
   _duration: .875
@@ -1655,6 +1674,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Ball Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: c9eb4c147f7bdde429bc9aa210d56f8d, type: 3}
@@ -1672,6 +1692,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Player Genette Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 37381ca1af9b77049be5fe5a121f4d9a, type: 3}
@@ -1689,6 +1710,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Player SirFari Animation
   _fps: 16
   _duration: .875
@@ -1799,6 +1821,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: BG Animation
   _fps: 2
   _duration: 2
@@ -1837,6 +1860,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: BG Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 7b503af22013f774fab378fbcda1287e, type: 3}
@@ -1854,6 +1878,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Cookie Animation
   _fps: 10
   _duration: .600000024
@@ -1892,6 +1917,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Cookie Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 83c7913e304c08d4a88e291fe9da907d, type: 3}
@@ -1909,6 +1935,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Steak Animation
   _fps: 10
   _duration: .600000024
@@ -1947,6 +1974,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: Steak Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: 2d1036be144155f40861fbc8a5bedc26, type: 3}
@@ -1964,6 +1992,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf791b8ec508eb4a94c7295007afe68, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: HotDog Animation
   _fps: 10
   _duration: .600000024
@@ -2002,6 +2031,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc190f792e38f049ba23d3fe25546c0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   _name: HotDog Container
   _sheetSize: {x: 0, y: 0}
   texture: {fileID: 2800000, guid: b1eb502afeb3c5042bcce632ae31b855, type: 3}

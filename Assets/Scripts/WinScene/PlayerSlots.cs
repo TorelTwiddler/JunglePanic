@@ -31,22 +31,26 @@ public class PlayerSlots : MonoBehaviour {
 				// Winning team
 				GameObject slot = GameObject.Find("WinSlot" + winSlotIndex.ToString());
 				winSlotIndex++;
-				AddToSlot(playerIndex, slot);
+				AddToSlot(playerIndex, slot, true);
 			}
 			else if (options.PlayerTeamAssignment[playerIndex] != -1){
 				// Losing team
 				GameObject slot = GameObject.Find("LoseSlot" + loseSlotIndex.ToString());
 				loseSlotIndex++;
-				AddToSlot(playerIndex, slot);
+				AddToSlot(playerIndex, slot, false);
 			}
 		}
 	}
 	
-	void AddToSlot(int playerIndex, GameObject slot) {
+	void AddToSlot(int playerIndex, GameObject slot, bool celebrate) {
 		// Get which player it should look like
 		int characterIndex = options.GetPlayerCharacters()[playerIndex];
-		print(characterIndex.ToString());
 		characters[characterIndex].transform.parent = slot.transform;
 		characters[characterIndex].transform.position = slot.transform.position;
+		if (celebrate) {
+			characters[characterIndex].GetComponent<Celebrate>().Play();
+		} else {
+			characters[characterIndex].GetComponent<Player>().PlayAnimation("Walk");
+		}
 	}
 }

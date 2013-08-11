@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour {
 	
 	public bool canMove = true;
+	public bool canAnimate = true;
 	
 	public string InputSource = "Keyboard";
 	private KeyCode LeftKey, RightKey, DownKey, JumpKey;
@@ -67,7 +68,9 @@ public class Player : MonoBehaviour {
 			
 			HandleJump();
 		}
-		HandleAnimation();
+		if (canAnimate) {
+			HandleAnimation();
+		}
 		HandleSound();
 	}
 	
@@ -316,6 +319,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	public void PlayAnimation(string frameset) {
+		print (frameset);
 		if (playingFrameset != frameset) {
 			sprite.PlayLoop(frameset);
 		}
