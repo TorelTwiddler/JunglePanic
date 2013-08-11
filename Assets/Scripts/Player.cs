@@ -176,7 +176,8 @@ public class Player : MonoBehaviour {
 			break;
 		case "Player":
 			Player otherPlayer = collision.gameObject.GetComponent<Player>();
-			if(otherPlayer.HasBall && !otherPlayer.IsInvulnerable && CanCatch){
+			if(otherPlayer.HasBall && !otherPlayer.IsInvulnerable && CanCatch
+					&& team != otherPlayer.team){
 				Ball theBall = otherPlayer.CarriedBall;
 				otherPlayer.LoseBall();
 				CatchBall(theBall);
