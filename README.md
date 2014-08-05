@@ -1,7 +1,7 @@
 JunglePanic
 ===========
 
-JunglePanic (or Endanger Rangers) is a game design and programmed by myself and a few friends for [Unity](http://www.unity3d.com).
+JunglePanic (or Endanger Rangers) is a game designed and programmed by myself and a few friends for [Unity](http://www.unity3d.com).
 
 You can view an example of the game in action in this [blog post](http://salvatore.lopiparo.com/2014/07/endanger-rangers-unity-game/).
 
